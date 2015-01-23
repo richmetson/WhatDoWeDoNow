@@ -1,10 +1,7 @@
-﻿using UnityEngine;
-using System.Collections;
-using UnityEditor;
+﻿using UnityEditor;
 
 namespace AgonyBartender.Editor
 {
-
     [CustomEditor(typeof (Answer))]
     public class AnswerEditor : UnityEditor.Editor
     {
@@ -14,5 +11,4 @@ namespace AgonyBartender.Editor
             ProjectWindowUtil.CreateAsset(CreateInstance<Answer>(), "New Answer.asset");
         }
     }
-
 }
