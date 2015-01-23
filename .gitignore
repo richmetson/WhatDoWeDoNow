@@ -44,3 +44,11 @@ Temporary Items
 
 Library/
 Temp/
+Assembly-CSharp.csproj
+Assembly-CSharp-Editor.csproj
+Assembly-CSharp-Editor-vs.csproj
+Assembly-CSharp-vs.csproj
+obj/*
+WhatDoWeDoNow.sln
+WhatDoWeDoNow-csharp.sln
+WhatDoWeDoNow-csharp.v12.suo
