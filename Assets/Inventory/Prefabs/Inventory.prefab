@@ -72,6 +72,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemPrefab: {fileID: 11476220, guid: 21d62205ade3b624b8cd1eee30d40d64, type: 2}
+  ItemCursorPrefab: {fileID: 11494566, guid: aff5ea428e10ea74c835da50334502a7, type: 2}
 --- !u!222 &22266134
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -92,8 +93,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -192, y: -151}
-  m_SizeDelta: {x: -565, y: -301}
+  m_AnchoredPosition: {x: -214, y: -127.879997}
+  m_SizeDelta: {x: -475, y: -286.75}
   m_Pivot: {x: .5, y: .5}
 --- !u!1001 &100100000
 Prefab:
