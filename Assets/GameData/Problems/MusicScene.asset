@@ -9,10 +9,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 219aa44f078c43143a7a09e85a78283f, type: 3}
-  m_Name: MissingCat
+  m_Name: MusicScene
   m_EditorClassIdentifier: 
-  ProblemString: My cat has run away
+  ProblemString: The music in this scene is so dead, man
   ProblemSolutions:
-  - Answer: {fileID: 11400000, guid: e857bc3cabb547d4c8fbad5110557233, type: 2}
-    Score: 3
+  - Answer: {fileID: 11400000, guid: 8f8552dfef1c24345a3381fd43aa8f8e, type: 2}
+    Score: 2
     FacialOutcome: 1
