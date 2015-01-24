@@ -18,6 +18,10 @@ namespace AgonyBartender
             {
                 yield return new WaitForSeconds(Patron.GapBetweenGulps.PickRandom());
 
+                if (Beer.IsBeingFilled) continue;
+
+                Beer.IsBeingDrunk = true;
+
                 var gulpClip = Gulps[Random.Range(0, Gulps.Length)];
                 GulpSource.clip = gulpClip;
                 GulpSource.Play();
@@ -31,7 +35,7 @@ namespace AgonyBartender
                 }
                 GetComponent<Liver>().AdjustDrunkeness(Beer.DrinkStrength * gulpSize);
 
-                yield return new WaitForSeconds(gulpClip.length);
+                Beer.IsBeingDrunk = false;
             }
         }
 
