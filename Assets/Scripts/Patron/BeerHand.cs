@@ -36,9 +36,10 @@ namespace AgonyBartender
 
                 Patron Patron = gameObject.GetComponent<PatronDefinition>().Patron;
                 float QuantityDrunk = Patron.GulpMagnitude.PickRandom() * Time.deltaTime;
+                float OldBeerLevel = Beer.Level;
                 Beer.Level = Beer.Level - QuantityDrunk;
 
-                gameObject.GetComponent<Liver>().AdjustDrunkeness(Beer.DrinkStrength * QuantityDrunk);
+                gameObject.GetComponent<Liver>().AdjustDrunkeness(Beer.DrinkStrength * (OldBeerLevel - Beer.Level));
             }
         }
     }
