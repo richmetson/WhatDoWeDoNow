@@ -20,16 +20,14 @@ namespace AgonyBartender
         public IEnumerator Start()
         {
             ProblemSpeech.gameObject.SetActive(false);
+
+            PatronDefinition = gameObject.GetComponent<PatronDefinition>();
+
             yield return new WaitForSeconds(TimeBeforeSpeaking.PickRandom());
 
             ProblemSpeech.gameObject.SetActive(true);
 
             SpeakProblem();
-
-            yield return new WaitForSeconds(TimeToSpeak.PickRandom());
-
-            ProblemSpeech.gameObject.SetActive(false);
-
         }
 
         void SpeakProblem()
@@ -40,7 +38,7 @@ namespace AgonyBartender
                 return;
             }
 
-            PatronDefinition = gameObject.GetComponent<PatronDefinition>();
+            
 
             Problem ActiveProblem = PatronDefinition.GetActiveProblem();
             ProblemSpeech.gameObject.SetActive(true);
@@ -54,25 +52,31 @@ namespace AgonyBartender
 
         public void ReceieveResponse(Answer Solution)
         {
-            Problem ActiveProblem = PatronDefinition.GetActiveProblem();
 
-            int Index = ActiveProblem.ProblemSolutions.FindIndex(x => x.Answer == Solution);
-            
-            int Score;
-            ProblemSolutionFacialExpression Expression;
-            if(Index >= 0)
+            if (Solution)
             {
-                Score = ActiveProblem.ProblemSolutions[Index].Score;
-                Expression = ActiveProblem.ProblemSolutions[Index].FacialOutcome;
-            }
-            else
-            {
-                // Assign a default value since this is essentially a random answer
-                Expression = ProblemSolutionFacialExpression.ConfusedResponse;
-                Score = 0;
-            }
+                Problem ActiveProblem = PatronDefinition.GetActiveProblem();
 
-            GetComponent<PatronFaceController>().OnFaceChanged(Expression);
+                int Index = ActiveProblem.ProblemSolutions.FindIndex(x => x.Answer == Solution);
+
+                int Score;
+                ProblemSolutionFacialExpression Expression;
+                if (Index >= 0)
+                {
+                    Score = ActiveProblem.ProblemSolutions[Index].Score;
+                    Expression = ActiveProblem.ProblemSolutions[Index].FacialOutcome;
+                }
+                else
+                {
+                    // Assign a default value since this is essentially a random answer
+                    Expression = ProblemSolutionFacialExpression.ConfusedResponse;
+                    Score = 0;
+                }
+
+                GetComponent<PatronFaceController>().OnFaceChanged(Expression);
+
+                ProblemSpeech.gameObject.SetActive(false);
+            }
         }
 
         public void OnDrop(PointerEventData eventData)

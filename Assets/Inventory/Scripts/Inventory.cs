@@ -43,7 +43,14 @@ namespace AgonyBartender.Inventory
 
         public Answer GetSelectedItem()
         {
-            return CurrentDraggingItem.ItemInfo;
+            if (CurrentDraggingItem == null)
+            {
+                return null;
+            }
+            else
+            {
+                return CurrentDraggingItem.ItemInfo;
+            }
         }
 
         public Image ItemCursorPrefab;
