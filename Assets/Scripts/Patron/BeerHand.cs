@@ -10,8 +10,6 @@ namespace AgonyBartender
         public AudioSource GulpSource;
         public AudioClip[] Gulps;
 
-        bool IsDrinking;
-
         // Use this for initialization
         IEnumerator Start()
         {
@@ -19,34 +17,21 @@ namespace AgonyBartender
             while (true)
             {
                 yield return new WaitForSeconds(Patron.GapBetweenGulps.PickRandom());
-                IsDrinking = true;
 
                 var gulpClip = Gulps[Random.Range(0, Gulps.Length)];
                 GulpSource.clip = gulpClip;
                 GulpSource.Play();
 
-                yield return new WaitForSeconds(gulpClip.length);
-                IsDrinking = false;
-            }
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-            if(IsDrinking)
-            {
-                if(!Beer)
+                float gulpSize = Patron.GulpMagnitude.PickRandom();
+                float startTime = Time.time;
+                while (Time.time < startTime + gulpClip.length)
                 {
-                    Debug.LogError("WHERE IS MY BEER!!!");
-                    return;
+                    Beer.Level -= gulpSize*(Time.deltaTime/gulpClip.length);
+                    yield return null;
                 }
+                GetComponent<Liver>().AdjustDrunkeness(Beer.DrinkStrength * gulpSize);
 
-                Patron Patron = gameObject.GetComponent<PatronDefinition>().Patron;
-                float QuantityDrunk = Patron.GulpMagnitude.PickRandom() * Time.deltaTime;
-                float OldBeerLevel = Beer.Level;
-                Beer.Level = Beer.Level - QuantityDrunk;
-
-                gameObject.GetComponent<Liver>().AdjustDrunkeness(Beer.DrinkStrength * (OldBeerLevel - Beer.Level));
+                yield return new WaitForSeconds(gulpClip.length);
             }
         }
 
@@ -55,7 +40,6 @@ namespace AgonyBartender
             if(ABV >= 1.0f)
             {
                 StopCoroutine("Start");
-                IsDrinking = false;
             }
         }
     }
