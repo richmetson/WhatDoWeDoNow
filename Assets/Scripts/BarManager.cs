@@ -6,74 +6,11 @@ using UnityEngine.UI;
 
 namespace AgonyBartender
 {
-    
-    public class BarStoolEntry
-    {
-        public GameObject RootEntry { get; private set; }
-
-        bool IsActive;
-        bool HasPatron;
-        Vector3 PatronPosition;
-
-        public delegate void PatronLeaves(BarStoolEntry Entry);
-
-        public event PatronLeaves OnPatronLeaves;
-        
-        public BarStoolEntry(GameObject Root)
-        {
-            RootEntry = Root;
-            IsActive = false;
-            PatronStatusMonitor Patron = Root.GetComponentInChildren<PatronStatusMonitor>();
-            if(Patron != null)
-            {
-                HasPatron = true;
-                Patron.OnPatronLeaves += BarStoolEntry_OnPatronLeaves;
-                PatronPosition = Patron.transform.localPosition;
-            }
-            else
-            {
-                HasPatron = false;
-                PatronPosition = new Vector3(626, -413);
-            }
-        }
-
-        void BarStoolEntry_OnPatronLeaves()
-        {
-            if(OnPatronLeaves != null)
-            {
-                OnPatronLeaves(this);
-            }
-        }
-
-        public void FillSeat(GameObject Patron)
-        {
-            BeerHand BeerHand = Patron.GetComponent<BeerHand>();
-            BeerHand.Beer = RootEntry.GetComponentInChildren<Drink>();
-
-
-        }
-
-        public void SwitchToBarStool()
-        {
-            IsActive = true;
-        }
-
-        public void SwitchFromBarStool()
-        {
-            IsActive = false;
-        }
-
-        public float GetCameraXPosition()
-        {
-            return RootEntry.transform.localPosition.x;
-        }
-    }
-
     public class BarManager : MonoBehaviour
     {
 
-        List<BarStoolEntry> BarStools;
-        BarStoolEntry CurrentBarStool;
+        List<BarStool> BarStools;
+        BarStool CurrentBarStool;
         int CurrentBarStoolIndex;
 
         public RangedFloat EmptyStoolTime;
@@ -113,24 +50,24 @@ namespace AgonyBartender
                 newStool.SetSiblingIndex(transform.childCount - 2);
             }
 
-            BarStools = new List<BarStoolEntry>();
+            BarStools = new List<BarStool>();
             for (int i = 0; i < transform.childCount; ++i)
             {
                 transform.GetChild(i).localPosition = new Vector3(i*StoolSpacing, 0, 0);
-                BarStoolEntry Entry = new BarStoolEntry(transform.GetChild(i).gameObject)
-                Entry.OnPatronLeaves +=Entry_OnPatronLeaves;
+                BarStool Entry = transform.GetChild(i).GetComponent<BarStool>();
+                Entry.OnPatronLeaves += Entry_OnPatronLeaves;
                 BarStools.Add(Entry);
             }
 
             MoveToBarStool(BarStools[0]);
         }
 
-        void Entry_OnPatronLeaves(BarStoolEntry Entry)
+        void Entry_OnPatronLeaves(BarStool Entry)
         {
             StartCoroutine(FillBarStool(Entry));
         }
 
-        IEnumerator FillBarStool(BarStoolEntry Entry)
+        IEnumerator FillBarStool(BarStool Entry)
         {
             yield return new WaitForSeconds(EmptyStoolTime.PickRandom());
 
@@ -171,7 +108,7 @@ namespace AgonyBartender
             MoveToBarStool(BarStools[CurrentBarStoolIndex+1]);
         }
 
-        public void MoveToBarStool(BarStoolEntry NewBarStool)
+        public void MoveToBarStool(BarStool NewBarStool)
         {
             if(CurrentBarStool != null)
             {
@@ -192,7 +129,7 @@ namespace AgonyBartender
 
         public int GetStoolOffsetFromCurrent(Transform barStool)
         {
-            int index = BarStools.FindIndex(e => e.RootEntry == barStool.gameObject);
+            int index = BarStools.FindIndex(e => e.gameObject == barStool.gameObject);
 
             return index - CurrentBarStoolIndex;
         }

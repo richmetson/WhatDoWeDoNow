@@ -16,6 +16,10 @@ namespace AgonyBartender
             Satisfied
         }
 
+        public delegate void PatronLeaves();
+
+        public event PatronLeaves OnPatronLeaves;
+
         BeerHand BeerHand;
         Liver Liver;
 
@@ -91,6 +95,11 @@ namespace AgonyBartender
             }
 
             yield return new WaitForSeconds(3.0f);
+
+            if(OnPatronLeaves != null)
+            {
+                OnPatronLeaves();
+            }
 
             GameObject.Destroy(gameObject);         
         }
