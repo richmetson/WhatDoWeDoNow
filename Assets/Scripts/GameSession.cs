@@ -7,8 +7,7 @@ namespace AgonyBartender
     public class GameSession : MonoBehaviour
     {
         public BarManager BarManager;
-        public AnimationCurve BarLength;
-        public AnimationCurve InitialFullness;
+        public DifficultyLevel Difficulty;
 
         public void Start()
         {
@@ -62,10 +61,10 @@ namespace AgonyBartender
 
             BarManager.MoveToBarStool(null);
             BarManager.DeletePatrons();
-            int barLength = Mathf.RoundToInt(BarLength.Evaluate(ShiftNumber));
+            int barLength = Mathf.RoundToInt(Difficulty.BarLength.Evaluate(ShiftNumber));
             BarManager.SetBarLength(barLength);
 
-            int initialPatrons = (int)(barLength*Mathf.Clamp01(InitialFullness.Evaluate(ShiftNumber)));
+            int initialPatrons = (int)(barLength * Mathf.Clamp01(Difficulty.InitialFullness.Evaluate(ShiftNumber)));
             for(int i = 0; i < initialPatrons; ++i)
                 BarManager.FillBarStool();
 

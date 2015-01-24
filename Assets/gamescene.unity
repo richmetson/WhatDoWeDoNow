@@ -3062,46 +3062,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BarManager: {fileID: 1172516970}
-  BarLength:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 2.98520899
-      inSlope: .0418190248
-      outSlope: .0418190248
-      tangentMode: 10
-    - time: .995326698
-      value: 3.02683258
-      inSlope: .0418190248
-      outSlope: .962780476
-      tangentMode: 21
-    - time: 2.00455832
-      value: 3.99850106
-      inSlope: .962780476
-      outSlope: .734573126
-      tangentMode: 21
-    - time: 10.0136719
-      value: 9.88178062
-      inSlope: .734573185
-      outSlope: .734573185
-      tangentMode: 10
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  InitialFullness:
-    serializedVersion: 2
-    m_Curve:
-    - time: .0188592132
-      value: .217011511
-      inSlope: .235499144
-      outSlope: .235499144
-      tangentMode: 0
-    - time: 9.92845345
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
+  Difficulty: {fileID: 11400000, guid: e6b27e0a2610bb040a041f8d10503223, type: 2}
 --- !u!4 &1167317112
 Transform:
   m_ObjectHideFlags: 0
