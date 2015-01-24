@@ -59,23 +59,17 @@ namespace AgonyBartender
                 Destroy(defn.gameObject);
         }
 
-        Problem ChooseProblem(Patron Patron)
-        {
-            var problems = Patron.PatronsProblems.Concat(StandardProblems.GlobalProblems).ToArray();
-            return problems[Random.Range(0, problems.Length)]; 
-        }
-
-        public void FillBarStool(Patron patron)
+        public void FillBarStool(Patron patron, Problem problem)
         {
             var candidateStools = BarStools.Where(s => !s.IsActive && !s.CurrentPatron).ToArray();
             
             if (candidateStools.Length == 0) return;
 
-            var stool = candidateStools[Random.Range(0, candidateStools.Length)];
+            var stool = candidateStools.Random();
 
             GameObject NewPatron = (GameObject)Instantiate(PatronPrefab);
             NewPatron.GetComponent<PatronDefinition>().Patron = patron;
-            NewPatron.GetComponent<PatronDefinition>().SetProblem(ChooseProblem(patron));
+            NewPatron.GetComponent<PatronDefinition>().ActiveProblem = problem;
 
             stool.CurrentPatron = NewPatron;
         }

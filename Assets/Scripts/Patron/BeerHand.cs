@@ -22,7 +22,7 @@ namespace AgonyBartender
 
                 Beer.IsBeingDrunk = true;
 
-                var gulpClip = Gulps[Random.Range(0, Gulps.Length)];
+                var gulpClip = Gulps.Random();
                 GulpSource.clip = gulpClip;
                 GulpSource.Play();
 

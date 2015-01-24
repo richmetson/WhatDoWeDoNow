@@ -13,19 +13,5 @@ namespace AgonyBartender
         public RangedFloat GulpMagnitude;
 
         public float AlcoholIntolerance = 0.5f;
-
-        public Problem SelectProblem()
-        {
-            if (PatronsProblems.Length == 0)
-            {
-                return null;
-            }
-            else
-            {
-                int RandomProblemIndex = Random.Range(0, PatronsProblems.Length);
-                return PatronsProblems[RandomProblemIndex];
-            }
-        }
-
 	}
 }

@@ -7,23 +7,7 @@ namespace AgonyBartender
     public class PatronDefinition : MonoBehaviour
     {
         public Patron Patron;
-
-        Problem ActiveProblem;
-
-        public Problem GetActiveProblem()
-        {
-            if (ActiveProblem == null)
-            {
-                ActiveProblem = Patron.SelectProblem();
-            }
-
-            return ActiveProblem;
-        }
-
-        public void SetProblem(Problem Problem)
-        {
-            ActiveProblem = Problem;
-        }
+        public Problem ActiveProblem;
     }
 
 }

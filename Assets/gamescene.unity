@@ -3067,6 +3067,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3fcc8fdd52cd35d488ebcf46e38e0a20, type: 2}
   - {fileID: 11400000, guid: 5a1b18534783bfc4398e574138ac2c69, type: 2}
   - {fileID: 11400000, guid: 644f90da084924146a46b3b84b4b1416, type: 2}
+  StandardProblems: {fileID: 11400000, guid: 9b3d7ca5ccd5f6843bf91b98c38b8413, type: 2}
 --- !u!4 &1167317112
 Transform:
   m_ObjectHideFlags: 0
@@ -3126,9 +3127,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc70cf14d5395d949bc47128ec53d46a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EmptyStoolTime:
-    Min: 10
-    Max: 15
   LeftmostBarStool: {fileID: 1432545105}
   RightmostBarStool: {fileID: 310396485}
   FirstMidBarStool: {fileID: 1791043342}
@@ -3136,10 +3134,6 @@ MonoBehaviour:
   RightButton: {fileID: 282742202}
   PatronPrefab: {fileID: 100506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
   StandardProblems: {fileID: 11400000, guid: 9b3d7ca5ccd5f6843bf91b98c38b8413, type: 2}
-  PatronArchetypes:
-  - {fileID: 11400000, guid: 3fcc8fdd52cd35d488ebcf46e38e0a20, type: 2}
-  - {fileID: 11400000, guid: 5a1b18534783bfc4398e574138ac2c69, type: 2}
-  - {fileID: 11400000, guid: 644f90da084924146a46b3b84b4b1416, type: 2}
   StoolSpacing: 2500
 --- !u!1 &1219450969
 GameObject:

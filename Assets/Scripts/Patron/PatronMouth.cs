@@ -44,7 +44,7 @@ namespace AgonyBartender
 
         void SpeakProblem()
         {
-            Problem ActiveProblem = PatronDefinition.GetActiveProblem();
+            Problem ActiveProblem = PatronDefinition.ActiveProblem;
             Say(ActiveProblem.ProblemString);
         }
 	
@@ -63,7 +63,7 @@ namespace AgonyBartender
 
             if (Solution)
             {
-                Problem ActiveProblem = PatronDefinition.GetActiveProblem();
+                Problem ActiveProblem = PatronDefinition.ActiveProblem;
 
                 int Index = ActiveProblem.ProblemSolutions.FindIndex(x => x.Answer == Solution);
 

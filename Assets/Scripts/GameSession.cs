@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using UnityEngine;
 using System.Collections;
+using Random = UnityEngine.Random;
 
 namespace AgonyBartender
 {
@@ -91,17 +92,20 @@ namespace AgonyBartender
             ScheduleNewPatron();
         }
 
+        public StandardProblemList StandardProblems;
+
         public void SpawnPatron()
         {
             var minDifficulty = Difficulty.MinPatronDifficulty.Evaluate(ShiftNumber);
             var maxDifficulty = Difficulty.MaxPatronDifficulty.Evaluate(ShiftNumber);
 
-            var patrons =
-                PatronArchetypes.Where(p => p.DifficultyRating >= minDifficulty && p.DifficultyRating <= maxDifficulty)
-                    .ToArray();
-            var patron = patrons[Random.Range(0, patrons.Length)];
+            var patron = PatronArchetypes
+                        .Where(p => p.DifficultyRating >= minDifficulty && p.DifficultyRating <= maxDifficulty)
+                        .Random();
 
-            BarManager.FillBarStool(patron);
+            var problem = StandardProblems.GlobalProblems.Concat(patron.PatronsProblems).Random();
+
+            BarManager.FillBarStool(patron, problem);
         }
         
     }
