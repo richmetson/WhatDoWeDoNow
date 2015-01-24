@@ -1,0 +1,14 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Editor\PatronEditor.cs">
+    <Files>
+      <File FileName="Assets\Scripts\Answer.cs" Line="9" Column="27" />
+      <File FileName="Assets\Scripts\Editor\PatronEditor.cs" Line="9" Column="35" />
+      <File FileName="Assets\Scripts\Editor\AnswerEditor.cs" Line="5" Column="5" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
