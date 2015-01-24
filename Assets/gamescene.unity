@@ -1419,6 +1419,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 310396485}
     m_Modifications:
+    - target: {fileID: 11413122, guid: 5f2b42c59364a97449f9b992ec3d44df, type: 2}
+      propertyPath: OnShiftEnded.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 22413126, guid: 5f2b42c59364a97449f9b992ec3d44df, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1502,6 +1506,26 @@ Prefab:
     - target: {fileID: 22413126, guid: 5f2b42c59364a97449f9b992ec3d44df, type: 2}
       propertyPath: m_LocalScale.z
       value: 9.55752182
+      objectReference: {fileID: 0}
+    - target: {fileID: 11413122, guid: 5f2b42c59364a97449f9b992ec3d44df, type: 2}
+      propertyPath: OnShiftEnded.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11413122, guid: 5f2b42c59364a97449f9b992ec3d44df, type: 2}
+      propertyPath: OnShiftEnded.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11413122, guid: 5f2b42c59364a97449f9b992ec3d44df, type: 2}
+      propertyPath: OnShiftEnded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1167317111}
+    - target: {fileID: 11413122, guid: 5f2b42c59364a97449f9b992ec3d44df, type: 2}
+      propertyPath: OnShiftEnded.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnShiftEnded
+      objectReference: {fileID: 0}
+    - target: {fileID: 11413122, guid: 5f2b42c59364a97449f9b992ec3d44df, type: 2}
+      propertyPath: OnShiftEnded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f2b42c59364a97449f9b992ec3d44df, type: 2}
@@ -3224,6 +3248,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BarManager: {fileID: 1172516970}
   Difficulty: {fileID: 11400000, guid: e6b27e0a2610bb040a041f8d10503223, type: 2}
+  Clock: {fileID: 1757106181}
   PatronArchetypes:
   - {fileID: 11400000, guid: 3fcc8fdd52cd35d488ebcf46e38e0a20, type: 2}
   - {fileID: 11400000, guid: 5a1b18534783bfc4398e574138ac2c69, type: 2}
@@ -5309,6 +5334,23 @@ MonoBehaviour:
   StartMinute: 0
   EndMinute: 30
   GameDuration: 300
+  OnShiftEnded:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1167317111}
+        m_MethodName: OnShiftEnded
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &1757106182
 MonoBehaviour:
   m_ObjectHideFlags: 0

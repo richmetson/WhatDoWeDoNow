@@ -10,6 +10,7 @@ namespace AgonyBartender
     {
         public BarManager BarManager;
         public DifficultyLevel Difficulty;
+        public Clock Clock;
 
         public Patron[] PatronArchetypes;
 
@@ -56,6 +57,11 @@ namespace AgonyBartender
             TotalTipsMade += amount;
         }
 
+        public void OnShiftEnded()
+        {
+            
+        }
+
         public void BeginNewShift()
         {
             BeerDispensedThisShift = 0;
@@ -77,6 +83,9 @@ namespace AgonyBartender
             BarManager.MoveToBarStool(Mathf.FloorToInt(barLength / 2f));
 
             ScheduleNewPatron();
+
+            Clock.GameDuration = Difficulty.ShiftLength.Evaluate(ShiftNumber);
+            Clock.ResetClock();
         }
 
         private void ScheduleNewPatron()
