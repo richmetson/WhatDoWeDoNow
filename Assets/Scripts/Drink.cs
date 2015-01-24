@@ -71,11 +71,14 @@ namespace AgonyBartender
 
         private IEnumerator FillGlass()
         {
+            BeerTap.Default.BeginPour();
             while (_isFilling)
             {
                 Level += Time.deltaTime*TopUpRate;
+                if (Level >= 1f) break;
                 yield return null;
             }
+            BeerTap.Default.EndPour();
         }
     }
 
