@@ -33,6 +33,9 @@ namespace AgonyBartender
             BeerHand BeerHand = Patron.GetComponent<BeerHand>();
             BeerHand.Beer = Drink;
 
+            Drink.Level = 1.0f;
+            // TODO: Pay player for this beer
+
             PatronMouth Mouth = Patron.GetComponent<PatronMouth>();
             Mouth.ProblemSpeech = PatronSpeech;
 
