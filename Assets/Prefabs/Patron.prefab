@@ -17,6 +17,7 @@ GameObject:
   - 114: {fileID: 11499658}
   - 114: {fileID: 11472754}
   - 82: {fileID: 8217272}
+  - 114: {fileID: 11427580}
   m_Layer: 5
   m_Name: Patron
   m_TagString: Untagged
@@ -148,6 +149,18 @@ MonoBehaviour:
   MaxRotation: 25
   FallDistance: 200
   FallSpeed: 50
+--- !u!114 &11427580
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 024a85cc1e72c154797b25e452b55083, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VolumePow: .5
 --- !u!114 &11472754
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -183,6 +196,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Beer: {fileID: 0}
+  GulpSource: {fileID: 8217272}
+  Gulps:
+  - {fileID: 8300000, guid: 8fb1ca839385b56488d7bddbe9889acd, type: 3}
+  - {fileID: 8300000, guid: 882a1dbb30632aa40877d27fb56e5439, type: 3}
 --- !u!222 &22200506
 CanvasRenderer:
   m_ObjectHideFlags: 1

@@ -11,9 +11,9 @@ namespace AgonyBartender
         private Transform _barStool;
         private AudioSource _source;
 
-        public float VolumeDropPerOffset = 0.2f;
+        public float VolumePow = 0.5f;
 
-        public void Awake()
+        public void Start()
         {
             _source = GetComponent<AudioSource>();
             _barManager = transform.GetComponentInParent<BarManager>();
@@ -26,7 +26,7 @@ namespace AgonyBartender
         {
             int offset = _barManager.GetStoolOffsetFromCurrent(_barStool);
 
-            _source.volume = 1 - Mathf.Abs(offset)*VolumeDropPerOffset;
+            _source.volume = Mathf.Pow(VolumePow, Mathf.Abs(offset));
             _source.pan = (offset < 0) ? -1 : (offset > 0) ? 1 : 0;
         }
     }
