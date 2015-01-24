@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 219aa44f078c43143a7a09e85a78283f, type: 3}
   m_Name: TooFat
   m_EditorClassIdentifier: 
-  ProblemString: 
+  ProblemString: I'm so fat, nobody will ever love me!
   ProblemSolutions: []
