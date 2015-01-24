@@ -3,10 +3,10 @@ using System.Collections;
 
 namespace AgonyBartender
 {
+    [RequireComponent(typeof(PatronDefinition))]
     public class PatronMouth : MonoBehaviour {
 
-        public Patron Patron;
-        Problem ActiveProblem;
+        PatronDefinition PatronDefinition;
 
         public SpeechBubble ProblemSpeech;
 
@@ -20,6 +20,7 @@ namespace AgonyBartender
             yield return new WaitForSeconds(TimeBeforeSpeaking.PickRandom());
 
             ProblemSpeech.gameObject.SetActive(true);
+
             SpeakProblem();
 
             yield return new WaitForSeconds(TimeToSpeak.PickRandom());
@@ -36,13 +37,9 @@ namespace AgonyBartender
                 return;
             }
 
-            if(Patron == null)
-            {
-                print("No patron selected");
-                return;
-            }
+            PatronDefinition = gameObject.GetComponent<PatronDefinition>();
 
-            ActiveProblem = Patron.SelectProblem();
+            Problem ActiveProblem = PatronDefinition.GetActiveProblem();
             ProblemSpeech.gameObject.SetActive(true);
             ProblemSpeech.SetText(ActiveProblem.ProblemString);
         }
@@ -54,6 +51,8 @@ namespace AgonyBartender
 
         public void ReceieveResponse(Answer Solution)
         {
+            Problem ActiveProblem = PatronDefinition.GetActiveProblem();
+
             int Index = ActiveProblem.ProblemSolutions.FindIndex(x => x.Answer == Solution);
             
             int Score;
