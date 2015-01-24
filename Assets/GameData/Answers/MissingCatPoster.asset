@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: MissingCatPoster
   m_EditorClassIdentifier: 
   DisplayName: Missing cat poster
-  Sprite: {fileID: 0}
+  Sprite: {fileID: 21300000, guid: caa7f75287c55a7418f7f3253831de2d, type: 3}
   Pattern:
     Width: 2
     Height: 3

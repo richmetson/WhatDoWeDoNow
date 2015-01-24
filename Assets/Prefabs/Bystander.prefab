@@ -50,9 +50,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76d2f3c11cacdf3469d15aa9ea306b7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpeechBubble: {fileID: 0}
   ConversationSnippets:
   - {fileID: 11400000, guid: 108c4a0112278944195fd97ebca4026a, type: 2}
+  - {fileID: 11400000, guid: 2c42a7904d04afc44a20eb0fc4df8df8, type: 2}
+  ItemSource: {fileID: 0}
+  SpeechBubble: {fileID: 0}
   TimeBeforeSpeaking:
     Min: 3
     Max: 5
