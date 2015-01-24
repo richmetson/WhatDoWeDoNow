@@ -244,7 +244,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 0
-  m_Spacing: 0
+  m_Spacing: 33.1399994
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
 --- !u!225 &9161894
