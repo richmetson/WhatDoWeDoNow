@@ -6,8 +6,9 @@ namespace AgonyBartender.Inventory
 {
     public class InventoryItem : MonoBehaviour
     {
+        public int Row;
+        public int Column;
         public Image Icon;
-        public Text Name;
         private Answer _itemInfo;
 
         public Answer ItemInfo
@@ -17,8 +18,12 @@ namespace AgonyBartender.Inventory
             {
                 _itemInfo = value;
                 Icon.sprite = _itemInfo.Sprite;
-                Name.text = _itemInfo.DisplayName;
             }
+        }
+
+        public bool DoesCoverCell(int row, int column)
+        {
+            return _itemInfo.Pattern[(column - Column), (row - Row)];
         }
     }
 }

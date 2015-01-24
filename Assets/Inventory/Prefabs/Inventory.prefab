@@ -9,9 +9,9 @@ GameObject:
   m_Component:
   - 224: {fileID: 22466134}
   - 222: {fileID: 22266134}
-  - 114: {fileID: 11466130}
   - 114: {fileID: 11466132}
   - 114: {fileID: 11466134}
+  - 114: {fileID: 11423220}
   m_Layer: 5
   m_Name: Inventory
   m_TagString: Untagged
@@ -19,7 +19,7 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &11466130
+--- !u!114 &11423220
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -27,19 +27,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 166134}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Script: {fileID: 11500000, guid: cda5356d9081d5146be42407ffd9b8ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
+  CellSprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  _inventory: {fileID: 11466134}
 --- !u!114 &11466132
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -72,6 +66,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemPrefab: {fileID: 11476220, guid: 21d62205ade3b624b8cd1eee30d40d64, type: 2}
+  CellSize: {x: 0, y: 0}
   InventoryShape:
     Width: 8
     Height: 6

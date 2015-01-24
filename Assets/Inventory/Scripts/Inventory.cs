@@ -6,7 +6,7 @@ using UnityEngine.UI;
 namespace AgonyBartender.Inventory
 {
 
-    public class Inventory : MonoBehaviour, IDropHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
+    public class Inventory : MonoBehaviour, IDropHandler, IBeginDragHandler, IDragHandler, IEndDragHandler, IDragItemSource
     {
 
         public static Inventory Default { get; private set; }
@@ -17,7 +17,10 @@ namespace AgonyBartender.Inventory
 
         private List<InventoryItem> _items;
 
-        private InventoryItem CurrentDraggingItem;
+        public InventoryItemSource ItemSource;
+
+        private Answer _currentDraggingItem;
+        Answer IDragItemSource.ItemInfo { get { return _currentDraggingItem; } }
 
         public InventoryPattern InventoryShape;
 
@@ -30,13 +33,20 @@ namespace AgonyBartender.Inventory
                 CellSize.y*InventoryShape.Height);
         }
 
-        public void AddItemToInventory(Answer item)
+        public void AddItemToInventory(Answer item, int row, int column)
         {
             var newItem = (InventoryItem) Instantiate(ItemPrefab);
             newItem.transform.SetParent(transform);
             newItem.transform.SetAsLastSibling();
             newItem.ItemInfo = item;
-            GetComponent<VerticalLayoutGroup>().CalculateLayoutInputVertical();
+            newItem.Row = row;
+            newItem.Column = column;
+
+            var rt = newItem.GetComponent<RectTransform>();
+            rt.localScale = Vector3.one;
+            rt.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, column * CellSize.x, item.Pattern.Width * CellSize.x);
+            rt.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, row * CellSize.y, item.Pattern.Height * CellSize.y);
+
             _items.Add(newItem);
         }
 
@@ -45,27 +55,52 @@ namespace AgonyBartender.Inventory
             var draggedObj = eventData.pointerDrag;
             if (!draggedObj) return;
 
-            var source = draggedObj.GetComponent<InventoryItemSource>();
-            if (!source || !source.ItemInfo) return;
+            var source = (IDragItemSource)draggedObj.GetComponent(typeof (IDragItemSource));
+            if ((source == null) || !source.ItemInfo) return;
 
-            AddItemToInventory(source.ItemInfo);
+            // Figure out where it was dropped...
+            var cursor = source.ItemCursor.GetComponent<RectTransform>();
+            var localRect = RectTransformUtility.CalculateRelativeRectTransformBounds(transform, cursor);
+
+            int column = Mathf.RoundToInt(localRect.min.x/CellSize.x);
+            int row = -Mathf.RoundToInt(localRect.min.y/CellSize.y) - 1;
+
+            if (!CanPlaceItemAt(source.ItemInfo.Pattern, row, column))
+                return;
+
+            AddItemToInventory(source.ItemInfo, row, column);
+        }
+
+        public bool CanPlaceItemAt(InventoryPattern pattern, int row, int column)
+        {
+            for (int y = 0; y < pattern.Height; ++y)
+            {
+                for (int x = 0; x < pattern.Width; ++x)
+                {
+                    if (!InventoryShape[column + x, row + y])
+                    {
+                        return false;
+                    }
+
+                    foreach (var item in _items)
+                    {
+                        if (item.DoesCoverCell(row + y, column + x)) return false;
+                    }
+                }
+            }
+
+            return true;
         }
 
         public Answer GetSelectedItem()
         {
-            if (CurrentDraggingItem == null)
-            {
-                return null;
-            }
-            else
-            {
-                return CurrentDraggingItem.ItemInfo;
-            }
+            return _currentDraggingItem;
         }
 
         public Image ItemCursorPrefab;
 
         private Image _itemCursor;
+        Image IDragItemSource.ItemCursor { get { return _itemCursor; } }
 
         public InventoryItem GetItemUnderCursor(PointerEventData eventData)
         {
@@ -87,8 +122,13 @@ namespace AgonyBartender.Inventory
             _itemCursor = (Image)Instantiate(ItemCursorPrefab);
             _itemCursor.sprite = item.ItemInfo.Sprite;
             _itemCursor.transform.SetParent(transform.root);
+            _itemCursor.transform.localScale = Vector3.one;
+            _itemCursor.GetComponent<RectTransform>().sizeDelta = new Vector2(item.ItemInfo.Pattern.Width * CellSize.x, item.ItemInfo.Pattern.Height * CellSize.y);
 
-            CurrentDraggingItem = item;
+            _currentDraggingItem = item.ItemInfo;
+
+            _items.Remove(item);
+            Destroy(item.gameObject);
 
             SyncCursorPos(eventData);
         }
