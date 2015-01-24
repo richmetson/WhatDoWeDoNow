@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Name: HealthyEating
   m_EditorClassIdentifier: 
   ProblemString: My partner's making me eat healthily!
-  ProblemSolutions: []
+  ProblemSolutions:
+  - Answer: {fileID: 11400000, guid: 952167e7492d8a14c913f23d79701a22, type: 2}
+    Score: 2
+    FacialOutcome: 1

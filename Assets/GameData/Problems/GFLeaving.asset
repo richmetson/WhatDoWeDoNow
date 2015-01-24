@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Name: GFLeaving
   m_EditorClassIdentifier: 
   ProblemString: My girlfriend is threatening to leave me!
-  ProblemSolutions: []
+  ProblemSolutions:
+  - Answer: {fileID: 11400000, guid: b97695ae23df08c4684a2f22660d89e9, type: 2}
+    Score: 2
+    FacialOutcome: 1
+  - Answer: {fileID: 11400000, guid: 952167e7492d8a14c913f23d79701a22, type: 2}
+    Score: 1
+    FacialOutcome: 1

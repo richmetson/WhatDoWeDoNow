@@ -15,4 +15,4 @@ MonoBehaviour:
   ProblemSolutions:
   - Answer: {fileID: 11400000, guid: e857bc3cabb547d4c8fbad5110557233, type: 2}
     Score: 3
-    FacialOutcome: 0
+    FacialOutcome: 1
