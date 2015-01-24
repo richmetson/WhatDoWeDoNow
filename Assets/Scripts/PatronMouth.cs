@@ -5,7 +5,9 @@ namespace AgonyBartender
 {
     public class PatronMouth : MonoBehaviour {
 
-        public Problem PatronsProblem;
+        public Patron Patron;
+        Problem ActiveProblem;
+
         public SpeechBubble ProblemSpeech;
 
         public RangedFloat TimeBeforeSpeaking;
@@ -31,11 +33,18 @@ namespace AgonyBartender
             if (ProblemSpeech == null)
             {
                 print("Could not find speech bubble");
+                return;
             }
 
-            print("Hello, World: " + PatronsProblem.ProblemString);
+            if(Patron == null)
+            {
+                print("No patron selected");
+                return;
+            }
+
+            ActiveProblem = Patron.SelectProblem();
             ProblemSpeech.gameObject.SetActive(true);
-            ProblemSpeech.SetText(PatronsProblem.ProblemString);
+            ProblemSpeech.SetText(ActiveProblem.ProblemString);
         }
 	
 	    // Update is called once per frame
@@ -45,16 +54,19 @@ namespace AgonyBartender
 
         public void ReceieveResponse(Answer Solution)
         {
-            int Index = PatronsProblem.ProblemSolutions.FindIndex(x => x.Answer == Solution);
+            int Index = ActiveProblem.ProblemSolutions.FindIndex(x => x.Answer == Solution);
             
             int Score;
+            ProblemSolutionFacialExpression Expression;
             if(Index >= 0)
             {
-                Score = PatronsProblem.ProblemSolutions[Index].Score;
+                Score = ActiveProblem.ProblemSolutions[Index].Score;
+                Expression = ActiveProblem.ProblemSolutions[Index].FacialOutcome;
             }
             else
             {
                 // Assign a default value since this is essentially a random answer
+                Expression = ProblemSolutionFacialExpression.ConfusedResponse;
                 Score = 0;
             }
         }
