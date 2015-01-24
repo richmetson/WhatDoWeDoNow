@@ -97,11 +97,10 @@ namespace AgonyBartender
             {
                 // This doesn't feel like a good way of doing this, bht the GO being dragged seems to get destroyed
                 // before we can read out a component from it
-                Inventory.Inventory Inventory = eventData.pointerDrag.GetComponent<Inventory.Inventory>();
-                if (Inventory != null)
+                var source = (Inventory.IDragItemSource)eventData.pointerDrag.GetComponent(typeof(Inventory.IDragItemSource));
+                if (source != null)
                 {
-                    Answer SelectedAnswer = Inventory.GetSelectedItem();
-                    ReceieveResponse(SelectedAnswer);
+                    ReceieveResponse(source.ItemInfo);
                 }
             }
         }
