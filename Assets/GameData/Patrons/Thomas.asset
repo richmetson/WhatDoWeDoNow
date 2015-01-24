@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Name: Thomas
   m_EditorClassIdentifier: 
   PatronName: Thomas
-  Sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  FaceSprites:
+  - {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   PatronsProblems:
   - {fileID: 11400000, guid: 4775f62a632b2b040a8c980969050132, type: 2}
