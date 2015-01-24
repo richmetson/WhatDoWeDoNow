@@ -7,6 +7,8 @@ namespace AgonyBartender
     public class BeerHand : MonoBehaviour, IAlchoholAffectedSystem
     {
         public Drink Beer;
+        public AudioSource GulpSource;
+        public AudioClip[] Gulps;
 
         bool IsDrinking;
 
@@ -18,7 +20,12 @@ namespace AgonyBartender
             {
                 yield return new WaitForSeconds(Patron.GapBetweenGulps.PickRandom());
                 IsDrinking = true;
-                yield return new WaitForSeconds(Patron.LengthOfGulp.PickRandom());
+
+                var gulpClip = Gulps[Random.Range(0, Gulps.Length)];
+                GulpSource.clip = gulpClip;
+                GulpSource.Play();
+
+                yield return new WaitForSeconds(gulpClip.length);
                 IsDrinking = false;
             }
         }
