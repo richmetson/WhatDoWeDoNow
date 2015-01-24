@@ -28,9 +28,6 @@ namespace AgonyBartender.Inventory
         {
             _items = new List<InventoryItem>();
             Default = this;
-
-            GetComponent<RectTransform>().sizeDelta = new Vector2(CellSize.x*InventoryShape.Width,
-                CellSize.y*InventoryShape.Height);
         }
 
         public void AddItemToInventory(Answer item, int row, int column)
