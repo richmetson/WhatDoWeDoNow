@@ -11,6 +11,12 @@ namespace AgonyBartender.Inventory
         public int Width;
         public int Height;
         public bool[] Pattern;
+
+        public bool this[int x, int y]
+        {
+            get { return Pattern[y*Width + x]; }
+            set { Pattern[y*Width + x] = value; }
+        }
     }
 
 }

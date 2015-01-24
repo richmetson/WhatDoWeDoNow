@@ -9,7 +9,11 @@ namespace AgonyBartender.Inventory
     public class Inventory : MonoBehaviour, IDropHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
 
+        public static Inventory Default { get; private set; }
+
         public InventoryItem ItemPrefab;
+
+        public Vector2 CellSize;
 
         private List<InventoryItem> _items;
 
@@ -20,6 +24,10 @@ namespace AgonyBartender.Inventory
         public void Awake()
         {
             _items = new List<InventoryItem>();
+            Default = this;
+
+            GetComponent<RectTransform>().sizeDelta = new Vector2(CellSize.x*InventoryShape.Width,
+                CellSize.y*InventoryShape.Height);
         }
 
         public void AddItemToInventory(Answer item)

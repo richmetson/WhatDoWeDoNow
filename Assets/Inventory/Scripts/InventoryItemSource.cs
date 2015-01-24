@@ -16,6 +16,8 @@ namespace AgonyBartender.Inventory
             _itemCursor = (Image)Instantiate(ItemCursorPrefab);
             _itemCursor.sprite = ItemInfo.Sprite;
             _itemCursor.transform.SetParent(transform.root);
+            _itemCursor.transform.localScale = Vector3.one;
+            _itemCursor.GetComponent<RectTransform>().sizeDelta = new Vector2(ItemInfo.Pattern.Width * Inventory.Default.CellSize.x, ItemInfo.Pattern.Height * Inventory.Default.CellSize.y);
 
             SyncCursorPos(eventData);
         }
