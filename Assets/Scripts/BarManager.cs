@@ -31,6 +31,8 @@ namespace AgonyBartender
         // Use this for initialization
         void Start()
         {
+            DeletePatrons();
+
             CurrentBarStool = null;
             SetBarLength(7);
 
@@ -69,6 +71,12 @@ namespace AgonyBartender
                 BarStool Entry = transform.GetChild(i).GetComponent<BarStool>();
                 BarStools.Add(Entry);
             }
+        }
+
+        void DeletePatrons()
+        {
+            foreach(var defn in GetComponentsInChildren<PatronDefinition>())
+                Destroy(defn.gameObject);
         }
 
         Patron ChoosePatron()
