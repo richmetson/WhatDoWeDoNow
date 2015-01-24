@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using System.Collections;
 
 namespace AgonyBartender
 {
     [RequireComponent(typeof(PatronDefinition))]
-    public class PatronMouth : MonoBehaviour {
+    public class PatronMouth : MonoBehaviour, IDropHandler
+    {
 
         PatronDefinition PatronDefinition;
 
@@ -67,6 +70,15 @@ namespace AgonyBartender
                 // Assign a default value since this is essentially a random answer
                 Expression = ProblemSolutionFacialExpression.ConfusedResponse;
                 Score = 0;
+            }
+        }
+
+        public void OnDrop(PointerEventData eventData)
+        {
+            Inventory.InventoryItem Item = eventData.selectedObject.GetComponent<Inventory.InventoryItem>();
+            if(Item != null)
+            {
+                ReceieveResponse(Item.ItemInfo);
             }
         }
     }
