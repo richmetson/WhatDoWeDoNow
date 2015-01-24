@@ -1,4 +1,5 @@
 ﻿
+using System.Linq;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -32,6 +33,14 @@ namespace AgonyBartender
         {
             CurrentBarStool = null;
             SetBarLength(7);
+
+            FillBarStool();
+            FillBarStool();
+            FillBarStool();
+
+            ScheduleNewPatron();
+
+            MoveToBarStool(BarStools[0]);
         }
 
         public float StoolSpacing = 2500;
@@ -58,19 +67,9 @@ namespace AgonyBartender
             {
                 transform.GetChild(i).localPosition = new Vector3(i*StoolSpacing, 0, 0);
                 BarStool Entry = transform.GetChild(i).GetComponent<BarStool>();
-                Entry.OnPatronLeaves += Entry_OnPatronLeaves;
                 BarStools.Add(Entry);
             }
-
-            MoveToBarStool(BarStools[0]);
         }
-
-        void Entry_OnPatronLeaves(BarStool Entry)
-        {
-            print("Filling seat");
-            StartCoroutine(FillBarStool(Entry));
-        }
-
 
         Patron ChoosePatron()
         {
@@ -85,36 +84,28 @@ namespace AgonyBartender
 
         Problem ChooseProblem(Patron Patron)
         {
-            int TotalLength = Patron.PatronsProblems.Length + StandardProblems.GlobalProblems.Count;
-
-            int ProblemIndex = Random.Range(0, TotalLength);
-
-            if(ProblemIndex >= Patron.PatronsProblems.Length)
-            {
-                return StandardProblems.GlobalProblems[ProblemIndex - Patron.PatronsProblems.Length];
-            }
-            else 
-            {
-                return Patron.PatronsProblems[ProblemIndex];
-            }
+            var problems = Patron.PatronsProblems.Concat(StandardProblems.GlobalProblems).ToArray();
+            return problems[Random.Range(0, problems.Length)]; 
         }
 
-        IEnumerator FillBarStool(BarStool Entry)
+        public void FillBarStool()
         {
-            yield return new WaitForSeconds(EmptyStoolTime.PickRandom());
-
-            // Wait until we are not looking at the scene
-            while(Entry.IsActive)
-            {
-                yield return null;
-            }
+            var candidateStools = BarStools.Where(s => !s.IsActive && !s.CurrentPatron).ToArray();
+            var stool = candidateStools[Random.Range(0, candidateStools.Length)];
 
             GameObject NewPatron = (GameObject)Instantiate(PatronPrefab);
             Patron ChosenPatron = ChoosePatron();
             NewPatron.GetComponent<PatronDefinition>().Patron = ChoosePatron();
             NewPatron.GetComponent<PatronDefinition>().SetProblem(ChooseProblem(ChosenPatron));
 
-            Entry.FillSeat(NewPatron);
+            stool.CurrentPatron = NewPatron;
+
+            ScheduleNewPatron();
+        }
+
+        public void ScheduleNewPatron()
+        {
+            Invoke("FillBarStool", EmptyStoolTime.PickRandom());
         }
 
         public bool CanMoveLeft()
