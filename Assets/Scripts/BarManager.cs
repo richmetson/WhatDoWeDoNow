@@ -99,6 +99,9 @@ namespace AgonyBartender
         public void FillBarStool()
         {
             var candidateStools = BarStools.Where(s => !s.IsActive && !s.CurrentPatron).ToArray();
+            
+            if (candidateStools.Length == 0) return;
+
             var stool = candidateStools[Random.Range(0, candidateStools.Length)];
 
             GameObject NewPatron = (GameObject)Instantiate(PatronPrefab);
