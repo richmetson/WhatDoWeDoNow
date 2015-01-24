@@ -12,11 +12,45 @@ namespace AgonyBartender
         GameObject RootEntry;
 
         bool IsActive;
+        bool HasPatron;
+        Vector3 PatronPosition;
+
+        public delegate void PatronLeaves(BarStoolEntry Entry);
+
+        public event PatronLeaves OnPatronLeaves;
         
         public BarStoolEntry(GameObject Root)
         {
             RootEntry = Root;
             IsActive = false;
+            PatronStatusMonitor Patron = Root.GetComponentInChildren<PatronStatusMonitor>();
+            if(Patron != null)
+            {
+                HasPatron = true;
+                Patron.OnPatronLeaves += BarStoolEntry_OnPatronLeaves;
+                PatronPosition = Patron.transform.localPosition;
+            }
+            else
+            {
+                HasPatron = false;
+                PatronPosition = new Vector3(626, -413);
+            }
+        }
+
+        void BarStoolEntry_OnPatronLeaves()
+        {
+            if(OnPatronLeaves != null)
+            {
+                OnPatronLeaves(this);
+            }
+        }
+
+        public void FillSeat(GameObject Patron)
+        {
+            BeerHand BeerHand = Patron.GetComponent<BeerHand>();
+            BeerHand.Beer = RootEntry.GetComponentInChildren<Drink>();
+
+
         }
 
         public void SwitchToBarStool()
@@ -42,12 +76,16 @@ namespace AgonyBartender
         BarStoolEntry CurrentBarStool;
         int CurrentBarStoolIndex;
 
+        public RangedFloat EmptyStoolTime;
+
         public Transform LeftmostBarStool;
         public Transform RightmostBarStool;
         public Transform FirstMidBarStool;
 
         public Button LeftButton;
         public Button RightButton;
+
+        public GameObject PatronPrefab;
 
         // Use this for initialization
         void Start()
@@ -79,10 +117,26 @@ namespace AgonyBartender
             for (int i = 0; i < transform.childCount; ++i)
             {
                 transform.GetChild(i).localPosition = new Vector3(i*StoolSpacing, 0, 0);
-                BarStools.Add(new BarStoolEntry(transform.GetChild(i).gameObject));
+                BarStoolEntry Entry = new BarStoolEntry(transform.GetChild(i).gameObject)
+                Entry.OnPatronLeaves +=Entry_OnPatronLeaves;
+                BarStools.Add(Entry);
             }
 
             MoveToBarStool(BarStools[0]);
+        }
+
+        void Entry_OnPatronLeaves(BarStoolEntry Entry)
+        {
+            StartCoroutine(FillBarStool(Entry));
+        }
+
+        IEnumerator FillBarStool(BarStoolEntry Entry)
+        {
+            yield return new WaitForSeconds(EmptyStoolTime.PickRandom());
+
+            GameObject NewPatron = (GameObject)Instantiate(PatronPrefab);
+
+            Entry.FillSeat(NewPatron);
         }
 
         public bool CanMoveLeft()
