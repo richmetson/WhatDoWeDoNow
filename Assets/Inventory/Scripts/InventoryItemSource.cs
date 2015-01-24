@@ -4,18 +4,29 @@ using UnityEngine.UI;
 
 namespace AgonyBartender.Inventory
 {
-    public class InventoryItemSource : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+    public interface IDragItemSource
+    {
+        Answer ItemInfo { get; }
+        Image ItemCursor { get; }
+    }
+
+    public class InventoryItemSource : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IDragItemSource
     {
         public Answer ItemInfo;
         public Image ItemCursorPrefab;
 
-        private Image _itemCursor;
+        Answer IDragItemSource.ItemInfo { get { return ItemInfo; }}
+        Image IDragItemSource.ItemCursor { get { return ItemCursor; }}
+
+        public Image ItemCursor { get; private set; }
 
         public void OnBeginDrag(PointerEventData eventData)
         {
-            _itemCursor = (Image)Instantiate(ItemCursorPrefab);
-            _itemCursor.sprite = ItemInfo.Sprite;
-            _itemCursor.transform.SetParent(transform.root);
+            ItemCursor = (Image)Instantiate(ItemCursorPrefab);
+            ItemCursor.sprite = ItemInfo.Sprite;
+            ItemCursor.transform.SetParent(transform.root);
+            ItemCursor.transform.localScale = Vector3.one;
+            ItemCursor.GetComponent<RectTransform>().sizeDelta = new Vector2(ItemInfo.Pattern.Width * Inventory.Default.CellSize.x, ItemInfo.Pattern.Height * Inventory.Default.CellSize.y);
 
             SyncCursorPos(eventData);
         }
@@ -26,7 +37,7 @@ namespace AgonyBartender.Inventory
             if (RectTransformUtility.ScreenPointToWorldPointInRectangle(transform.root.GetComponent<RectTransform>(),
                 eventData.position, eventData.pressEventCamera, out globalMousePos))
             {
-                _itemCursor.transform.position = globalMousePos;
+                ItemCursor.transform.position = globalMousePos;
             }
         }
 
@@ -37,14 +48,14 @@ namespace AgonyBartender.Inventory
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            if(_itemCursor)
-                Destroy(_itemCursor.gameObject);
+            if(ItemCursor)
+                Destroy(ItemCursor.gameObject);
         }
 
         public void OnDisable()
         {
-            if (_itemCursor)
-                Destroy(_itemCursor.gameObject);
+            if (ItemCursor)
+                Destroy(ItemCursor.gameObject);
         }
     }
 }
