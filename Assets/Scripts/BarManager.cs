@@ -9,7 +9,7 @@ namespace AgonyBartender
     
     public class BarStoolEntry
     {
-        GameObject RootEntry;
+        public GameObject RootEntry { get; private set; }
 
         bool IsActive;
         
@@ -134,6 +134,13 @@ namespace AgonyBartender
             Vector3 NewPosition = gameObject.transform.localPosition;
             NewPosition.x = -CurrentBarStool.GetCameraXPosition();
             gameObject.transform.localPosition = NewPosition;
+        }
+
+        public int GetStoolOffsetFromCurrent(Transform barStool)
+        {
+            int index = BarStools.FindIndex(e => e.RootEntry == barStool.gameObject);
+
+            return index - CurrentBarStoolIndex;
         }
     }
 }
