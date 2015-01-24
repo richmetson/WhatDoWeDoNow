@@ -70,7 +70,6 @@ namespace AgonyBartender
         IEnumerator FillBarStool(BarStool Entry)
         {
             yield return new WaitForSeconds(EmptyStoolTime.PickRandom());
-
             GameObject NewPatron = (GameObject)Instantiate(PatronPrefab);
 
             Entry.FillSeat(NewPatron);
@@ -130,7 +129,10 @@ namespace AgonyBartender
         public int GetStoolOffsetFromCurrent(Transform barStool)
         {
             int index = BarStools.FindIndex(e => e.gameObject == barStool.gameObject);
-
+            if(index < 0)
+            {
+                Debug.LogError("Could not find " + barStool.gameObject);
+            }
             return index - CurrentBarStoolIndex;
         }
     }

@@ -23,6 +23,8 @@ namespace AgonyBartender
         BeerHand BeerHand;
         Liver Liver;
 
+        bool HasStartedLeavingBar;
+
         Coroutine EmptyBeerCountdown;
 
         // Use this for initialization
@@ -31,6 +33,7 @@ namespace AgonyBartender
             BeerHand = gameObject.GetComponent<BeerHand>();
             Liver = gameObject.GetComponent<Liver>();
             EmptyBeerCountdown = null;
+            HasStartedLeavingBar = false;
         }
 
         // Update is called once per frame
@@ -73,8 +76,12 @@ namespace AgonyBartender
 
         public void LeaveBar(LeaveReason Reason)
         {
-            print("I'm off!");
-            StartCoroutine(LeaveSequence(Reason));
+            if (!HasStartedLeavingBar)
+            {
+                print("I'm off!");
+                HasStartedLeavingBar = true;
+                StartCoroutine(LeaveSequence(Reason));
+            }
         }
 
         IEnumerator LeaveSequence(LeaveReason Reason)
