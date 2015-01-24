@@ -8,7 +8,7 @@ namespace AgonyBartender
     public struct ProblemSolution
     {
         public Answer Answer;
-        int Score;
+        public int Score;
     }
 
     public class Problem : ScriptableObject

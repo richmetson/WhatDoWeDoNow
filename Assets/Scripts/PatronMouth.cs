@@ -17,10 +17,26 @@ namespace AgonyBartender
 	
 	    }
 
-        void SetSpeechBox(GUIText TextBox)
+        public void SetSpeechBox(GUIText TextBox)
         {
             TextBox.text = PatronsProblem.ProblemString;
         }
 
+        public void ReceieveResponse(Answer Solution)
+        {
+            int Index = PatronsProblem.ProblemSolutions.FindIndex(x => x.Answer == Solution);
+            
+            int Score;
+            if(Index >= 0)
+            {
+                Score = PatronsProblem.ProblemSolutions[Index].Score;
+            }
+            else
+            {
+                // Assign a default value since this is essentially a random answer
+                Score = 0;
+            }
+        }
     }
+
 }
