@@ -10,6 +10,7 @@ namespace AgonyBartender
 
         public RangedFloat GapBetweenGulps;
         public RangedFloat LengthOfGulp;
+        public RangedFloat GulpMagnitude;
 
         bool IsDrinking;
 
@@ -36,7 +37,7 @@ namespace AgonyBartender
                     return;
                 }
 
-                float QuantityDrunk = 0.1f * Time.deltaTime;
+                float QuantityDrunk = GulpMagnitude.PickRandom() * Time.deltaTime;
                 Beer.Level = Beer.Level - QuantityDrunk;
 
                 gameObject.GetComponent<Liver>().AdjustDrunkeness(Beer.DrinkStrength * QuantityDrunk);

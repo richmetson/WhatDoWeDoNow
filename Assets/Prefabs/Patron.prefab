@@ -111,11 +111,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Beer: {fileID: 0}
   GapBetweenGulps:
-    Min: 2
-    Max: 5
+    Min: 3
+    Max: 6
   LengthOfGulp:
     Min: .5
     Max: 1.5
+  GulpMagnitude:
+    Min: .100000001
+    Max: .200000003
 --- !u!222 &22200506
 CanvasRenderer:
   m_ObjectHideFlags: 1
