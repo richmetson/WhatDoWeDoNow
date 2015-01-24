@@ -1,10 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Editor\PatronEditor.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Bystander.cs">
     <Files>
-      <File FileName="Assets\Scripts\Answer.cs" Line="9" Column="27" />
-      <File FileName="Assets\Scripts\Editor\PatronEditor.cs" Line="9" Column="35" />
-      <File FileName="Assets\Scripts\Editor\AnswerEditor.cs" Line="5" Column="5" />
+      <File FileName="Assets\Scripts\Answer.cs" Line="2" Column="1" />
+      <File FileName="Assets\Scripts\Editor\PatronEditor.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Editor\AnswerEditor.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\SpeechBubble.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Bystander.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

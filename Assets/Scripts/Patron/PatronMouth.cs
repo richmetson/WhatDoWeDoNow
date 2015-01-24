@@ -84,6 +84,10 @@ namespace AgonyBartender
                 GetComponent<PatronFaceController>().OnFaceChanged(Expression);
 
                 ProblemSpeech.gameObject.SetActive(false);
+                if (Score > 0)
+                {
+                    GetComponent<PatronStatusMonitor>().LeaveBar(PatronStatusMonitor.LeaveReason.Satisfied);
+                }
             }
         }
 
