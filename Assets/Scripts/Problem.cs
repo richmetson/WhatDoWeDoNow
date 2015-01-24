@@ -6,10 +6,13 @@ namespace AgonyBartender
 {
     public enum ProblemSolutionFacialExpression
     {
-        HappyResponse,
+        HappyResponse = 0,
         NeutralResponse, 
         AngryResponse,
-        ConfusedResponse
+        ConfusedResponse,
+
+        FacialExpressionCount
+
     }
 
     [System.Serializable]
