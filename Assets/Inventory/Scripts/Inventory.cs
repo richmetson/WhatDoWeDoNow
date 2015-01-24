@@ -15,6 +15,8 @@ namespace AgonyBartender.Inventory
 
         private InventoryItem CurrentDraggingItem;
 
+        public InventoryPattern InventoryShape;
+
         public void Awake()
         {
             _items = new List<InventoryItem>();
