@@ -12,9 +12,9 @@ namespace AgonyBartender.Inventory.Editor
 
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
         {
-            if (!property.isExpanded) return RowHeight;
+            //if (!property.isExpanded) return RowHeight;
 
-            return RowHeight*(2 + property.FindPropertyRelative("Height").intValue);
+            return RowHeight*(1 + property.FindPropertyRelative("Height").intValue);
         }
 
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
@@ -35,9 +35,9 @@ namespace AgonyBartender.Inventory.Editor
                 EditorGUI.PropertyField(new Rect(position.xMin, position.yMin, position.width/2f, RowHeight), widthProp);
                 EditorGUI.PropertyField(
                     new Rect(position.xMin + position.width/2f, position.yMin, position.width/2f, RowHeight), heightProp);
-
+                bool didChangeSize = EditorGUI.EndChangeCheck();
                 cellsProp.arraySize = widthProp.intValue*heightProp.intValue;
-                if(EditorGUI.EndChangeCheck()) GUIUtility.ExitGUI();
+                if(didChangeSize) GUIUtility.ExitGUI();
 
                 var cellsRect = new Rect(position.xMin, position.yMin + RowHeight, position.width,
                     position.height - RowHeight);
