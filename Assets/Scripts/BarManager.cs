@@ -28,23 +28,6 @@ namespace AgonyBartender
         public StandardProblemList StandardProblems;
         public Patron[] PatronArchetypes;
 
-        // Use this for initialization
-        void Start()
-        {
-            DeletePatrons();
-
-            CurrentBarStool = null;
-            SetBarLength(7);
-
-            FillBarStool();
-            FillBarStool();
-            FillBarStool();
-
-            ScheduleNewPatron();
-
-            MoveToBarStool(BarStools[0]);
-        }
-
         public float StoolSpacing = 2500;
 
         public void SetBarLength(int numStools)
@@ -73,7 +56,7 @@ namespace AgonyBartender
             }
         }
 
-        void DeletePatrons()
+        public void DeletePatrons()
         {
             foreach(var defn in GetComponentsInChildren<PatronDefinition>())
                 Destroy(defn.gameObject);
@@ -151,11 +134,22 @@ namespace AgonyBartender
             MoveToBarStool(BarStools[CurrentBarStoolIndex+1]);
         }
 
+        public void MoveToBarStool(int index)
+        {
+            MoveToBarStool(BarStools[index]);
+        }
+
         public void MoveToBarStool(BarStool NewBarStool)
         {
             if(CurrentBarStool != null)
             {
                 CurrentBarStool.SwitchFromBarStool();
+            }
+
+            if (NewBarStool == null)
+            {
+                CurrentBarStool = null;
+                return;
             }
 
             NewBarStool.SwitchToBarStool();

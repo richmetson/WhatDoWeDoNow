@@ -81,6 +81,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1791043342}
     m_Modifications:
+    - target: {fileID: 11444160, guid: 68e6d7b12aba15547b4b38a4c9eb7025, type: 2}
+      propertyPath: OnBeerDispensed.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 22444168, guid: 68e6d7b12aba15547b4b38a4c9eb7025, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -160,6 +164,26 @@ Prefab:
     - target: {fileID: 22444164, guid: 68e6d7b12aba15547b4b38a4c9eb7025, type: 2}
       propertyPath: m_AnchoredPosition.y
       value: 67
+      objectReference: {fileID: 0}
+    - target: {fileID: 11444160, guid: 68e6d7b12aba15547b4b38a4c9eb7025, type: 2}
+      propertyPath: OnBeerDispensed.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11444160, guid: 68e6d7b12aba15547b4b38a4c9eb7025, type: 2}
+      propertyPath: OnBeerDispensed.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11444160, guid: 68e6d7b12aba15547b4b38a4c9eb7025, type: 2}
+      propertyPath: OnBeerDispensed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1167317111}
+    - target: {fileID: 11444160, guid: 68e6d7b12aba15547b4b38a4c9eb7025, type: 2}
+      propertyPath: OnBeerDispensed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnBeerDispensed
+      objectReference: {fileID: 0}
+    - target: {fileID: 11444160, guid: 68e6d7b12aba15547b4b38a4c9eb7025, type: 2}
+      propertyPath: OnBeerDispensed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68e6d7b12aba15547b4b38a4c9eb7025, type: 2}
@@ -347,7 +371,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1432545105}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: -766, y: -397.75}
@@ -832,7 +856,6 @@ RectTransform:
   - {fileID: 1910025557}
   - {fileID: 1754104038}
   - {fileID: 1132943598}
-  - {fileID: 1490545876}
   - {fileID: 1807299786}
   - {fileID: 370042569}
   - {fileID: 533109998}
@@ -858,6 +881,50 @@ MonoBehaviour:
   PatronSpeech: {fileID: 1807299787}
   Drink: {fileID: 533109999}
   PatronPosition: {x: 626, y: -413, z: 0}
+  OnPatronArrived:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1167317111}
+        m_MethodName: OnPatronArrived
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: AgonyBartender.BarStool+BarStoolEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnPatronPoisoned:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1167317111}
+        m_MethodName: OnPatronLiverFailed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: AgonyBartender.BarStool+BarStoolEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnPatronUnsatisfied:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: AgonyBartender.BarStool+BarStoolEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnPatronLeft:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: AgonyBartender.BarStool+BarStoolEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &319336458
 GameObject:
   m_ObjectHideFlags: 0
@@ -1093,7 +1160,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 310396485}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_AnchorMin: {x: .5, y: 0}
   m_AnchorMax: {x: .5, y: 0}
   m_AnchoredPosition: {x: 0, y: -541.5}
@@ -1126,198 +1193,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 370042568}
---- !u!1001 &373808590
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 310396485}
-    m_Modifications:
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 626
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -413
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 379
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_AnchorMin.x
-      value: .5
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_AnchorMin.y
-      value: .5
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_AnchorMax.x
-      value: .5
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_AnchorMax.y
-      value: .5
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_Pivot.x
-      value: .5
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_Pivot.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_Name
-      value: CurrentPatron
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: ProblemSpeech
-      value: 
-      objectReference: {fileID: 1807299787}
-    - target: {fileID: 11499658, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: Beer
-      value: 
-      objectReference: {fileID: 533109999}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-  m_RootGameObject: {fileID: 1490545875}
-  m_IsPrefabParent: 0
-  m_IsExploded: 1
---- !u!1001 &378666868
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1432545105}
-    m_Modifications:
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 626
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -413
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 379
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_AnchorMin.x
-      value: .5
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_AnchorMin.y
-      value: .5
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_AnchorMax.x
-      value: .5
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_AnchorMax.y
-      value: .5
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_Pivot.x
-      value: .5
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_Pivot.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_Name
-      value: CurrentPatron
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: ProblemSpeech
-      value: 
-      objectReference: {fileID: 543339308}
-    - target: {fileID: 11499658, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: Beer
-      value: 
-      objectReference: {fileID: 664512718}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-  m_RootGameObject: {fileID: 1692690603}
-  m_IsPrefabParent: 0
-  m_IsExploded: 1
 --- !u!1 &415115224
 GameObject:
   m_ObjectHideFlags: 0
@@ -1549,7 +1424,7 @@ RectTransform:
   - {fileID: 708853889}
   - {fileID: 987923455}
   m_Father: {fileID: 310396485}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 738, y: -452}
@@ -1574,6 +1449,23 @@ MonoBehaviour:
   TopUpRate: .100000001
   DrinkStrength: .100000001
   _level: 1
+  OnBeerDispensed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1167317111}
+        m_MethodName: OnBeerDispensed
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: AgonyBartender.Drink+BeerDispensedEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &533110000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1676,7 +1568,7 @@ RectTransform:
   m_Children:
   - {fileID: 1302565780}
   m_Father: {fileID: 1432545105}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 193, y: 81.75}
@@ -1799,7 +1691,7 @@ RectTransform:
   - {fileID: 667048793}
   - {fileID: 415115225}
   m_Father: {fileID: 1432545105}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 738, y: -452}
@@ -1824,6 +1716,23 @@ MonoBehaviour:
   TopUpRate: .100000001
   DrinkStrength: .100000001
   _level: 1
+  OnBeerDispensed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1167317111}
+        m_MethodName: OnBeerDispensed
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: AgonyBartender.Drink+BeerDispensedEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &664512719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2136,6 +2045,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 310396485}
     m_Modifications:
+    - target: {fileID: 11444160, guid: 68e6d7b12aba15547b4b38a4c9eb7025, type: 2}
+      propertyPath: OnBeerDispensed.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 22444168, guid: 68e6d7b12aba15547b4b38a4c9eb7025, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2216,340 +2129,29 @@ Prefab:
       propertyPath: m_AnchoredPosition.y
       value: 67
       objectReference: {fileID: 0}
+    - target: {fileID: 11444160, guid: 68e6d7b12aba15547b4b38a4c9eb7025, type: 2}
+      propertyPath: OnBeerDispensed.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11444160, guid: 68e6d7b12aba15547b4b38a4c9eb7025, type: 2}
+      propertyPath: OnBeerDispensed.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11444160, guid: 68e6d7b12aba15547b4b38a4c9eb7025, type: 2}
+      propertyPath: OnBeerDispensed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1167317111}
+    - target: {fileID: 11444160, guid: 68e6d7b12aba15547b4b38a4c9eb7025, type: 2}
+      propertyPath: OnBeerDispensed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnBeerDispensed
+      objectReference: {fileID: 0}
+    - target: {fileID: 11444160, guid: 68e6d7b12aba15547b4b38a4c9eb7025, type: 2}
+      propertyPath: OnBeerDispensed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68e6d7b12aba15547b4b38a4c9eb7025, type: 2}
   m_RootGameObject: {fileID: 533109997}
-  m_IsPrefabParent: 0
-  m_IsExploded: 1
---- !u!1 &905682735
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-  m_PrefabInternal: {fileID: 940190804}
-  serializedVersion: 4
-  m_Component:
-  - 224: {fileID: 905682736}
-  - 222: {fileID: 905682744}
-  - 114: {fileID: 905682743}
-  - 114: {fileID: 905682742}
-  - 114: {fileID: 905682741}
-  - 114: {fileID: 905682740}
-  - 114: {fileID: 905682739}
-  - 114: {fileID: 905682738}
-  - 114: {fileID: 905682737}
-  - 82: {fileID: 905682745}
-  - 114: {fileID: 905682746}
-  m_Layer: 5
-  m_Name: CurrentPatron
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &905682736
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2,
-    type: 2}
-  m_PrefabInternal: {fileID: 940190804}
-  m_GameObject: {fileID: 905682735}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1791043342}
-  m_RootOrder: 3
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 626, y: -413}
-  m_SizeDelta: {x: 379, y: 500}
-  m_Pivot: {x: .5, y: 0}
---- !u!114 &905682737
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11472754, guid: cdf65debb4a9ad44c885245538d00cf2,
-    type: 2}
-  m_PrefabInternal: {fileID: 940190804}
-  m_GameObject: {fileID: 905682735}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbeaa712d0dbda34c983ddfa4bd37007, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &905682738
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11499658, guid: cdf65debb4a9ad44c885245538d00cf2,
-    type: 2}
-  m_PrefabInternal: {fileID: 940190804}
-  m_GameObject: {fileID: 905682735}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bed8084b91499e419886a563d86adc0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Beer: {fileID: 1474168706}
-  GulpSource: {fileID: 905682745}
-  Gulps:
-  - {fileID: 8300000, guid: 8fb1ca839385b56488d7bddbe9889acd, type: 3}
-  - {fileID: 8300000, guid: 882a1dbb30632aa40877d27fb56e5439, type: 3}
---- !u!114 &905682739
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11498640, guid: cdf65debb4a9ad44c885245538d00cf2,
-    type: 2}
-  m_PrefabInternal: {fileID: 940190804}
-  m_GameObject: {fileID: 905682735}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a04cd9ff14d6b9746a76152b14810c57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StartingABV: 0
---- !u!114 &905682740
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11410158, guid: cdf65debb4a9ad44c885245538d00cf2,
-    type: 2}
-  m_PrefabInternal: {fileID: 940190804}
-  m_GameObject: {fileID: 905682735}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5c9eaec50f337445a4eeb18acc3d0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WobblePeriod: 1.5
-  MaxRotation: 25
-  FallDistance: 200
-  FallSpeed: 50
---- !u!114 &905682741
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11410156, guid: cdf65debb4a9ad44c885245538d00cf2,
-    type: 2}
-  m_PrefabInternal: {fileID: 940190804}
-  m_GameObject: {fileID: 905682735}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d922fb4ff1c13b5449b7e74f955e721a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Patron: {fileID: 11400000, guid: 3fcc8fdd52cd35d488ebcf46e38e0a20, type: 2}
---- !u!114 &905682742
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400506, guid: cdf65debb4a9ad44c885245538d00cf2,
-    type: 2}
-  m_PrefabInternal: {fileID: 940190804}
-  m_GameObject: {fileID: 905682735}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8a8ec981060fb14c825cdc1ca6cd796, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ProblemSpeech: {fileID: 1449206691}
-  TimeBeforeSpeaking:
-    Min: 3
-    Max: 5
-  TimeToSpeak:
-    Min: 4
-    Max: 6
---- !u!114 &905682743
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400508, guid: cdf65debb4a9ad44c885245538d00cf2,
-    type: 2}
-  m_PrefabInternal: {fileID: 940190804}
-  m_GameObject: {fileID: 905682735}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 21300000, guid: 5cafb0928cec7b1458f7e405f2403faa, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
---- !u!222 &905682744
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 22200506, guid: cdf65debb4a9ad44c885245538d00cf2,
-    type: 2}
-  m_PrefabInternal: {fileID: 940190804}
-  m_GameObject: {fileID: 905682735}
---- !u!82 &905682745
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8217272, guid: cdf65debb4a9ad44c885245538d00cf2,
-    type: 2}
-  m_PrefabInternal: {fileID: 940190804}
-  m_GameObject: {fileID: 905682735}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
---- !u!114 &905682746
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11427580, guid: cdf65debb4a9ad44c885245538d00cf2,
-    type: 2}
-  m_PrefabInternal: {fileID: 940190804}
-  m_GameObject: {fileID: 905682735}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 024a85cc1e72c154797b25e452b55083, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  VolumeMultipler: .75
-  VolumePow: .5
---- !u!1001 &940190804
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1791043342}
-    m_Modifications:
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 626
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -413
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 379
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_AnchorMin.x
-      value: .5
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_AnchorMin.y
-      value: .5
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_AnchorMax.x
-      value: .5
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_AnchorMax.y
-      value: .5
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_Pivot.x
-      value: .5
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_Pivot.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: m_Name
-      value: CurrentPatron
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: ProblemSpeech
-      value: 
-      objectReference: {fileID: 1449206691}
-    - target: {fileID: 11499658, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-      propertyPath: Beer
-      value: 
-      objectReference: {fileID: 1474168706}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-  m_RootGameObject: {fileID: 905682735}
   m_IsPrefabParent: 0
   m_IsExploded: 1
 --- !u!1 &951412146
@@ -2602,6 +2204,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ConversationSnippets:
   - {fileID: 11400000, guid: 108c4a0112278944195fd97ebca4026a, type: 2}
+  - {fileID: 11400000, guid: 2c42a7904d04afc44a20eb0fc4df8df8, type: 2}
   ItemSource: {fileID: 319336463}
   SpeechBubble: {fileID: 319336460}
   TimeBeforeSpeaking:
@@ -3383,7 +2986,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1791043342}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_AnchorMin: {x: .5, y: 0}
   m_AnchorMax: {x: .5, y: 0}
   m_AnchoredPosition: {x: 0, y: -541.5}
@@ -3431,6 +3034,86 @@ MonoBehaviour:
   Sprites:
   - {fileID: 21300000, guid: 35b7481013867e944b396e16bac2c75d, type: 3}
   - {fileID: 21300002, guid: c40170ef6410b8d4988e1e920a0fe8b1, type: 3}
+--- !u!1 &1167317110
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1167317112}
+  - 114: {fileID: 1167317111}
+  m_Layer: 0
+  m_Name: Game Session
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1167317111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1167317110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f731743fdada4a54289e066b456b820e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BarManager: {fileID: 1172516970}
+  BarLength:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 2.98520899
+      inSlope: .0418190248
+      outSlope: .0418190248
+      tangentMode: 10
+    - time: .995326698
+      value: 3.02683258
+      inSlope: .0418190248
+      outSlope: .962780476
+      tangentMode: 21
+    - time: 2.00455832
+      value: 3.99850106
+      inSlope: .962780476
+      outSlope: .734573126
+      tangentMode: 21
+    - time: 10.0136719
+      value: 9.88178062
+      inSlope: .734573185
+      outSlope: .734573185
+      tangentMode: 10
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  InitialFullness:
+    serializedVersion: 2
+    m_Curve:
+    - time: .0188592132
+      value: .217011511
+      inSlope: .235499144
+      outSlope: .235499144
+      tangentMode: 0
+    - time: 9.92845345
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+--- !u!4 &1167317112
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1167317110}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 367.933075, y: 213.645676, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
 --- !u!1 &1172516968
 GameObject:
   m_ObjectHideFlags: 0
@@ -3479,8 +3162,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EmptyStoolTime:
-    Min: 5
-    Max: 10
+    Min: 10
+    Max: 15
   LeftmostBarStool: {fileID: 1432545105}
   RightmostBarStool: {fileID: 310396485}
   FirstMidBarStool: {fileID: 1791043342}
@@ -3490,6 +3173,8 @@ MonoBehaviour:
   StandardProblems: {fileID: 11400000, guid: 9b3d7ca5ccd5f6843bf91b98c38b8413, type: 2}
   PatronArchetypes:
   - {fileID: 11400000, guid: 3fcc8fdd52cd35d488ebcf46e38e0a20, type: 2}
+  - {fileID: 11400000, guid: 5a1b18534783bfc4398e574138ac2c69, type: 2}
+  - {fileID: 11400000, guid: 644f90da084924146a46b3b84b4b1416, type: 2}
   StoolSpacing: 2500
 --- !u!1 &1219450969
 GameObject:
@@ -4108,6 +3793,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1432545105}
     m_Modifications:
+    - target: {fileID: 11444160, guid: 68e6d7b12aba15547b4b38a4c9eb7025, type: 2}
+      propertyPath: OnBeerDispensed.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 22444168, guid: 68e6d7b12aba15547b4b38a4c9eb7025, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4187,6 +3876,26 @@ Prefab:
     - target: {fileID: 22444164, guid: 68e6d7b12aba15547b4b38a4c9eb7025, type: 2}
       propertyPath: m_AnchoredPosition.y
       value: 67
+      objectReference: {fileID: 0}
+    - target: {fileID: 11444160, guid: 68e6d7b12aba15547b4b38a4c9eb7025, type: 2}
+      propertyPath: OnBeerDispensed.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11444160, guid: 68e6d7b12aba15547b4b38a4c9eb7025, type: 2}
+      propertyPath: OnBeerDispensed.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11444160, guid: 68e6d7b12aba15547b4b38a4c9eb7025, type: 2}
+      propertyPath: OnBeerDispensed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1167317111}
+    - target: {fileID: 11444160, guid: 68e6d7b12aba15547b4b38a4c9eb7025, type: 2}
+      propertyPath: OnBeerDispensed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnBeerDispensed
+      objectReference: {fileID: 0}
+    - target: {fileID: 11444160, guid: 68e6d7b12aba15547b4b38a4c9eb7025, type: 2}
+      propertyPath: OnBeerDispensed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68e6d7b12aba15547b4b38a4c9eb7025, type: 2}
@@ -4328,7 +4037,6 @@ RectTransform:
   - {fileID: 1745989407}
   - {fileID: 951412147}
   - {fileID: 319336459}
-  - {fileID: 1692690604}
   - {fileID: 543339311}
   - {fileID: 1922606441}
   - {fileID: 664512717}
@@ -4355,6 +4063,50 @@ MonoBehaviour:
   PatronSpeech: {fileID: 543339308}
   Drink: {fileID: 664512718}
   PatronPosition: {x: 626, y: -413, z: 0}
+  OnPatronArrived:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1167317111}
+        m_MethodName: OnPatronArrived
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: AgonyBartender.BarStool+BarStoolEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnPatronPoisoned:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1167317111}
+        m_MethodName: OnPatronLiverFailed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: AgonyBartender.BarStool+BarStoolEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnPatronUnsatisfied:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: AgonyBartender.BarStool+BarStoolEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnPatronLeft:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: AgonyBartender.BarStool+BarStoolEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1001 &1442486698
 Prefab:
   m_ObjectHideFlags: 0
@@ -4553,7 +4305,7 @@ RectTransform:
   m_Children:
   - {fileID: 1023109073}
   m_Father: {fileID: 1791043342}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 645, y: 215}
@@ -4726,7 +4478,7 @@ RectTransform:
   - {fileID: 1460776959}
   - {fileID: 206902155}
   m_Father: {fileID: 1791043342}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 738, y: -452}
@@ -4751,6 +4503,23 @@ MonoBehaviour:
   TopUpRate: .100000001
   DrinkStrength: .100000001
   _level: 1
+  OnBeerDispensed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1167317111}
+        m_MethodName: OnBeerDispensed
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: AgonyBartender.Drink+BeerDispensedEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &1474168707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4780,241 +4549,6 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 74387297}
   m_GameObject: {fileID: 1474168704}
---- !u!1 &1490545875
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-  m_PrefabInternal: {fileID: 373808590}
-  serializedVersion: 4
-  m_Component:
-  - 224: {fileID: 1490545876}
-  - 222: {fileID: 1490545884}
-  - 114: {fileID: 1490545883}
-  - 114: {fileID: 1490545882}
-  - 114: {fileID: 1490545881}
-  - 114: {fileID: 1490545880}
-  - 114: {fileID: 1490545879}
-  - 114: {fileID: 1490545878}
-  - 114: {fileID: 1490545877}
-  - 82: {fileID: 1490545885}
-  - 114: {fileID: 1490545886}
-  m_Layer: 5
-  m_Name: CurrentPatron
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1490545876
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2,
-    type: 2}
-  m_PrefabInternal: {fileID: 373808590}
-  m_GameObject: {fileID: 1490545875}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 310396485}
-  m_RootOrder: 3
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 626, y: -413}
-  m_SizeDelta: {x: 379, y: 500}
-  m_Pivot: {x: .5, y: 0}
---- !u!114 &1490545877
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11472754, guid: cdf65debb4a9ad44c885245538d00cf2,
-    type: 2}
-  m_PrefabInternal: {fileID: 373808590}
-  m_GameObject: {fileID: 1490545875}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbeaa712d0dbda34c983ddfa4bd37007, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1490545878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11499658, guid: cdf65debb4a9ad44c885245538d00cf2,
-    type: 2}
-  m_PrefabInternal: {fileID: 373808590}
-  m_GameObject: {fileID: 1490545875}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bed8084b91499e419886a563d86adc0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Beer: {fileID: 533109999}
-  GulpSource: {fileID: 1490545885}
-  Gulps:
-  - {fileID: 8300000, guid: 8fb1ca839385b56488d7bddbe9889acd, type: 3}
-  - {fileID: 8300000, guid: 882a1dbb30632aa40877d27fb56e5439, type: 3}
---- !u!114 &1490545879
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11498640, guid: cdf65debb4a9ad44c885245538d00cf2,
-    type: 2}
-  m_PrefabInternal: {fileID: 373808590}
-  m_GameObject: {fileID: 1490545875}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a04cd9ff14d6b9746a76152b14810c57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StartingABV: 0
---- !u!114 &1490545880
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11410158, guid: cdf65debb4a9ad44c885245538d00cf2,
-    type: 2}
-  m_PrefabInternal: {fileID: 373808590}
-  m_GameObject: {fileID: 1490545875}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5c9eaec50f337445a4eeb18acc3d0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WobblePeriod: 1.5
-  MaxRotation: 25
-  FallDistance: 200
-  FallSpeed: 50
---- !u!114 &1490545881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11410156, guid: cdf65debb4a9ad44c885245538d00cf2,
-    type: 2}
-  m_PrefabInternal: {fileID: 373808590}
-  m_GameObject: {fileID: 1490545875}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d922fb4ff1c13b5449b7e74f955e721a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Patron: {fileID: 11400000, guid: 3fcc8fdd52cd35d488ebcf46e38e0a20, type: 2}
---- !u!114 &1490545882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400506, guid: cdf65debb4a9ad44c885245538d00cf2,
-    type: 2}
-  m_PrefabInternal: {fileID: 373808590}
-  m_GameObject: {fileID: 1490545875}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8a8ec981060fb14c825cdc1ca6cd796, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ProblemSpeech: {fileID: 1807299787}
-  TimeBeforeSpeaking:
-    Min: 3
-    Max: 5
-  TimeToSpeak:
-    Min: 4
-    Max: 6
---- !u!114 &1490545883
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400508, guid: cdf65debb4a9ad44c885245538d00cf2,
-    type: 2}
-  m_PrefabInternal: {fileID: 373808590}
-  m_GameObject: {fileID: 1490545875}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 21300000, guid: 5cafb0928cec7b1458f7e405f2403faa, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
---- !u!222 &1490545884
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 22200506, guid: cdf65debb4a9ad44c885245538d00cf2,
-    type: 2}
-  m_PrefabInternal: {fileID: 373808590}
-  m_GameObject: {fileID: 1490545875}
---- !u!82 &1490545885
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8217272, guid: cdf65debb4a9ad44c885245538d00cf2,
-    type: 2}
-  m_PrefabInternal: {fileID: 373808590}
-  m_GameObject: {fileID: 1490545875}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
---- !u!114 &1490545886
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11427580, guid: cdf65debb4a9ad44c885245538d00cf2,
-    type: 2}
-  m_PrefabInternal: {fileID: 373808590}
-  m_GameObject: {fileID: 1490545875}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 024a85cc1e72c154797b25e452b55083, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  VolumeMultipler: .75
-  VolumePow: .5
 --- !u!1 &1518941359
 GameObject:
   m_ObjectHideFlags: 0
@@ -5376,241 +4910,6 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 1576455922}
   m_GameObject: {fileID: 1618521026}
---- !u!1 &1692690603
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
-  m_PrefabInternal: {fileID: 378666868}
-  serializedVersion: 4
-  m_Component:
-  - 224: {fileID: 1692690604}
-  - 222: {fileID: 1692690606}
-  - 114: {fileID: 1692690605}
-  - 114: {fileID: 1692690607}
-  - 114: {fileID: 1692690609}
-  - 114: {fileID: 1692690608}
-  - 114: {fileID: 1692690611}
-  - 114: {fileID: 1692690610}
-  - 114: {fileID: 1692690612}
-  - 82: {fileID: 1692690613}
-  - 114: {fileID: 1692690614}
-  m_Layer: 5
-  m_Name: CurrentPatron
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1692690604
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 22400506, guid: cdf65debb4a9ad44c885245538d00cf2,
-    type: 2}
-  m_PrefabInternal: {fileID: 378666868}
-  m_GameObject: {fileID: 1692690603}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1432545105}
-  m_RootOrder: 3
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 626, y: -413}
-  m_SizeDelta: {x: 379, y: 500}
-  m_Pivot: {x: .5, y: 0}
---- !u!114 &1692690605
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400508, guid: cdf65debb4a9ad44c885245538d00cf2,
-    type: 2}
-  m_PrefabInternal: {fileID: 378666868}
-  m_GameObject: {fileID: 1692690603}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 21300000, guid: 5cafb0928cec7b1458f7e405f2403faa, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
---- !u!222 &1692690606
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 22200506, guid: cdf65debb4a9ad44c885245538d00cf2,
-    type: 2}
-  m_PrefabInternal: {fileID: 378666868}
-  m_GameObject: {fileID: 1692690603}
---- !u!114 &1692690607
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400506, guid: cdf65debb4a9ad44c885245538d00cf2,
-    type: 2}
-  m_PrefabInternal: {fileID: 378666868}
-  m_GameObject: {fileID: 1692690603}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8a8ec981060fb14c825cdc1ca6cd796, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ProblemSpeech: {fileID: 543339308}
-  TimeBeforeSpeaking:
-    Min: 3
-    Max: 5
-  TimeToSpeak:
-    Min: 4
-    Max: 6
---- !u!114 &1692690608
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11410158, guid: cdf65debb4a9ad44c885245538d00cf2,
-    type: 2}
-  m_PrefabInternal: {fileID: 378666868}
-  m_GameObject: {fileID: 1692690603}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5c9eaec50f337445a4eeb18acc3d0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WobblePeriod: 1.5
-  MaxRotation: 25
-  FallDistance: 200
-  FallSpeed: 50
---- !u!114 &1692690609
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11410156, guid: cdf65debb4a9ad44c885245538d00cf2,
-    type: 2}
-  m_PrefabInternal: {fileID: 378666868}
-  m_GameObject: {fileID: 1692690603}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d922fb4ff1c13b5449b7e74f955e721a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Patron: {fileID: 11400000, guid: 3fcc8fdd52cd35d488ebcf46e38e0a20, type: 2}
---- !u!114 &1692690610
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11499658, guid: cdf65debb4a9ad44c885245538d00cf2,
-    type: 2}
-  m_PrefabInternal: {fileID: 378666868}
-  m_GameObject: {fileID: 1692690603}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bed8084b91499e419886a563d86adc0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Beer: {fileID: 664512718}
-  GulpSource: {fileID: 1692690613}
-  Gulps:
-  - {fileID: 8300000, guid: 8fb1ca839385b56488d7bddbe9889acd, type: 3}
-  - {fileID: 8300000, guid: 882a1dbb30632aa40877d27fb56e5439, type: 3}
---- !u!114 &1692690611
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11498640, guid: cdf65debb4a9ad44c885245538d00cf2,
-    type: 2}
-  m_PrefabInternal: {fileID: 378666868}
-  m_GameObject: {fileID: 1692690603}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a04cd9ff14d6b9746a76152b14810c57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StartingABV: 0
---- !u!114 &1692690612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11472754, guid: cdf65debb4a9ad44c885245538d00cf2,
-    type: 2}
-  m_PrefabInternal: {fileID: 378666868}
-  m_GameObject: {fileID: 1692690603}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbeaa712d0dbda34c983ddfa4bd37007, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!82 &1692690613
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8217272, guid: cdf65debb4a9ad44c885245538d00cf2,
-    type: 2}
-  m_PrefabInternal: {fileID: 378666868}
-  m_GameObject: {fileID: 1692690603}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
---- !u!114 &1692690614
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11427580, guid: cdf65debb4a9ad44c885245538d00cf2,
-    type: 2}
-  m_PrefabInternal: {fileID: 378666868}
-  m_GameObject: {fileID: 1692690603}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 024a85cc1e72c154797b25e452b55083, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  VolumeMultipler: .75
-  VolumePow: .5
 --- !u!1 &1707558701
 GameObject:
   m_ObjectHideFlags: 0
@@ -5795,6 +5094,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ConversationSnippets:
   - {fileID: 11400000, guid: 108c4a0112278944195fd97ebca4026a, type: 2}
+  - {fileID: 11400000, guid: 2c42a7904d04afc44a20eb0fc4df8df8, type: 2}
   ItemSource: {fileID: 1132943600}
   SpeechBubble: {fileID: 1132943599}
   TimeBeforeSpeaking:
@@ -5977,7 +5277,6 @@ RectTransform:
   - {fileID: 306241078}
   - {fileID: 1927120035}
   - {fileID: 1618521027}
-  - {fileID: 905682736}
   - {fileID: 1449206690}
   - {fileID: 1142242565}
   - {fileID: 1474168705}
@@ -6003,6 +5302,50 @@ MonoBehaviour:
   PatronSpeech: {fileID: 1449206691}
   Drink: {fileID: 1474168706}
   PatronPosition: {x: 626, y: -413, z: 0}
+  OnPatronArrived:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1167317111}
+        m_MethodName: OnPatronArrived
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: AgonyBartender.BarStool+BarStoolEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnPatronPoisoned:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1167317111}
+        m_MethodName: OnPatronLiverFailed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: AgonyBartender.BarStool+BarStoolEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnPatronUnsatisfied:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: AgonyBartender.BarStool+BarStoolEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnPatronLeft:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: AgonyBartender.BarStool+BarStoolEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1807299785
 GameObject:
   m_ObjectHideFlags: 0
@@ -6034,7 +5377,7 @@ RectTransform:
   m_Children:
   - {fileID: 138876338}
   m_Father: {fileID: 310396485}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 645, y: 215}
@@ -6332,7 +5675,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1432545105}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_AnchorMin: {x: .5, y: 0}
   m_AnchorMax: {x: .5, y: 0}
   m_AnchoredPosition: {x: 0, y: -541.5}
@@ -6481,6 +5824,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ConversationSnippets:
   - {fileID: 11400000, guid: 108c4a0112278944195fd97ebca4026a, type: 2}
+  - {fileID: 11400000, guid: 2c42a7904d04afc44a20eb0fc4df8df8, type: 2}
   ItemSource: {fileID: 1618521029}
   SpeechBubble: {fileID: 1618521028}
   TimeBeforeSpeaking:

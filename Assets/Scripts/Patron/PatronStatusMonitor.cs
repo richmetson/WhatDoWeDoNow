@@ -1,5 +1,7 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
+using UnityEngine.Events;
 
 namespace AgonyBartender
 {
@@ -16,9 +18,10 @@ namespace AgonyBartender
             Satisfied
         }
 
-        public delegate void PatronLeaves();
+        [Serializable]
+        public class PatronLeavingEvent : UnityEvent<PatronStatusMonitor, LeaveReason> { }
 
-        public event PatronLeaves OnPatronLeaves;
+        public PatronLeavingEvent OnPatronLeaving;
 
         BeerHand BeerHand;
         Liver Liver;
@@ -34,16 +37,18 @@ namespace AgonyBartender
             Liver = gameObject.GetComponent<Liver>();
             EmptyBeerCountdown = null;
             HasStartedLeavingBar = false;
+
+            Liver.OnLiverFailed.AddListener(OnLiverFailed);
+        }
+
+        private void OnLiverFailed()
+        {
+            LeaveBar(LeaveReason.PassedOut);
         }
 
         // Update is called once per frame
         void Update()
         {
-            if(Liver.GetCurrentABV() >= 1.0f)
-            {
-                LeaveBar(LeaveReason.PassedOut);
-            }
-
             if(EmptyBeerCountdown == null && BeerHand.Beer.IsEmpty)
             {
                 print("Thinking of leaving");
@@ -84,9 +89,9 @@ namespace AgonyBartender
             }
         }
 
-        IEnumerator LeaveSequence(LeaveReason Reason)
+        IEnumerator LeaveSequence(LeaveReason reason)
         {
-            switch (Reason)
+            switch (reason)
             {
                 case LeaveReason.PassedOut:
                     gameObject.GetComponent<PatronMouth>().Say("Zzzz...");
@@ -103,10 +108,7 @@ namespace AgonyBartender
 
             yield return new WaitForSeconds(3.0f);
 
-            if(OnPatronLeaves != null)
-            {
-                OnPatronLeaves();
-            }
+            OnPatronLeaving.Invoke(this, reason);
 
             GameObject.Destroy(gameObject);         
         }

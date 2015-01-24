@@ -48,7 +48,7 @@ namespace AgonyBartender
                 _currentPatron.transform.localPosition = PatronPosition;
                 _currentPatron.transform.SetSiblingIndex(3);
 
-                _currentPatron.GetComponent<PatronStatusMonitor>().OnPatronLeaves += BarStoolEntry_OnPatronLeaves;
+                _currentPatron.GetComponent<PatronStatusMonitor>().OnPatronLeaving.AddListener(BarStoolEntry_OnPatronLeft);
 
                 OnPatronArrived.Invoke(this);
             }
@@ -58,10 +58,18 @@ namespace AgonyBartender
         public class BarStoolEvent : UnityEvent<BarStool> { }
 
         public BarStoolEvent OnPatronArrived;
+        public BarStoolEvent OnPatronPoisoned;
+        public BarStoolEvent OnPatronUnsatisfied;
         public BarStoolEvent OnPatronLeft;
 
-        void BarStoolEntry_OnPatronLeaves()
+        void BarStoolEntry_OnPatronLeft(PatronStatusMonitor patron, PatronStatusMonitor.LeaveReason reason)
         {
+            if (reason == PatronStatusMonitor.LeaveReason.PassedOut)
+                OnPatronPoisoned.Invoke(this);
+
+            if (reason == PatronStatusMonitor.LeaveReason.Bored)
+                OnPatronUnsatisfied.Invoke(this);
+
             OnPatronLeft.Invoke(this);
         }
 
@@ -78,22 +86,6 @@ namespace AgonyBartender
         public float GetCameraXPosition()
         {
             return transform.localPosition.x;
-        }
-
-        // Use this for initialization
-        void Start()
-        {
-            PatronStatusMonitor Patron = GetComponentInChildren<PatronStatusMonitor>();
-            if (Patron != null)
-            {
-                CurrentPatron = Patron.gameObject;
-                Patron.OnPatronLeaves += BarStoolEntry_OnPatronLeaves;
-                PatronPosition = Patron.transform.localPosition;
-            }
-            else
-            {
-                CurrentPatron = null;
-            }
         }
     }
 
