@@ -15,6 +15,9 @@ namespace AgonyBartender
 
         public float MaxRotation = 25.0f;
 
+        public float FallDistance = 200.0f;
+        public float FallSpeed = 50.0f;
+
         // Use this for initialization
         void Start()
         {
@@ -39,10 +42,30 @@ namespace AgonyBartender
                     yield return null;
                 }
 
+                if(FacialRotation > MaxRotation)
+                {
+                    for(float FellDistance = 0.0f; FellDistance <= FallDistance; FellDistance += FallSpeed * Time.deltaTime)
+                    {
+                        ImageComponent.transform.Translate(0.0f, -FallSpeed * Time.deltaTime, 0.0f);
+                        yield return null;
+                    }
+                    break;
+                }
+
                 for (float Rotation = FacialRotation; Rotation >= -FacialRotation; Rotation -= (FacialRotation / WobblePeriod) * Time.deltaTime)
                 {
                     ImageComponent.transform.rotation = Quaternion.Euler(0, 0, Rotation);
                     yield return null;
+                }
+
+                if (FacialRotation > MaxRotation)
+                {
+                    for (float FellDistance = 0.0f; FellDistance <= FallDistance; FellDistance += FallSpeed * Time.deltaTime)
+                    {
+                        ImageComponent.transform.Translate(0.0f, -FallSpeed * Time.deltaTime, 0.0f);
+                        yield return null;
+                    }
+                    break;
                 }
 
                 for (float Rotation = -FacialRotation; Rotation <= 0.0f; Rotation += (FacialRotation / WobblePeriod) * Time.deltaTime)
