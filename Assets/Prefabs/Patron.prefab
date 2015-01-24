@@ -160,6 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 024a85cc1e72c154797b25e452b55083, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  VolumeMultipler: .75
   VolumePow: .5
 --- !u!114 &11472754
 MonoBehaviour:
