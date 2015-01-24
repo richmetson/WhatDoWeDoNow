@@ -19,23 +19,25 @@ namespace AgonyBartender.Inventory.Editor
 
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
-            label = EditorGUI.BeginProperty(position, label, property);
-            property.isExpanded = EditorGUI.Foldout(position, property.isExpanded, label);
+            //label = EditorGUI.BeginProperty(position, label, property);
+            //property.isExpanded = EditorGUI.Foldout(new Rect(position) { height = RowHeight }, property.isExpanded, label);
 
-            if (property.isExpanded)
+            //if (property.isExpanded)
             {
-                EditorGUI.indentLevel++;
-                position.yMin += RowHeight;
-                position = EditorGUI.IndentedRect(position);
+                //EditorGUI.indentLevel++;
+                //position.yMin += RowHeight;
+                //position = EditorGUI.IndentedRect(position);
                 var widthProp = property.FindPropertyRelative("Width");
                 var heightProp = property.FindPropertyRelative("Height");
                 var cellsProp = property.FindPropertyRelative("Pattern");
 
+                EditorGUI.BeginChangeCheck();
                 EditorGUI.PropertyField(new Rect(position.xMin, position.yMin, position.width/2f, RowHeight), widthProp);
                 EditorGUI.PropertyField(
                     new Rect(position.xMin + position.width/2f, position.yMin, position.width/2f, RowHeight), heightProp);
 
                 cellsProp.arraySize = widthProp.intValue*heightProp.intValue;
+                if(EditorGUI.EndChangeCheck()) GUIUtility.ExitGUI();
 
                 var cellsRect = new Rect(position.xMin, position.yMin + RowHeight, position.width,
                     position.height - RowHeight);
@@ -54,8 +56,10 @@ namespace AgonyBartender.Inventory.Editor
                     }
                 }
 
-                EditorGUI.indentLevel--;
+                //EditorGUI.indentLevel--;
             }
+
+            //EditorGUI.EndProperty();
         }
     }
 
