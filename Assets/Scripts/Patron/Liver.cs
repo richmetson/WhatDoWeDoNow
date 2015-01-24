@@ -17,7 +17,8 @@ namespace AgonyBartender
 
 	    // Use this for initialization
 	    void Start () {
-            CurrentABV = StartingABV;
+            CurrentABV = 0.0f;
+            AdjustDrunkeness(StartingABV);
 	    }
 	
 	    // Update is called once per frame
