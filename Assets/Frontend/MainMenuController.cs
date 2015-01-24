@@ -13,7 +13,7 @@ namespace AgonyBartender.Frontend
 
         public void Credits()
         {
-            
+            GetComponent<Animator>().Play("ShowCredits");
         }
 
         public void Quit()
@@ -21,6 +21,10 @@ namespace AgonyBartender.Frontend
             Application.Quit();
         }
 
+        public void ExitCredits()
+        {
+            GetComponent<Animator>().Play("ExitCredits");
+        }
     }
 
 }
