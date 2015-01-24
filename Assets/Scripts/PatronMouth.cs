@@ -9,18 +9,14 @@ namespace AgonyBartender
 
 	    // Use this for initialization
 	    void Start () {
-	
+            SpeechBubble ProblemSpeech = gameObject.AddComponent<SpeechBubble>();
+            ProblemSpeech.SetText(PatronsProblem.ProblemString);
 	    }
 	
 	    // Update is called once per frame
 	    void Update () {
 	
 	    }
-
-        public void SetSpeechBox(GUIText TextBox)
-        {
-            TextBox.text = PatronsProblem.ProblemString;
-        }
 
         public void ReceieveResponse(Answer Solution)
         {
