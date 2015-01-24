@@ -13,9 +13,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PatronName: Thomas
   FaceSprites:
-  - {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 21300000, guid: 75275fb909d2bf249a60b60d00d451f2, type: 3}
-  - {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 21300000, guid: 5cafb0928cec7b1458f7e405f2403faa, type: 3}
+  - {fileID: 21300000, guid: 241f4b7afe47809419ebc864d9f61c59, type: 3}
+  - {fileID: 21300000, guid: c0c3bdabf6c3de940b9dda3d05a63c08, type: 3}
+  - {fileID: 21300000, guid: c0c3bdabf6c3de940b9dda3d05a63c08, type: 3}
   PatronsProblems:
   - {fileID: 11400000, guid: 4775f62a632b2b040a8c980969050132, type: 2}
