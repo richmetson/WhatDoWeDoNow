@@ -9,7 +9,6 @@ namespace AgonyBartender
 		public Problem[] PatronsProblems;
 
         public RangedFloat GapBetweenGulps;
-        public RangedFloat LengthOfGulp;
         public RangedFloat GulpMagnitude;
 
         public float AlcoholIntolerance = 0.5f;
