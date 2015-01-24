@@ -16,8 +16,14 @@ namespace AgonyBartender
             Satisfied
         }
 
+        public delegate void PatronLeaves();
+
+        public event PatronLeaves OnPatronLeaves;
+
         BeerHand BeerHand;
         Liver Liver;
+
+        bool HasStartedLeavingBar;
 
         Coroutine EmptyBeerCountdown;
 
@@ -27,6 +33,7 @@ namespace AgonyBartender
             BeerHand = gameObject.GetComponent<BeerHand>();
             Liver = gameObject.GetComponent<Liver>();
             EmptyBeerCountdown = null;
+            HasStartedLeavingBar = false;
         }
 
         // Update is called once per frame
@@ -69,8 +76,12 @@ namespace AgonyBartender
 
         public void LeaveBar(LeaveReason Reason)
         {
-            print("I'm off!");
-            StartCoroutine(LeaveSequence(Reason));
+            if (!HasStartedLeavingBar)
+            {
+                print("I'm off!");
+                HasStartedLeavingBar = true;
+                StartCoroutine(LeaveSequence(Reason));
+            }
         }
 
         IEnumerator LeaveSequence(LeaveReason Reason)
@@ -91,6 +102,11 @@ namespace AgonyBartender
             }
 
             yield return new WaitForSeconds(3.0f);
+
+            if(OnPatronLeaves != null)
+            {
+                OnPatronLeaves();
+            }
 
             GameObject.Destroy(gameObject);         
         }

@@ -1,4 +1,4 @@
-﻿using System;
+﻿
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -6,41 +6,14 @@ using UnityEngine.UI;
 
 namespace AgonyBartender
 {
-    
-    public class BarStoolEntry
-    {
-        public GameObject RootEntry { get; private set; }
-
-        bool IsActive;
-        
-        public BarStoolEntry(GameObject Root)
-        {
-            RootEntry = Root;
-            IsActive = false;
-        }
-
-        public void SwitchToBarStool()
-        {
-            IsActive = true;
-        }
-
-        public void SwitchFromBarStool()
-        {
-            IsActive = false;
-        }
-
-        public float GetCameraXPosition()
-        {
-            return RootEntry.transform.localPosition.x;
-        }
-    }
-
     public class BarManager : MonoBehaviour
     {
 
-        List<BarStoolEntry> BarStools;
-        BarStoolEntry CurrentBarStool;
+        List<BarStool> BarStools;
+        BarStool CurrentBarStool;
         int CurrentBarStoolIndex;
+
+        public RangedFloat EmptyStoolTime;
 
         public Transform LeftmostBarStool;
         public Transform RightmostBarStool;
@@ -48,6 +21,11 @@ namespace AgonyBartender
 
         public Button LeftButton;
         public Button RightButton;
+
+        public GameObject PatronPrefab;
+
+        public StandardProblemList StandardProblems;
+        public Patron[] PatronArchetypes;
 
         // Use this for initialization
         void Start()
@@ -60,7 +38,7 @@ namespace AgonyBartender
 
         public void SetBarLength(int numStools)
         {
-            if (numStools < 3) throw new ArgumentOutOfRangeException("numStools", numStools, "Must always have at least 3 bar stools");
+            if (numStools < 3) throw new System.ArgumentOutOfRangeException("numStools", numStools, "Must always have at least 3 bar stools");
 
             while (transform.childCount > numStools)
             {
@@ -75,14 +53,68 @@ namespace AgonyBartender
                 newStool.SetSiblingIndex(transform.childCount - 2);
             }
 
-            BarStools = new List<BarStoolEntry>();
+            BarStools = new List<BarStool>();
             for (int i = 0; i < transform.childCount; ++i)
             {
                 transform.GetChild(i).localPosition = new Vector3(i*StoolSpacing, 0, 0);
-                BarStools.Add(new BarStoolEntry(transform.GetChild(i).gameObject));
+                BarStool Entry = transform.GetChild(i).GetComponent<BarStool>();
+                Entry.OnPatronLeaves += Entry_OnPatronLeaves;
+                BarStools.Add(Entry);
             }
 
             MoveToBarStool(BarStools[0]);
+        }
+
+        void Entry_OnPatronLeaves(BarStool Entry)
+        {
+            print("Filling seat");
+            StartCoroutine(FillBarStool(Entry));
+        }
+
+
+        Patron ChoosePatron()
+        {
+            if (PatronArchetypes.Length == 0)
+            {
+                Debug.LogError("No patrons found, have you considered advertising?");
+                return null;
+            }
+
+            return PatronArchetypes[Random.Range(0, PatronArchetypes.Length)];
+        }
+
+        Problem ChooseProblem(Patron Patron)
+        {
+            int TotalLength = Patron.PatronsProblems.Length + StandardProblems.GlobalProblems.Count;
+
+            int ProblemIndex = Random.Range(0, TotalLength);
+
+            if(ProblemIndex >= Patron.PatronsProblems.Length)
+            {
+                return StandardProblems.GlobalProblems[ProblemIndex - Patron.PatronsProblems.Length];
+            }
+            else 
+            {
+                return Patron.PatronsProblems[ProblemIndex];
+            }
+        }
+
+        IEnumerator FillBarStool(BarStool Entry)
+        {
+            yield return new WaitForSeconds(EmptyStoolTime.PickRandom());
+
+            // Wait until we are not looking at the scene
+            while(Entry.IsActive)
+            {
+                yield return null;
+            }
+
+            GameObject NewPatron = (GameObject)Instantiate(PatronPrefab);
+            Patron ChosenPatron = ChoosePatron();
+            NewPatron.GetComponent<PatronDefinition>().Patron = ChoosePatron();
+            NewPatron.GetComponent<PatronDefinition>().SetProblem(ChooseProblem(ChosenPatron));
+
+            Entry.FillSeat(NewPatron);
         }
 
         public bool CanMoveLeft()
@@ -117,7 +149,7 @@ namespace AgonyBartender
             MoveToBarStool(BarStools[CurrentBarStoolIndex+1]);
         }
 
-        public void MoveToBarStool(BarStoolEntry NewBarStool)
+        public void MoveToBarStool(BarStool NewBarStool)
         {
             if(CurrentBarStool != null)
             {
@@ -138,8 +170,11 @@ namespace AgonyBartender
 
         public int GetStoolOffsetFromCurrent(Transform barStool)
         {
-            int index = BarStools.FindIndex(e => e.RootEntry == barStool.gameObject);
-
+            int index = BarStools.FindIndex(e => e.gameObject == barStool.gameObject);
+            if(index < 0)
+            {
+                Debug.LogError("Could not find " + barStool.gameObject);
+            }
             return index - CurrentBarStoolIndex;
         }
     }

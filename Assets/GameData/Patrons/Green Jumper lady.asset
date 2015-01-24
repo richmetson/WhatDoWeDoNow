@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db3dd099fbc03564c9e1fca79fc2c303, type: 3}
+  m_Name: Green Jumper lady
+  m_EditorClassIdentifier: 
+  PatronName: Thomas
+  FaceSprites:
+  - {fileID: 21300000, guid: 69df6678c7a4bcf4f88158bb74de336e, type: 3}
+  - {fileID: 21300000, guid: ec514b6b5358a4248926dc1dbd3331e0, type: 3}
+  - {fileID: 21300000, guid: dfa3ef6fea6812a4ab09928cfb68725f, type: 3}
+  - {fileID: 21300000, guid: dfa3ef6fea6812a4ab09928cfb68725f, type: 3}
+  PatronsProblems:
+  - {fileID: 11400000, guid: 4775f62a632b2b040a8c980969050132, type: 2}
+  GapBetweenGulps:
+    Min: 3
+    Max: 6
+  LengthOfGulp:
+    Min: 2
+    Max: 5
+  GulpMagnitude:
+    Min: .100000001
+    Max: .200000003
+  AlcoholIntolerance: .5

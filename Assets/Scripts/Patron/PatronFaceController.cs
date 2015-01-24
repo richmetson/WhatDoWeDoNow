@@ -35,7 +35,6 @@ namespace AgonyBartender
             Image ImageComponent = gameObject.GetComponent<Image>();
             while (true)
             {
-                print(FacialRotation);
                 for (float Rotation = 0.0f; Rotation <= FacialRotation; Rotation += (FacialRotation / WobblePeriod) * Time.deltaTime)
                 {
                     ImageComponent.transform.rotation = Quaternion.Euler(0, 0, Rotation);
