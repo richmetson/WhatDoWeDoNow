@@ -15,6 +15,8 @@ public class Drink : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPoi
 
     public float TopUpRate = 0.1f;
 
+    public float DrinkStrength = 0.1f;
+
     [SerializeField, Range(0, 1)] private float _level;
 
     public float Level

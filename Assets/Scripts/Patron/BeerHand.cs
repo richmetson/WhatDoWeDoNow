@@ -3,6 +3,7 @@ using System.Collections;
 namespace AgonyBartender
 {
     [RequireComponent(typeof(PatronDefinition))]
+    [RequireComponent(typeof(Liver))]
     public class BeerHand : MonoBehaviour
     {
         public Drink Beer;
@@ -35,7 +36,10 @@ namespace AgonyBartender
                     return;
                 }
 
-                Beer.Level = Beer.Level - 0.1f * Time.deltaTime;
+                float QuantityDrunk = 0.1f * Time.deltaTime;
+                Beer.Level = Beer.Level - QuantityDrunk;
+
+                gameObject.GetComponent<Liver>().AdjustDrunkeness(Beer.DrinkStrength * QuantityDrunk);
             }
         }
     }
