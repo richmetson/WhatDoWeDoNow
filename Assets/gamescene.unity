@@ -4411,7 +4411,7 @@ Prefab:
         type: 3}
     - target: {fileID: 22466134, guid: 97b2327b260dfeb46b360213e6c2f627, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22466134, guid: 97b2327b260dfeb46b360213e6c2f627, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -5896,7 +5896,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1871100302
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6679,7 +6679,7 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: .5, y: 0}
   m_AnchorMax: {x: .5, y: 0}
-  m_AnchoredPosition: {x: 11, y: -334}
+  m_AnchoredPosition: {x: 11, y: -200}
   m_SizeDelta: {x: 1300, y: 780}
   m_Pivot: {x: .5, y: 0}
 --- !u!114 &2127921170
@@ -6736,3 +6736,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Animator: {fileID: 2127921172}
+  RaycastCenterPoint: {x: 0, y: 447.649994}
+  RaycastCenterScale: {x: 400, y: 300}
