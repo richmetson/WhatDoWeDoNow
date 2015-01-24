@@ -8,7 +8,7 @@ namespace AgonyBartender.Frontend
     {
         public void StartGame()
         {
-            
+            Application.LoadLevel("gamescene");
         }
 
         public void Credits()
