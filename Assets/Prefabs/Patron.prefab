@@ -11,6 +11,8 @@ GameObject:
   - 222: {fileID: 22200506}
   - 114: {fileID: 11400508}
   - 114: {fileID: 11400506}
+  - 114: {fileID: 11410156}
+  - 114: {fileID: 11410158}
   m_Layer: 5
   m_Name: Patron
   m_TagString: Untagged
@@ -29,7 +31,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8a8ec981060fb14c825cdc1ca6cd796, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PatronsProblem: {fileID: 11400000, guid: 4775f62a632b2b040a8c980969050132, type: 2}
   ProblemSpeech: {fileID: 0}
   TimeBeforeSpeaking:
     Min: 3
@@ -58,6 +59,29 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11410156
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d922fb4ff1c13b5449b7e74f955e721a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Patron: {fileID: 11400000, guid: 3fcc8fdd52cd35d488ebcf46e38e0a20, type: 2}
+--- !u!114 &11410158
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c9eaec50f337445a4eeb18acc3d0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &22200506
 CanvasRenderer:
   m_ObjectHideFlags: 1
