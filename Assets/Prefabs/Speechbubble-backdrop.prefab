@@ -28,6 +28,7 @@ GameObject:
   - 224: {fileID: 22452840}
   - 222: {fileID: 22252840}
   - 114: {fileID: 11452842}
+  - 114: {fileID: 11442722}
   m_Layer: 5
   m_Name: OverheardConversation
   m_TagString: Untagged
@@ -35,6 +36,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &11442722
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 152840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1da03a21913817e4c8ed9472b6e8c7f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11452838
 MonoBehaviour:
   m_ObjectHideFlags: 1
