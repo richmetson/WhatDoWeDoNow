@@ -578,6 +578,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 310396485}
+  - 114: {fileID: 310396486}
   m_Layer: 5
   m_Name: BarPositionRightmost
   m_TagString: Untagged
@@ -609,6 +610,21 @@ RectTransform:
   m_AnchoredPosition: {x: 4229, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: .5, y: .5}
+--- !u!114 &310396486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 310396484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0127fa7017de28741963bc489a18ef62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BackgroundSpeech: {fileID: 1132943599}
+  PatronSpeech: {fileID: 1807299787}
+  Drink: {fileID: 533109999}
+  PatronPosition: {x: 626, y: -413, z: 0}
 --- !u!1 &319336458
 GameObject:
   m_ObjectHideFlags: 0
@@ -5528,6 +5544,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 1791043342}
+  - 114: {fileID: 1791043343}
   m_Layer: 5
   m_Name: BarPosition2
   m_TagString: Untagged
@@ -5559,6 +5576,21 @@ RectTransform:
   m_AnchoredPosition: {x: 2134, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: .5, y: .5}
+--- !u!114 &1791043343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1791043341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0127fa7017de28741963bc489a18ef62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BackgroundSpeech: {fileID: 1618521028}
+  PatronSpeech: {fileID: 1449206691}
+  Drink: {fileID: 1474168706}
+  PatronPosition: {x: 626, y: -413, z: 0}
 --- !u!1 &1807299785
 GameObject:
   m_ObjectHideFlags: 0
