@@ -24,11 +24,6 @@ namespace AgonyBartender
 
         public void OnFaceChanged(ProblemSolutionFacialExpression NewExpression)
         {
-            if(NewExpression == ProblemSolutionFacialExpression.FacialExpressionCount)
-            {
-                Debug.LogError("Invalid facial expression");
-            }
-
             PatronDefinition Patron = gameObject.GetComponent<PatronDefinition>();
             Sprite NewFace = Patron.Patron.FaceSprites[(int)NewExpression];
 

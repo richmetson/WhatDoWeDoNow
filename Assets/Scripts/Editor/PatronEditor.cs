@@ -31,6 +31,7 @@ namespace AgonyBartender.Editor
 
 	    public override void OnInspectorGUI()
 	    {
+            serializedObject.Update();
 	        EditorGUILayout.PropertyField(_patronName);
 
 	        for (int i = 0; i < _faceSpritesArray.arraySize; ++i)
@@ -40,6 +41,7 @@ namespace AgonyBartender.Editor
 	        }
 
 	        EditorGUILayout.PropertyField(_problemsArray, true);
+	        serializedObject.ApplyModifiedProperties();
 	    }
 	}
 }

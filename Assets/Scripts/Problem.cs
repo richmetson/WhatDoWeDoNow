@@ -9,10 +9,7 @@ namespace AgonyBartender
         NeutralResponse = 0, 
         HappyResponse,
         AngryResponse,
-        ConfusedResponse,
-
-        FacialExpressionCount
-
+        ConfusedResponse
     }
 
     [System.Serializable]
