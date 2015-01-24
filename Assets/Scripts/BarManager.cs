@@ -103,6 +103,12 @@ namespace AgonyBartender
         {
             yield return new WaitForSeconds(EmptyStoolTime.PickRandom());
 
+            // Wait until we are not looking at the scene
+            while(Entry.IsActive)
+            {
+                yield return null;
+            }
+
             GameObject NewPatron = (GameObject)Instantiate(PatronPrefab);
             Patron ChosenPatron = ChoosePatron();
             NewPatron.GetComponent<PatronDefinition>().Patron = ChoosePatron();

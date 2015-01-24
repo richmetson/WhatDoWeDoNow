@@ -8,31 +8,17 @@ namespace AgonyBartender
         public SpeechBubble PatronSpeech;
         public Drink Drink;
 
-        bool IsActive;
+        public bool IsActive
+        {
+            get;
+            private set;
+        }
         bool HasPatron;
         public Vector3 PatronPosition;
 
         public delegate void PatronLeaves(BarStool Entry);
 
         public event PatronLeaves OnPatronLeaves;
-
-        /*public BarStool(GameObject Root)
-        {
-            RootEntry = Root;
-            IsActive = false;
-            PatronStatusMonitor Patron = Root.GetComponentInChildren<PatronStatusMonitor>();
-            if (Patron != null)
-            {
-                HasPatron = true;
-                Patron.OnPatronLeaves += BarStoolEntry_OnPatronLeaves;
-                PatronPosition = Patron.transform.localPosition;
-            }
-            else
-            {
-                HasPatron = false;
-                PatronPosition = new Vector3(626, -413);
-            }
-        }*/
 
         void BarStoolEntry_OnPatronLeaves()
         {
@@ -78,8 +64,6 @@ namespace AgonyBartender
         // Use this for initialization
         void Start()
         {
-            IsActive = false;
-
             PatronStatusMonitor Patron = GetComponentInChildren<PatronStatusMonitor>();
             if (Patron != null)
             {
@@ -98,7 +82,6 @@ namespace AgonyBartender
         {
 
         }
-
     }
 
 }
