@@ -22,7 +22,7 @@ namespace AgonyBartender
             }
             else
             {
-                int RandomProblemIndex = Random.Range(0, PatronsProblems.Length - 1);
+                int RandomProblemIndex = Random.Range(0, PatronsProblems.Length);
                 return PatronsProblems[RandomProblemIndex];
             }
         }

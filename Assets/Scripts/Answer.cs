@@ -6,6 +6,6 @@ namespace AgonyBartender
     {
         public string DisplayName;
         public Sprite Sprite;
-        public int Weight;
+        public Inventory.InventoryPattern Pattern;
     }
 }
