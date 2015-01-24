@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemPrefab: {fileID: 11476220, guid: 21d62205ade3b624b8cd1eee30d40d64, type: 2}
-  CellSize: {x: 50, y: 50}
+  CellSize: {x: 75, y: 75}
   ItemSource: {fileID: 0}
   InventoryShape:
     Width: 8

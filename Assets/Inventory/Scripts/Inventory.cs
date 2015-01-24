@@ -60,7 +60,7 @@ namespace AgonyBartender.Inventory
             var localRect = RectTransformUtility.CalculateRelativeRectTransformBounds(transform, cursor);
 
             int column = Mathf.RoundToInt(localRect.min.x/CellSize.x);
-            int row = -Mathf.RoundToInt(localRect.min.y/CellSize.y) - 1;
+            int row = -Mathf.RoundToInt(localRect.max.y/CellSize.y);
 
             if (!CanPlaceItemAt(source.ItemInfo.Pattern, row, column))
                 return;
@@ -157,6 +157,11 @@ namespace AgonyBartender.Inventory
         {
             if (_itemCursor)
                 Destroy(_itemCursor.gameObject);
+        }
+
+        public Color32 GetHighlightAt(int x, int y)
+        {
+            return new Color32(255, 255, 255, 255);
         }
     }
 

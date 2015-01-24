@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Events;
 
 public class Clock : MonoBehaviour {
 
@@ -17,14 +18,11 @@ public class Clock : MonoBehaviour {
 
     public float GameDuration = 120.0f;
 
-    public delegate void TimeUp();
-
-    public event TimeUp OnTimeUp;
+    public UnityEvent OnShiftEnded;
 
     System.DateTime CurrentTime;
 
-	// Use this for initialization
-	void Start () {
+	public void ResetClock () {
         StartTime = new System.DateTime(2015, 1, 23, StartHour, StartMinute, 0);
         if (EndHour < StartHour)
         {
@@ -48,10 +46,7 @@ public class Clock : MonoBehaviour {
 
         if(CurrentTime >= EndTime)
         {
-            if(OnTimeUp != null)
-            {
-                OnTimeUp();
-            }
+            OnShiftEnded.Invoke();
         }
 
         UpdateClock(CurrentTime);
@@ -65,11 +60,12 @@ public class Clock : MonoBehaviour {
 
     float GetHourRotation(System.DateTime Time)
     {
-        int Hour = Time.Hour;
+        float Hour = Time.Hour;
         if(Hour > 12)
         {
             Hour -= 12;
         }
+        Hour += Time.Minute/60f;
         return 360.0f * (-Hour / 12.0f);
     }
 
