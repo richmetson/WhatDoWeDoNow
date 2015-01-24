@@ -32,5 +32,10 @@ namespace AgonyBartender
 
             gameObject.SendMessage("OnDrunkennessAdjusted", CurrentABV, SendMessageOptions.DontRequireReceiver);
         }
+
+        public float GetCurrentABV()
+        {
+            return CurrentABV;
+        }
     }
 }

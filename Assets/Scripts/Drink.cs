@@ -32,6 +32,14 @@ namespace AgonyBartender
             }
         }
 
+        public bool IsEmpty
+        {
+            get
+            {
+                return Level == 0.0f;
+            }
+        }
+        
         public void Update()
         {
             SyncSprites();
