@@ -5,6 +5,7 @@ namespace AgonyBartender
 	public class Patron : ScriptableObject
 	{
 		public string PatronName;
+	    public float DifficultyRating;
         public Sprite[] FaceSprites;
 		public Problem[] PatronsProblems;
 

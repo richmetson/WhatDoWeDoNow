@@ -14,8 +14,6 @@ namespace AgonyBartender
         BarStool CurrentBarStool;
         int CurrentBarStoolIndex;
 
-        public RangedFloat EmptyStoolTime;
-
         public Transform LeftmostBarStool;
         public Transform RightmostBarStool;
         public Transform FirstMidBarStool;
@@ -26,7 +24,6 @@ namespace AgonyBartender
         public GameObject PatronPrefab;
 
         public StandardProblemList StandardProblems;
-        public Patron[] PatronArchetypes;
 
         public float StoolSpacing = 2500;
 
@@ -62,24 +59,13 @@ namespace AgonyBartender
                 Destroy(defn.gameObject);
         }
 
-        Patron ChoosePatron()
-        {
-            if (PatronArchetypes.Length == 0)
-            {
-                Debug.LogError("No patrons found, have you considered advertising?");
-                return null;
-            }
-
-            return PatronArchetypes[Random.Range(0, PatronArchetypes.Length)];
-        }
-
         Problem ChooseProblem(Patron Patron)
         {
             var problems = Patron.PatronsProblems.Concat(StandardProblems.GlobalProblems).ToArray();
             return problems[Random.Range(0, problems.Length)]; 
         }
 
-        public void FillBarStool()
+        public void FillBarStool(Patron patron)
         {
             var candidateStools = BarStools.Where(s => !s.IsActive && !s.CurrentPatron).ToArray();
             
@@ -88,18 +74,10 @@ namespace AgonyBartender
             var stool = candidateStools[Random.Range(0, candidateStools.Length)];
 
             GameObject NewPatron = (GameObject)Instantiate(PatronPrefab);
-            Patron ChosenPatron = ChoosePatron();
-            NewPatron.GetComponent<PatronDefinition>().Patron = ChoosePatron();
-            NewPatron.GetComponent<PatronDefinition>().SetProblem(ChooseProblem(ChosenPatron));
+            NewPatron.GetComponent<PatronDefinition>().Patron = patron;
+            NewPatron.GetComponent<PatronDefinition>().SetProblem(ChooseProblem(patron));
 
             stool.CurrentPatron = NewPatron;
-
-            ScheduleNewPatron();
-        }
-
-        public void ScheduleNewPatron()
-        {
-            Invoke("FillBarStool", EmptyStoolTime.PickRandom());
         }
 
         public bool CanMoveLeft()

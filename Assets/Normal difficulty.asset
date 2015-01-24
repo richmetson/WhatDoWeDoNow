@@ -51,3 +51,78 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+  MinPatronDifficulty:
+    serializedVersion: 2
+    m_Curve:
+    - time: .00180505391
+      value: -.00234174728
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 10.0056143
+      value: .299264729
+      inSlope: .102679759
+      outSlope: .102679759
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  MaxPatronDifficulty:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: .302107692
+      inSlope: .069789499
+      outSlope: .209853664
+      tangentMode: 1
+    - time: 9.99999714
+      value: 1.0000025
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  MinTimeForNewPatron:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 3.99458551
+      inSlope: -.399205625
+      outSlope: -.399205625
+      tangentMode: 10
+    - time: 10.0029449
+      value: .00135362148
+      inSlope: -.399205625
+      outSlope: -.399205625
+      tangentMode: 10
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  MaxTimeForNewPatron:
+    serializedVersion: 2
+    m_Curve:
+    - time: .00225733616
+      value: 8.02221775
+      inSlope: -.706436038
+      outSlope: -.706436038
+      tangentMode: 10
+    - time: 9.98168564
+      value: .972390413
+      inSlope: -.706436038
+      outSlope: -.706436038
+      tangentMode: 10
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  ShiftLength:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 30.0618267
+      inSlope: 27.0742874
+      outSlope: 27.0742874
+      tangentMode: 10
+    - time: 9.99137211
+      value: 300.571106
+      inSlope: 27.0742874
+      outSlope: 27.0742874
+      tangentMode: 10
+    m_PreInfinity: 2
+    m_PostInfinity: 2

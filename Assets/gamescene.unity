@@ -3063,6 +3063,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BarManager: {fileID: 1172516970}
   Difficulty: {fileID: 11400000, guid: e6b27e0a2610bb040a041f8d10503223, type: 2}
+  PatronArchetypes:
+  - {fileID: 11400000, guid: 3fcc8fdd52cd35d488ebcf46e38e0a20, type: 2}
+  - {fileID: 11400000, guid: 5a1b18534783bfc4398e574138ac2c69, type: 2}
+  - {fileID: 11400000, guid: 644f90da084924146a46b3b84b4b1416, type: 2}
 --- !u!4 &1167317112
 Transform:
   m_ObjectHideFlags: 0
