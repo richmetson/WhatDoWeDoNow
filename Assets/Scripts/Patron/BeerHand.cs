@@ -4,7 +4,7 @@ namespace AgonyBartender
 {
     [RequireComponent(typeof(PatronDefinition))]
     [RequireComponent(typeof(Liver))]
-    public class BeerHand : MonoBehaviour
+    public class BeerHand : MonoBehaviour, IAlchoholAffectedSystem
     {
         public Drink Beer;
 
@@ -40,6 +40,15 @@ namespace AgonyBartender
                 Beer.Level = Beer.Level - QuantityDrunk;
 
                 gameObject.GetComponent<Liver>().AdjustDrunkeness(Beer.DrinkStrength * (OldBeerLevel - Beer.Level));
+            }
+        }
+
+        public void OnDrunkennessAdjusted(float ABV)
+        {
+            if(ABV >= 1.0f)
+            {
+                StopCoroutine("Start");
+                IsDrinking = false;
             }
         }
     }
