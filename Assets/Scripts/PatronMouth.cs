@@ -71,14 +71,22 @@ namespace AgonyBartender
                 Expression = ProblemSolutionFacialExpression.ConfusedResponse;
                 Score = 0;
             }
+
+            GetComponent<PatronFaceController>().OnFaceChanged(Expression);
         }
 
         public void OnDrop(PointerEventData eventData)
         {
-            Inventory.InventoryItem Item = eventData.selectedObject.GetComponent<Inventory.InventoryItem>();
-            if(Item != null)
+            if (eventData.pointerDrag)
             {
-                ReceieveResponse(Item.ItemInfo);
+                // This doesn't feel like a good way of doing this, bht the GO being dragged seems to get destroyed
+                // before we can read out a component from it
+                Inventory.Inventory Inventory = eventData.pointerDrag.GetComponent<Inventory.Inventory>();
+                if (Inventory != null)
+                {
+                    Answer SelectedAnswer = Inventory.GetSelectedItem();
+                    ReceieveResponse(SelectedAnswer);
+                }
             }
         }
     }

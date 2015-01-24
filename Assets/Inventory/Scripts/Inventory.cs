@@ -13,6 +13,8 @@ namespace AgonyBartender.Inventory
 
         private List<InventoryItem> _items;
 
+        private InventoryItem CurrentDraggingItem;
+
         public void Awake()
         {
             _items = new List<InventoryItem>();
@@ -39,6 +41,11 @@ namespace AgonyBartender.Inventory
             AddItemToInventory(source.ItemInfo);
         }
 
+        public Answer GetSelectedItem()
+        {
+            return CurrentDraggingItem.ItemInfo;
+        }
+
         public Image ItemCursorPrefab;
 
         private Image _itemCursor;
@@ -63,6 +70,8 @@ namespace AgonyBartender.Inventory
             _itemCursor = (Image)Instantiate(ItemCursorPrefab);
             _itemCursor.sprite = item.ItemInfo.Sprite;
             _itemCursor.transform.SetParent(transform.root);
+
+            CurrentDraggingItem = item;
 
             SyncCursorPos(eventData);
         }

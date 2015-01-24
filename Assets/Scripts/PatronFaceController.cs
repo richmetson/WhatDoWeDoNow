@@ -22,7 +22,7 @@ namespace AgonyBartender
 
         }
 
-        void OnFaceChanged(ProblemSolutionFacialExpression NewExpression)
+        public void OnFaceChanged(ProblemSolutionFacialExpression NewExpression)
         {
             if(NewExpression == ProblemSolutionFacialExpression.FacialExpressionCount)
             {
