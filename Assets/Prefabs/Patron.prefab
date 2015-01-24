@@ -82,6 +82,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5c9eaec50f337445a4eeb18acc3d0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WobblePeriod: 1.5
+  MaxRotation: 25
 --- !u!222 &22200506
 CanvasRenderer:
   m_ObjectHideFlags: 1
