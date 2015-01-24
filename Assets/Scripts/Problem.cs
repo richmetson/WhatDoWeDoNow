@@ -6,8 +6,8 @@ namespace AgonyBartender
 {
     public enum ProblemSolutionFacialExpression
     {
-        HappyResponse = 0,
-        NeutralResponse, 
+        NeutralResponse = 0, 
+        HappyResponse,
         AngryResponse,
         ConfusedResponse,
 
