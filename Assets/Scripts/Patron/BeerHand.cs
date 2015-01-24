@@ -8,20 +8,17 @@ namespace AgonyBartender
     {
         public Drink Beer;
 
-        public RangedFloat GapBetweenGulps;
-        public RangedFloat LengthOfGulp;
-        public RangedFloat GulpMagnitude;
-
         bool IsDrinking;
 
         // Use this for initialization
         IEnumerator Start()
         {
+            Patron Patron = gameObject.GetComponent<PatronDefinition>().Patron;
             while (true)
             {
-                yield return new WaitForSeconds(GapBetweenGulps.PickRandom());
+                yield return new WaitForSeconds(Patron.GapBetweenGulps.PickRandom());
                 IsDrinking = true;
-                yield return new WaitForSeconds(LengthOfGulp.PickRandom());
+                yield return new WaitForSeconds(Patron.LengthOfGulp.PickRandom());
                 IsDrinking = false;
             }
         }
@@ -37,7 +34,8 @@ namespace AgonyBartender
                     return;
                 }
 
-                float QuantityDrunk = GulpMagnitude.PickRandom() * Time.deltaTime;
+                Patron Patron = gameObject.GetComponent<PatronDefinition>().Patron;
+                float QuantityDrunk = Patron.GulpMagnitude.PickRandom() * Time.deltaTime;
                 Beer.Level = Beer.Level - QuantityDrunk;
 
                 gameObject.GetComponent<Liver>().AdjustDrunkeness(Beer.DrinkStrength * QuantityDrunk);

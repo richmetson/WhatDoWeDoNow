@@ -28,7 +28,7 @@ namespace AgonyBartender
 
         public void AdjustDrunkeness(float DeltaDrunkeness)
         {
-            CurrentABV += DeltaDrunkeness;
+            CurrentABV += DeltaDrunkeness * gameObject.GetComponent<PatronDefinition>().Patron.AlcoholIntolerance;
 
             gameObject.SendMessage("OnDrunkennessAdjusted", CurrentABV, SendMessageOptions.DontRequireReceiver);
         }
