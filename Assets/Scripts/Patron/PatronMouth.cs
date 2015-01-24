@@ -30,25 +30,33 @@ namespace AgonyBartender
             SpeakProblem();
         }
 
-        void SpeakProblem()
+        public void Say(string Text)
         {
             if (ProblemSpeech == null)
             {
-                print("Could not find speech bubble");
+                Debug.LogError("Could not find speech bubble");
                 return;
             }
 
-            
-
-            Problem ActiveProblem = PatronDefinition.GetActiveProblem();
             ProblemSpeech.gameObject.SetActive(true);
-            ProblemSpeech.SetText(ActiveProblem.ProblemString);
+            ProblemSpeech.SetText(Text);
+        }
+
+        void SpeakProblem()
+        {
+            Problem ActiveProblem = PatronDefinition.GetActiveProblem();
+            Say(ActiveProblem.ProblemString);
         }
 	
 	    // Update is called once per frame
 	    void Update () {
 	
 	    }
+
+        void OnDestroy()
+        {
+            ProblemSpeech.gameObject.SetActive(false);
+        }
 
         public void ReceieveResponse(Answer Solution)
         {

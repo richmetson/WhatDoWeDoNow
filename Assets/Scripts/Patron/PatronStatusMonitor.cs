@@ -6,8 +6,16 @@ namespace AgonyBartender
     [RequireComponent(typeof(BeerHand))]
     [RequireComponent(typeof(Liver))]
     [RequireComponent(typeof(PatronDefinition))]
+    [RequireComponent(typeof(PatronMouth))]
     public class PatronStatusMonitor : MonoBehaviour
     {
+        public enum LeaveReason
+        {
+            PassedOut,
+            Bored,
+            Satisfied
+        }
+
         BeerHand BeerHand;
         Liver Liver;
 
@@ -26,7 +34,7 @@ namespace AgonyBartender
         {
             if(Liver.GetCurrentABV() >= 1.0f)
             {
-                LeaveBar();
+                LeaveBar(LeaveReason.PassedOut);
             }
 
             if(EmptyBeerCountdown == null && BeerHand.Beer.IsEmpty)
@@ -55,14 +63,36 @@ namespace AgonyBartender
                 }
             }
 
-            LeaveBar();
+            LeaveBar(LeaveReason.Bored);
             yield break;
         }
 
-        public void LeaveBar()
+        public void LeaveBar(LeaveReason Reason)
         {
             print("I'm off!");
-            // todo
+            StartCoroutine(LeaveSequence(Reason));
+        }
+
+        IEnumerator LeaveSequence(LeaveReason Reason)
+        {
+            switch (Reason)
+            {
+                case LeaveReason.PassedOut:
+                    gameObject.GetComponent<PatronMouth>().Say("Zzzz...");
+                    break;
+                case LeaveReason.Bored:
+                    gameObject.GetComponent<PatronMouth>().Say("Err, thanks for nothing");
+                    break;
+                case LeaveReason.Satisfied:
+                    gameObject.GetComponent<PatronMouth>().Say("Cheers, have a good one");
+                    break;
+                default:
+                    break;
+            }
+
+            yield return new WaitForSeconds(3.0f);
+
+            GameObject.Destroy(gameObject);         
         }
     }
 }
