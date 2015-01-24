@@ -15,6 +15,7 @@ GameObject:
   - 114: {fileID: 11410158}
   - 114: {fileID: 11498640}
   - 114: {fileID: 11499658}
+  - 114: {fileID: 11472754}
   m_Layer: 5
   m_Name: Patron
   m_TagString: Untagged
@@ -88,6 +89,17 @@ MonoBehaviour:
   MaxRotation: 25
   FallDistance: 200
   FallSpeed: 50
+--- !u!114 &11472754
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbeaa712d0dbda34c983ddfa4bd37007, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11498640
 MonoBehaviour:
   m_ObjectHideFlags: 1
