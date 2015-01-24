@@ -1,5 +1,8 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 using System.Collections;
+using UnityEngine.Events;
+using UnityEngine.SocialPlatforms;
 
 namespace AgonyBartender
 {
@@ -9,33 +12,34 @@ namespace AgonyBartender
     }
 
     [RequireComponent(typeof(PatronDefinition))]
-    public class Liver : MonoBehaviour {
+    public class Liver : MonoBehaviour
+    {
+
+        private IAlchoholAffectedSystem[] _affectedSystems;
 
         public float StartingABV;
 
-        float CurrentABV;
+        [SerializeField] private float _currentAbv;
 
 	    // Use this for initialization
-	    void Start () {
-            CurrentABV = 0.0f;
+	    void Start ()
+	    {
+            _affectedSystems = GetComponents(typeof(IAlchoholAffectedSystem)).Cast<IAlchoholAffectedSystem>().ToArray();
+            _currentAbv = 0.0f;
             AdjustDrunkeness(StartingABV);
 	    }
-	
-	    // Update is called once per frame
-	    void Update () {
-	
-	    }
 
-        public void AdjustDrunkeness(float DeltaDrunkeness)
+        public UnityEvent OnLiverFailed;
+
+        public void AdjustDrunkeness(float deltaDrunkeness)
         {
-            CurrentABV += DeltaDrunkeness * gameObject.GetComponent<PatronDefinition>().Patron.AlcoholIntolerance;
+            _currentAbv += deltaDrunkeness * gameObject.GetComponent<PatronDefinition>().Patron.AlcoholIntolerance;
 
-            gameObject.SendMessage("OnDrunkennessAdjusted", CurrentABV, SendMessageOptions.DontRequireReceiver);
-        }
+            if (_currentAbv >= 1f)
+                OnLiverFailed.Invoke();
 
-        public float GetCurrentABV()
-        {
-            return CurrentABV;
+            foreach (var system in _affectedSystems)
+                system.OnDrunkennessAdjusted(_currentAbv);
         }
     }
 }

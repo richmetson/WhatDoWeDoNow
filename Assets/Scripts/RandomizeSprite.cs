@@ -10,7 +10,7 @@ namespace AgonyBartender
 
         public void OnEnable()
         {
-            Target.sprite = Sprites[Random.Range(0, Sprites.Length)];
+            Target.sprite = Sprites.Random();
         }
     }
 

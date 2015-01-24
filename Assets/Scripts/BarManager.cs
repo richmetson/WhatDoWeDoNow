@@ -1,4 +1,5 @@
 ﻿
+using System.Linq;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,8 +14,6 @@ namespace AgonyBartender
         BarStool CurrentBarStool;
         int CurrentBarStoolIndex;
 
-        public RangedFloat EmptyStoolTime;
-
         public Transform LeftmostBarStool;
         public Transform RightmostBarStool;
         public Transform FirstMidBarStool;
@@ -25,14 +24,6 @@ namespace AgonyBartender
         public GameObject PatronPrefab;
 
         public StandardProblemList StandardProblems;
-        public Patron[] PatronArchetypes;
-
-        // Use this for initialization
-        void Start()
-        {
-            CurrentBarStool = null;
-            SetBarLength(7);
-        }
 
         public float StoolSpacing = 2500;
 
@@ -58,63 +49,29 @@ namespace AgonyBartender
             {
                 transform.GetChild(i).localPosition = new Vector3(i*StoolSpacing, 0, 0);
                 BarStool Entry = transform.GetChild(i).GetComponent<BarStool>();
-                Entry.OnPatronLeaves += Entry_OnPatronLeaves;
                 BarStools.Add(Entry);
             }
-
-            MoveToBarStool(BarStools[0]);
         }
 
-        void Entry_OnPatronLeaves(BarStool Entry)
+        public void DeletePatrons()
         {
-            print("Filling seat");
-            StartCoroutine(FillBarStool(Entry));
+            foreach(var defn in GetComponentsInChildren<PatronDefinition>())
+                Destroy(defn.gameObject);
         }
 
-
-        Patron ChoosePatron()
+        public void FillBarStool(Patron patron, Problem problem)
         {
-            if (PatronArchetypes.Length == 0)
-            {
-                Debug.LogError("No patrons found, have you considered advertising?");
-                return null;
-            }
+            var candidateStools = BarStools.Where(s => !s.IsActive && !s.CurrentPatron).ToArray();
+            
+            if (candidateStools.Length == 0) return;
 
-            return PatronArchetypes[Random.Range(0, PatronArchetypes.Length)];
-        }
-
-        Problem ChooseProblem(Patron Patron)
-        {
-            int TotalLength = Patron.PatronsProblems.Length + StandardProblems.GlobalProblems.Count;
-
-            int ProblemIndex = Random.Range(0, TotalLength);
-
-            if(ProblemIndex >= Patron.PatronsProblems.Length)
-            {
-                return StandardProblems.GlobalProblems[ProblemIndex - Patron.PatronsProblems.Length];
-            }
-            else 
-            {
-                return Patron.PatronsProblems[ProblemIndex];
-            }
-        }
-
-        IEnumerator FillBarStool(BarStool Entry)
-        {
-            yield return new WaitForSeconds(EmptyStoolTime.PickRandom());
-
-            // Wait until we are not looking at the scene
-            while(Entry.IsActive)
-            {
-                yield return null;
-            }
+            var stool = candidateStools.Random();
 
             GameObject NewPatron = (GameObject)Instantiate(PatronPrefab);
-            Patron ChosenPatron = ChoosePatron();
-            NewPatron.GetComponent<PatronDefinition>().Patron = ChoosePatron();
-            NewPatron.GetComponent<PatronDefinition>().SetProblem(ChooseProblem(ChosenPatron));
+            NewPatron.GetComponent<PatronDefinition>().Patron = patron;
+            NewPatron.GetComponent<PatronDefinition>().ActiveProblem = problem;
 
-            Entry.FillSeat(NewPatron);
+            stool.CurrentPatron = NewPatron;
         }
 
         public bool CanMoveLeft()
@@ -149,11 +106,22 @@ namespace AgonyBartender
             MoveToBarStool(BarStools[CurrentBarStoolIndex+1]);
         }
 
+        public void MoveToBarStool(int index)
+        {
+            MoveToBarStool(BarStools[index]);
+        }
+
         public void MoveToBarStool(BarStool NewBarStool)
         {
             if(CurrentBarStool != null)
             {
                 CurrentBarStool.SwitchFromBarStool();
+            }
+
+            if (NewBarStool == null)
+            {
+                CurrentBarStool = null;
+                return;
             }
 
             NewBarStool.SwitchToBarStool();
