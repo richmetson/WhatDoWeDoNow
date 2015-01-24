@@ -8,12 +8,11 @@ namespace AgonyBartender
     public class Bystander : MonoBehaviour
     {
         public SpeechBubble SpeechBubble;
+        public InventoryItemSource ItemSource;
         public OverheardConversation[] ConversationSnippets;
 
         public RangedFloat TimeBeforeSpeaking;
         public RangedFloat TimeToSpeak;
-
-        public Answer CurrentAnswer { get; private set; }
         
         public IEnumerator Start()
         {
@@ -27,13 +26,12 @@ namespace AgonyBartender
 
                 SpeechBubble.gameObject.SetActive(true);
                 SpeechBubble.SetText(snippet.Text);
-
-                CurrentAnswer = snippet.AnswerDelivered;
+                ItemSource.ItemInfo = snippet.AnswerDelivered;
 
                 yield return new WaitForSeconds(TimeToSpeak.PickRandom());
 
                 SpeechBubble.gameObject.SetActive(false);
-                CurrentAnswer = null;
+                ItemSource.ItemInfo = null;
             }
         }
     }
