@@ -1,21 +1,23 @@
-﻿using AgonyBartender;
-using UnityEngine;
-using System.Collections;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
-public class InventoryItem : MonoBehaviour
+namespace AgonyBartender.Inventory
 {
-    private Answer _itemInfo;
-    public Answer ItemInfo
+    public class InventoryItem : MonoBehaviour
     {
-        get { return _itemInfo; }
-        set
+        public Image Icon;
+        public Text Name;
+        private Answer _itemInfo;
+
+        public Answer ItemInfo
         {
-            _itemInfo = value;
-            Icon.sprite = _itemInfo.Sprite;
-            Name.text = _itemInfo.DisplayName;
+            get { return _itemInfo; }
+            set
+            {
+                _itemInfo = value;
+                Icon.sprite = _itemInfo.Sprite;
+                Name.text = _itemInfo.DisplayName;
+            }
         }
     }
-
-    public UnityEngine.UI.Image Icon;
-    public UnityEngine.UI.Text Name;
 }
