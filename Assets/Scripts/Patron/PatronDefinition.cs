@@ -19,6 +19,11 @@ namespace AgonyBartender
 
             return ActiveProblem;
         }
+
+        public void SetProblem(Problem Problem)
+        {
+            ActiveProblem = Problem;
+        }
     }
 
 }

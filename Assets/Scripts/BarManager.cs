@@ -1,4 +1,4 @@
-﻿using System;
+﻿
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -24,6 +24,9 @@ namespace AgonyBartender
 
         public GameObject PatronPrefab;
 
+        public StandardProblemList StandardProblems;
+        public Patron[] PatronArchetypes;
+
         // Use this for initialization
         void Start()
         {
@@ -35,7 +38,7 @@ namespace AgonyBartender
 
         public void SetBarLength(int numStools)
         {
-            if (numStools < 3) throw new ArgumentOutOfRangeException("numStools", numStools, "Must always have at least 3 bar stools");
+            if (numStools < 3) throw new System.ArgumentOutOfRangeException("numStools", numStools, "Must always have at least 3 bar stools");
 
             while (transform.childCount > numStools)
             {
@@ -64,13 +67,46 @@ namespace AgonyBartender
 
         void Entry_OnPatronLeaves(BarStool Entry)
         {
+            print("Filling seat");
             StartCoroutine(FillBarStool(Entry));
+        }
+
+
+        Patron ChoosePatron()
+        {
+            if (PatronArchetypes.Length == 0)
+            {
+                Debug.LogError("No patrons found, have you considered advertising?");
+                return null;
+            }
+
+            return PatronArchetypes[Random.Range(0, PatronArchetypes.Length)];
+        }
+
+        Problem ChooseProblem(Patron Patron)
+        {
+            int TotalLength = Patron.PatronsProblems.Length + StandardProblems.GlobalProblems.Count;
+
+            int ProblemIndex = Random.Range(0, TotalLength);
+
+            if(ProblemIndex >= Patron.PatronsProblems.Length)
+            {
+                return StandardProblems.GlobalProblems[ProblemIndex - Patron.PatronsProblems.Length];
+            }
+            else 
+            {
+                return Patron.PatronsProblems[ProblemIndex];
+            }
         }
 
         IEnumerator FillBarStool(BarStool Entry)
         {
             yield return new WaitForSeconds(EmptyStoolTime.PickRandom());
+
             GameObject NewPatron = (GameObject)Instantiate(PatronPrefab);
+            Patron ChosenPatron = ChoosePatron();
+            NewPatron.GetComponent<PatronDefinition>().Patron = ChoosePatron();
+            NewPatron.GetComponent<PatronDefinition>().SetProblem(ChooseProblem(ChosenPatron));
 
             Entry.FillSeat(NewPatron);
         }

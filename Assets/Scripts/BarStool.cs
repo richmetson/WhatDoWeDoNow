@@ -50,11 +50,14 @@ namespace AgonyBartender
             PatronMouth Mouth = Patron.GetComponent<PatronMouth>();
             Mouth.ProblemSpeech = PatronSpeech;
 
-            Patron.transform.parent = transform;
+            Patron.transform.SetParent(transform);
             Patron.transform.localScale = Vector3.one;
             Patron.transform.localPosition = PatronPosition;
             Patron.transform.SetSiblingIndex(3);
 
+            Patron.GetComponent<PatronStatusMonitor>().OnPatronLeaves += BarStoolEntry_OnPatronLeaves;
+
+            HasPatron = true;
         }
 
         public void SwitchToBarStool()

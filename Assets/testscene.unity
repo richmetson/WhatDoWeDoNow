@@ -3117,14 +3117,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EmptyStoolTime:
-    Min: 0
-    Max: 0
+    Min: 5
+    Max: 10
   LeftmostBarStool: {fileID: 1432545105}
   RightmostBarStool: {fileID: 310396485}
   FirstMidBarStool: {fileID: 1791043342}
   LeftButton: {fileID: 1773750063}
   RightButton: {fileID: 282742202}
-  PatronPrefab: {fileID: 0}
+  PatronPrefab: {fileID: 100506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
+  StandardProblems: {fileID: 11400000, guid: 9b3d7ca5ccd5f6843bf91b98c38b8413, type: 2}
+  PatronArchetypes:
+  - {fileID: 11400000, guid: 3fcc8fdd52cd35d488ebcf46e38e0a20, type: 2}
   StoolSpacing: 2500
 --- !u!1 &1219450969
 GameObject:
