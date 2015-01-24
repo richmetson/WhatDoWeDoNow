@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Runtime.InteropServices.ComTypes;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
@@ -31,7 +32,6 @@ namespace AgonyBartender.Inventory
 			vtx[1].uv0 = new Vector2(CellSprite.textureRect.xMax / CellSprite.texture.width, CellSprite.textureRect.yMin / CellSprite.texture.height);
 			vtx[2].uv0 = new Vector2(CellSprite.textureRect.xMax / CellSprite.texture.width, CellSprite.textureRect.yMax / CellSprite.texture.height);
 			vtx[3].uv0 = new Vector2(CellSprite.textureRect.xMin / CellSprite.texture.width, CellSprite.textureRect.yMax / CellSprite.texture.height);
-            vtx[0].color = vtx[1].color = vtx[2].color = vtx[3].color = new Color32(255, 255, 255, 255);
 
             for (int y = 0; y < _inventory.InventoryShape.Height; ++y)
             {
@@ -43,6 +43,8 @@ namespace AgonyBartender.Inventory
                     vtx[1].position = new Vector2((x + 1) * _inventory.CellSize.x, - y * _inventory.CellSize.y);
                     vtx[2].position = new Vector2((x + 1) * _inventory.CellSize.x, - (y + 1) * _inventory.CellSize.y);
                     vtx[3].position = new Vector2(x * _inventory.CellSize.x, - (y + 1) * _inventory.CellSize.y);
+
+                    vtx[0].color = vtx[1].color = vtx[2].color = vtx[3].color = _inventory.GetHighlightAt(x, y);
 
                     vbo.AddRange(vtx);
                 }

@@ -21,7 +21,7 @@ namespace AgonyBartender
             {
                 yield return new WaitForSeconds(TimeBeforeSpeaking.PickRandom());
 
-                OverheardConversation snippet = ConversationSnippets[Random.Range(0, ConversationSnippets.Length)];
+                OverheardConversation snippet = ConversationSnippets.Random();
 
                 SpeechBubble.gameObject.SetActive(true);
                 SpeechBubble.SetText(snippet.Text);

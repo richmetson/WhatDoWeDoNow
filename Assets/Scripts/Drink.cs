@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -51,33 +53,44 @@ namespace AgonyBartender
             BeerHead.localPosition = new Vector3(0, Mathf.Lerp(EmptyHeadOffset, FullHeadOffset, _level), 0);
         }
 
-        private bool _isFilling;
+        public bool IsBeingFilled { get; private set; }
+        public bool IsBeingDrunk { get; set; }
 
         public void OnPointerDown(PointerEventData eventData)
         {
-            _isFilling = true;
+            IsBeingFilled = true;
             StartCoroutine(FillGlass());
         }
 
         public void OnPointerUp(PointerEventData eventData)
         {
-            _isFilling = false;
+            IsBeingFilled = false;
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            _isFilling = false;
+            IsBeingFilled = false;
         }
+
+        [Serializable]
+        public class BeerDispensedEvent : UnityEvent<float> { }
+
+        public BeerDispensedEvent OnBeerDispensed;
 
         private IEnumerator FillGlass()
         {
             BeerTap.Default.BeginPour();
-            while (_isFilling)
+            while (IsBeingFilled)
             {
-                Level += Time.deltaTime*TopUpRate;
                 if (Level >= 1f) break;
+
+                var beerDispensed = Time.deltaTime*TopUpRate;
+                Level += beerDispensed;
+                OnBeerDispensed.Invoke(beerDispensed);
+                            
                 yield return null;
             }
+            IsBeingFilled = false;
             BeerTap.Default.EndPour();
         }
     }

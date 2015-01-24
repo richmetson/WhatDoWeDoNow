@@ -14,6 +14,7 @@ namespace AgonyBartender.Editor
 		}
 
 	    private SerializedProperty _patronName;
+	    private SerializedProperty _difficultyRating;
 	    private SerializedProperty _faceSpritesArray;
 	    private SerializedProperty _problemsArray;
 
@@ -26,15 +27,21 @@ namespace AgonyBartender.Editor
 
         private void OnEnable()
         {
+            serializedObject.Update();
+
             _patronName = serializedObject.FindProperty("PatronName");
             _faceSpritesArray = serializedObject.FindProperty("FaceSprites");
             _problemsArray = serializedObject.FindProperty("PatronsProblems");
 
             _faceExpressions = (ProblemSolutionFacialExpression[])Enum.GetValues(typeof(ProblemSolutionFacialExpression));
-            _faceSpritesArray.arraySize = _faceExpressions.Length;
+            if (_faceSpritesArray.arraySize != _faceExpressions.Length)
+            {
+                _faceSpritesArray.arraySize = _faceExpressions.Length;
+                serializedObject.ApplyModifiedProperties();
+            }
 
+            _difficultyRating = serializedObject.FindProperty("DifficultyRating");
             _gapBetweenGulps = serializedObject.FindProperty("GapBetweenGulps");
-            _lengthOfGulp = serializedObject.FindProperty("LengthOfGulp");
             _gulpMagnitude = serializedObject.FindProperty("GulpMagnitude");
             _alcoholIntolerance = serializedObject.FindProperty("AlcoholIntolerance");
         }
@@ -52,8 +59,9 @@ namespace AgonyBartender.Editor
 
 	        EditorGUILayout.PropertyField(_problemsArray, true);
 
+	        EditorGUILayout.PropertyField(_difficultyRating);
+
             EditorGUILayout.PropertyField(_gapBetweenGulps, true);
-            EditorGUILayout.PropertyField(_lengthOfGulp, true);
             EditorGUILayout.PropertyField(_gulpMagnitude, true);
             EditorGUILayout.PropertyField(_alcoholIntolerance, true);
 
