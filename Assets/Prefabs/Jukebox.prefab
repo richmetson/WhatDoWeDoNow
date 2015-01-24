@@ -92,6 +92,7 @@ MonoBehaviour:
   CurrentMusicIndex: -1
   MusicList:
   - {fileID: 8300000, guid: ed0b439000efa1e46b1c542b1cd4b7db, type: 3}
+  - {fileID: 8300000, guid: c8ebb0b64a729b44e97dcd6fde6ae348, type: 3}
   OnMusicChanged:
     m_PersistentCalls:
       m_Calls: []
