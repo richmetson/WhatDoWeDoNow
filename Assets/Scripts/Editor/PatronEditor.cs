@@ -26,12 +26,18 @@ namespace AgonyBartender.Editor
 
         private void OnEnable()
         {
+            serializedObject.Update();
+
             _patronName = serializedObject.FindProperty("PatronName");
             _faceSpritesArray = serializedObject.FindProperty("FaceSprites");
             _problemsArray = serializedObject.FindProperty("PatronsProblems");
 
             _faceExpressions = (ProblemSolutionFacialExpression[])Enum.GetValues(typeof(ProblemSolutionFacialExpression));
-            _faceSpritesArray.arraySize = _faceExpressions.Length;
+            if (_faceSpritesArray.arraySize != _faceExpressions.Length)
+            {
+                _faceSpritesArray.arraySize = _faceExpressions.Length;
+                serializedObject.ApplyModifiedProperties();
+            }
 
             _gapBetweenGulps = serializedObject.FindProperty("GapBetweenGulps");
             _lengthOfGulp = serializedObject.FindProperty("LengthOfGulp");
