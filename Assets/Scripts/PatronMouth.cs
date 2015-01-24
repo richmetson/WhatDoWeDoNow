@@ -5,13 +5,38 @@ namespace AgonyBartender
 {
     public class PatronMouth : MonoBehaviour {
 
-        public Problem PatronsProblem; 
+        public Problem PatronsProblem;
+        public SpeechBubble ProblemSpeech;
+
+        public RangedFloat TimeBeforeSpeaking;
+        public RangedFloat TimeToSpeak;
 
 	    // Use this for initialization
-	    void Start () {
-            SpeechBubble ProblemSpeech = gameObject.AddComponent<SpeechBubble>();
+        public IEnumerator Start()
+        {
+            ProblemSpeech.gameObject.SetActive(false);
+            yield return new WaitForSeconds(TimeBeforeSpeaking.PickRandom());
+
+            ProblemSpeech.gameObject.SetActive(true);
+            SpeakProblem();
+
+            yield return new WaitForSeconds(TimeToSpeak.PickRandom());
+
+            ProblemSpeech.gameObject.SetActive(false);
+
+        }
+
+        void SpeakProblem()
+        {
+            if (ProblemSpeech == null)
+            {
+                print("Could not find speech bubble");
+            }
+
+            print("Hello, World: " + PatronsProblem.ProblemString);
+            ProblemSpeech.gameObject.SetActive(true);
             ProblemSpeech.SetText(PatronsProblem.ProblemString);
-	    }
+        }
 	
 	    // Update is called once per frame
 	    void Update () {
