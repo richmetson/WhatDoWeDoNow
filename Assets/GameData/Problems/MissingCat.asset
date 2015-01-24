@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Name: MissingCat
   m_EditorClassIdentifier: 
   ProblemString: My cat has run away
-  ProblemSolutions: []
+  ProblemSolutions:
+  - Answer: {fileID: 11400000, guid: e857bc3cabb547d4c8fbad5110557233, type: 2}
+    Score: 3
+    FacialOutcome: 0
