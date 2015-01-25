@@ -22,15 +22,22 @@ namespace AgonyBartender
             ShiftCompleteText.text = "Shift " + Session.ShiftNumber + " complete!";
 
             MoneyText.text = "$" + (Session.TipsMade / 100.0f).ToString("f2");
+
             if (Session.TipsMade < 0.0f)
             {
                 MoneyText.color = Color.red;
             }
+            else
+            {
+                MoneyText.color = Color.black;
+            }
+
             PeopleServerdText.text = Session.PatronsServedThisShift.ToString();
             BeerDispensedText.text = string.Format("{0}ml", Mathf.RoundToInt(Session.BeerDispensedThisShift * 568.0f));
             LiverFailuresText.text = Session.PatronsPoisonedThisShift.ToString();
 
             GradeText.text = Session.GetGrade(Session.TipsMade);
+            GradeText.color = Color.black;
 
             GetComponent<Animator>().Play("DoShiftComplete");
         }
@@ -40,15 +47,22 @@ namespace AgonyBartender
             ShiftCompleteText.text = "Game Over";
 
             MoneyText.text = "$" + (Session.TotalTipsMade / 100.0f).ToString("f2");
+
             if (Session.TipsMade < 0.0f)
             {
                 MoneyText.color = Color.red;
             }
+            else
+            {
+                MoneyText.color = Color.black;
+            }
+
             PeopleServerdText.text = Session.TotalPatronsServed.ToString();
             BeerDispensedText.text = string.Format("{0}ml", Mathf.RoundToInt(Session.TotalBeerDispensed * 568.0f));
             LiverFailuresText.text = Session.TotalPatronsPoisoned.ToString();
 
             GradeText.text = Session.GetGrade(Session.TipsMade);
+            GradeText.color = Color.red;
 
             ContinueButton.text = "End Game";
 
