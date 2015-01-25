@@ -72,6 +72,8 @@ namespace AgonyBartender.Inventory
             {
                 for (int x = 0; x < pattern.Width; ++x)
                 {
+                    if (!pattern[x, y]) continue;
+
                     if (!InventoryShape[column + x, row + y])
                     {
                         return false;
