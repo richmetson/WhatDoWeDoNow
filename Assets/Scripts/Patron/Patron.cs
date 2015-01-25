@@ -20,6 +20,7 @@ namespace AgonyBartender
 
         public float AlcoholIntolerance = 0.5f;
 
-        public int Genorosity; 
+        public int Genorosity;
+	    public float SizeMultiplier = 2;
 	}
 }
