@@ -13,6 +13,8 @@ namespace AgonyBartender.Inventory
 
         public void OnBeginDrag(PointerEventData eventData)
         {
+            if (!ItemInfo) return;
+
             ItemCursor = (ItemCursor)Instantiate(ItemCursorPrefab);
             ItemCursor.Initialize(ItemInfo, transform.root);
             ItemCursor.SyncCursorPos(eventData);
