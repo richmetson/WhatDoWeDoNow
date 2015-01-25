@@ -136,10 +136,8 @@ namespace AgonyBartender
             var answersNeeded = CommonProblemsThisShift.Select(p => p.GetBestAnswer()).Distinct();
             var requiredConversations =
                 answersNeeded.Select(a => OverheardConversations.Where(c => c.AnswerDelivered == a).Random());
-            requiredConversations =
-                requiredConversations.Concat(
-                    OverheardConversations.Shuffle().Take((int) Difficulty.NumRedHerrings.Evaluate(ShiftNumber))).Distinct();
-            OverheardConversationThisShift = requiredConversations.ToArray();
+            var optionalConversations = OverheardConversations.Except(requiredConversations).Shuffle().Take((int) Difficulty.NumRedHerrings.Evaluate(ShiftNumber));
+            OverheardConversationThisShift = requiredConversations.Concat(optionalConversations).ToArray();
 
             BarManager.EnableArriveSounds = false;
             for (int i = 0; i < initialPatrons; ++i)
