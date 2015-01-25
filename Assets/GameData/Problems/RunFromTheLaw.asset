@@ -16,12 +16,16 @@ MonoBehaviour:
   - Answer: {fileID: 11400000, guid: e857bc3cabb547d4c8fbad5110557233, type: 2}
     Score: 2
     FacialOutcome: 1
+    SpecificResponse: I like it, might distract the cops!
   - Answer: {fileID: 11400000, guid: bc5cfcc8346450442b6f7802824a98cb, type: 2}
     Score: -1
     FacialOutcome: 2
+    SpecificResponse: 
   - Answer: {fileID: 11400000, guid: 1eb60d3407d084b41a93902f7a01d68c, type: 2}
     Score: 3
     FacialOutcome: 1
+    SpecificResponse: 
   - Answer: {fileID: 11400000, guid: 18d5d0100b49829418f2c09864066cc0, type: 2}
     Score: 3
     FacialOutcome: 1
+    SpecificResponse: 
