@@ -28,7 +28,7 @@ public class ScoreDisplayController : MonoBehaviour {
         LiverFailuresText.text = Session.PatronsPoisonedThisShift.ToString();
 
         // TODO
-        GradeText.text = "A+";
+        GradeText.text = Session.GetGrade(Session.TipsMade);
 
         GetComponent<Animator>().Play("DoShiftComplete");
     }
@@ -47,7 +47,7 @@ public class ScoreDisplayController : MonoBehaviour {
         LiverFailuresText.text = Session.TotalPatronsPoisoned.ToString();
 
         // TODO
-        GradeText.text = "A+";
+        GradeText.text = Session.GetGrade(Session.TipsMade);
 
         GetComponent<Animator>().Play("DoShiftComplete");
     }
