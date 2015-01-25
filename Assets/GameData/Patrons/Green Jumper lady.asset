@@ -20,6 +20,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: dfa3ef6fea6812a4ab09928cfb68725f, type: 3}
   PatronsProblems:
   - {fileID: 11400000, guid: 4775f62a632b2b040a8c980969050132, type: 2}
+  Sighs: []
+  DrinkWarning1: []
+  DrinkWarning2: []
+  DrinkWarning3: []
   GapBetweenGulps:
     Min: 3
     Max: 6
@@ -28,3 +32,4 @@ MonoBehaviour:
     Max: .200000003
   AlcoholIntolerance: .5
   Genorosity: 2
+  SizeMultiplier: 3

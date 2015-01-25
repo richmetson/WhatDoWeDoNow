@@ -32,6 +32,8 @@ namespace AgonyBartender.Editor
 
         private SerializedProperty _genorosity;
 
+	    private SerializedProperty _sizeMultiplier;
+
         private void OnEnable()
         {
             serializedObject.Update();
@@ -58,6 +60,8 @@ namespace AgonyBartender.Editor
             _alcoholIntolerance = serializedObject.FindProperty("AlcoholIntolerance");
 
             _genorosity = serializedObject.FindProperty("Genorosity");
+
+            _sizeMultiplier = serializedObject.FindProperty("SizeMultiplier");
         }
 
 	    public override void OnInspectorGUI()
@@ -70,6 +74,8 @@ namespace AgonyBartender.Editor
 	            var expr = _faceSpritesArray.GetArrayElementAtIndex(i);
 	            EditorGUILayout.PropertyField(expr, new GUIContent(_faceExpressions[i].ToString()));
 	        }
+
+	        EditorGUILayout.PropertyField(_sizeMultiplier);
 
 	        EditorGUILayout.PropertyField(_problemsArray, true);
 
