@@ -51,11 +51,6 @@ namespace AgonyBartender
             Problem ActiveProblem = PatronDefinition.ActiveProblem;
             Say(ActiveProblem.ProblemString);
         }
-	
-	    // Update is called once per frame
-	    void Update () {
-	
-	    }
 
         void OnDestroy()
         {
