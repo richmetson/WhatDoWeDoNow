@@ -74,6 +74,16 @@ namespace AgonyBartender
             stool.CurrentPatron = NewPatron;
         }
 
+        public bool EnableArriveSounds;
+
+        public void OnPatronArrived(BarStool stool)
+        {
+            if (EnableArriveSounds)
+            {
+                stool.CurrentPatron.GetComponent<PatronMouth>().PlayArriveSound();
+            }
+        }
+
         public bool CanMoveLeft()
         {
             return CurrentBarStoolIndex != 0;

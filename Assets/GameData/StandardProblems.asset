@@ -12,8 +12,14 @@ MonoBehaviour:
   m_Name: StandardProblems
   m_EditorClassIdentifier: 
   GlobalProblems:
+  - {fileID: 11400000, guid: 09d36a3f3f340ff47b3101cf6c8fa79d, type: 2}
+  - {fileID: 11400000, guid: 6bee28930af83b54ba2dd0221dd97312, type: 2}
+  - {fileID: 11400000, guid: 00e38487acf202b4592f8ea19325c2d1, type: 2}
+  - {fileID: 11400000, guid: 9d9b07b11b9f8884d9aed944f1c86a79, type: 2}
   - {fileID: 11400000, guid: 56622a369ffcac949ad2e778ef6db20c, type: 2}
+  - {fileID: 11400000, guid: 8a08c427c8cfa8f4abbe5397b2160cca, type: 2}
   - {fileID: 11400000, guid: 7f40c219570f66643be2cd6e131e9956, type: 2}
   - {fileID: 11400000, guid: 4775f62a632b2b040a8c980969050132, type: 2}
   - {fileID: 11400000, guid: 5a995ddbfc475be4cad48db0cb27f844, type: 2}
   - {fileID: 11400000, guid: 4257cf6e21f4ff24984c2d794d9dda19, type: 2}
+  - {fileID: 11400000, guid: 576e718e0bdb1fa4ea695002b36f162d, type: 2}

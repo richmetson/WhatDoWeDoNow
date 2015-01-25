@@ -28,6 +28,8 @@ namespace AgonyBartender.Inventory
             ItemCursor.transform.localScale = Vector3.one;
             ItemCursor.GetComponent<RectTransform>().sizeDelta = new Vector2(ItemInfo.Pattern.Width * Inventory.Default.CellSize.x, ItemInfo.Pattern.Height * Inventory.Default.CellSize.y);
 
+            Inventory.Default.IsDraggingItem = true;
+
             SyncCursorPos(eventData);
         }
 
@@ -50,12 +52,16 @@ namespace AgonyBartender.Inventory
         {
             if(ItemCursor)
                 Destroy(ItemCursor.gameObject);
+
+            Inventory.Default.IsDraggingItem = false;
         }
 
         public void OnDisable()
         {
             if (ItemCursor)
                 Destroy(ItemCursor.gameObject);
+
+            Inventory.Default.IsDraggingItem = false;
         }
     }
 }
