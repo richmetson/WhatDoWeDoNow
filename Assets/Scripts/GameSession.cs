@@ -56,8 +56,8 @@ namespace AgonyBartender
 
         public void OnPatronLeftTip(int amount)
         {
-            TipsMade += amount;
-            TotalTipsMade += amount;
+            TipsMade += amount * Mathf.RoundToInt(Difficulty.GenorosityMultiplier.Evaluate(ShiftNumber));
+            TotalTipsMade += amount * Mathf.RoundToInt(Difficulty.GenorosityMultiplier.Evaluate(ShiftNumber));
         }
 
         public void BuyBeer(float amount)

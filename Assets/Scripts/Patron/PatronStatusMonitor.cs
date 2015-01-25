@@ -130,13 +130,11 @@ namespace AgonyBartender
             }
 
             OnPatronLeaving.Invoke(this, reason);
-            print("Computing tip:");
             int Tip = GetComponent<PatronMouth>().ComputeTip();
-            print("Tip:" + Tip.ToString());
+            int Multiplier = GetComponent<PatronDefinition>().Patron.Genorosity;
             float BeerDrunk = GetComponent<BeerHand>().GetAmountBeerDrunkInPints();
             float BeerMultiplier = Mathf.Max(1.0f, BeerDrunk); // never reduce the tip size
-            print("Beer x:" + BeerMultiplier.ToString());
-            OnPatronTipping.Invoke(Mathf.RoundToInt(BeerMultiplier * Tip) * 100);
+            OnPatronTipping.Invoke(Mathf.RoundToInt(BeerMultiplier * Tip * Multiplier) * 100);
 
             GameObject.Destroy(gameObject);         
         }
