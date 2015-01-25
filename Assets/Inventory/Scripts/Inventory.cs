@@ -166,6 +166,14 @@ namespace AgonyBartender.Inventory
         {
             return new Color32(255, 255, 255, 255);
         }
+
+        public void Clear()
+        {
+            foreach (var item in _items)
+                Destroy(item.gameObject);
+
+            _items.Clear();
+        }
     }
 
 }

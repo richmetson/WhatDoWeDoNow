@@ -80,6 +80,8 @@ namespace AgonyBartender
             PatronsPoisonedThisShift = 0;
             TipsMade = 0;
 
+            Inventory.Inventory.Default.Clear();
+
             BarManager.MoveToBarStool(null);
             BarManager.DeletePatrons();
             int barLength = Mathf.RoundToInt(Difficulty.BarLength.Evaluate(ShiftNumber));
