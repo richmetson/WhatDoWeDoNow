@@ -19,10 +19,14 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 540204005d418734fb99f6c3a6df45ab, type: 3}
   - {fileID: 21300000, guid: 540204005d418734fb99f6c3a6df45ab, type: 3}
   PatronsProblems: []
-  Sighs: []
-  DrinkWarning1: []
-  DrinkWarning2: []
-  DrinkWarning3: []
+  Sighs:
+  - {fileID: 8300000, guid: f9a23b2964fa99448bafe7a4d47c72e3, type: 3}
+  DrinkWarning1:
+  - {fileID: 8300000, guid: 7b7f61855dc29e94f998e539f93a69ae, type: 3}
+  DrinkWarning2:
+  - {fileID: 8300000, guid: a3fe2b91f7c66694582e59b7a8a92fa2, type: 3}
+  DrinkWarning3:
+  - {fileID: 8300000, guid: a8d9290184476234a82f77fe3d1149df, type: 3}
   GapBetweenGulps:
     Min: 0
     Max: 0
