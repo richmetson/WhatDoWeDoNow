@@ -9,11 +9,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a6f9c801ae3f5247979e5157bbbce3b, type: 3}
-  m_Name: Plaster
+  m_Name: Flowers
   m_EditorClassIdentifier: 
-  DisplayName: Plaster
+  DisplayName: Flowers
   Sprite: {fileID: 0}
   Pattern:
-    Width: 0
-    Height: 0
-    Pattern: 
+    Width: 6
+    Height: 4
+    Pattern: 010101010101010101010101000101010100000101010100

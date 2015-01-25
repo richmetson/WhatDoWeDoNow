@@ -9,11 +9,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a6f9c801ae3f5247979e5157bbbce3b, type: 3}
-  m_Name: Plaster
+  m_Name: Ants
   m_EditorClassIdentifier: 
-  DisplayName: Plaster
-  Sprite: {fileID: 0}
+  DisplayName: Ants?
+  Sprite: {fileID: 21300000, guid: d1b16c06e8f314e44a4d4511b5c8e7b2, type: 3}
   Pattern:
-    Width: 0
-    Height: 0
-    Pattern: 
+    Width: 2
+    Height: 1
+    Pattern: 0101
