@@ -22,3 +22,9 @@ MonoBehaviour:
   - Answer: {fileID: 11400000, guid: 1604b61844d347c49b4d61d8215bfb6c, type: 2}
     Score: 1
     FacialOutcome: 0
+  - Answer: {fileID: 11400000, guid: 1eb60d3407d084b41a93902f7a01d68c, type: 2}
+    Score: 2
+    FacialOutcome: 1
+  - Answer: {fileID: 11400000, guid: 313e1213b7a0d214db41a0a27b856179, type: 2}
+    Score: 3
+    FacialOutcome: 1

@@ -57,9 +57,17 @@ namespace AgonyBartender
             TotalTipsMade += amount;
         }
 
+        public ScoreDisplayController ScorePage;
+
         public void OnShiftEnded()
         {
-            
+            CancelInvoke();
+            Clock.enabled = false;
+            BarManager.DeletePatrons();
+
+            ++ShiftNumber;
+            ScorePage.gameObject.SetActive(true);
+            ScorePage.DisplayResults(this);
         }
 
         public void BeginNewShift()
@@ -89,6 +97,7 @@ namespace AgonyBartender
 
             Clock.GameDuration = Difficulty.ShiftLength.Evaluate(ShiftNumber);
             Clock.ResetClock();
+            Clock.enabled = true;
         }
 
         private void ScheduleNewPatron()
