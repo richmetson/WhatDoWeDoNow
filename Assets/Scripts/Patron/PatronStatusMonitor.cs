@@ -116,6 +116,7 @@ namespace AgonyBartender
             {
                 print("I'm off!");
                 HasStartedLeavingBar = true;
+                BeerHand.Beer.gameObject.SetActive(false);
                 StartCoroutine(LeaveSequence(Reason));
             }
         }
