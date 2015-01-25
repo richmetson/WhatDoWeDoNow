@@ -104,6 +104,15 @@ namespace AgonyBartender
                 }
             }
         }
+
+        public AudioClip[] ArriveSounds;
+
+        public void PlayArriveSound()
+        {
+            var source = GetComponent<AudioSource>();
+            source.clip = ArriveSounds.Random();
+            source.Play();
+        }
     }
 
 }

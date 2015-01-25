@@ -77,8 +77,11 @@ namespace AgonyBartender
             int initialPatrons = (int)(barLength * Mathf.Clamp01(Difficulty.InitialFullness.Evaluate(ShiftNumber)));
             // Ensure that we have at least one patron waiting at the beginning of the game, because it's boring to start with an empty bar
             if (ShiftNumber == 0) initialPatrons = Mathf.Max(initialPatrons, 1);
+
+            BarManager.EnableArriveSounds = false;
             for (int i = 0; i < initialPatrons; ++i)
                 SpawnPatron();
+            BarManager.EnableArriveSounds = true;
 
             BarManager.MoveToBarStool(Mathf.FloorToInt(barLength / 2f));
 

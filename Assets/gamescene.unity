@@ -115,7 +115,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22444168, guid: 68e6d7b12aba15547b4b38a4c9eb7025, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 22444168, guid: 68e6d7b12aba15547b4b38a4c9eb7025, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -292,7 +292,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &140270020
 RectTransform:
   m_ObjectHideFlags: 0
@@ -692,7 +692,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &286768398
 AudioSource:
   m_ObjectHideFlags: 0
@@ -886,6 +886,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1167317111}
         m_MethodName: OnPatronArrived
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1172516970}
+        m_MethodName: OnPatronArrived
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
@@ -1241,8 +1253,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ConversationSnippets:
-  - {fileID: 11400000, guid: 108c4a0112278944195fd97ebca4026a, type: 2}
+  - {fileID: 11400000, guid: 46ac6930f1b78764481854356c6e987d, type: 2}
+  - {fileID: 11400000, guid: f0efc71991800724fb67a243838c3b78, type: 2}
+  - {fileID: 11400000, guid: 5c0d4dc01a64b9e48a883f3abc4c8e22, type: 2}
+  - {fileID: 11400000, guid: bf80b4fc26cbbc74ba3e6f1daa8bca75, type: 2}
+  - {fileID: 11400000, guid: 7f6db2e9ce977284a844473ca3f4aecd, type: 2}
+  - {fileID: 11400000, guid: f2bbf32cdeb5c35448f12314001c0b7f, type: 2}
+  - {fileID: 11400000, guid: 11a317e55c811394884918680993224b, type: 2}
+  - {fileID: 11400000, guid: dc80076789a554543bb7e69cd04595fe, type: 2}
+  - {fileID: 11400000, guid: e6cf9c361c3c1c0499133b9720ae843a, type: 2}
+  - {fileID: 11400000, guid: 6c66db722f7e8834494d982d01633d11, type: 2}
+  - {fileID: 11400000, guid: 3a3ddf837b6809b4b953fa965487c500, type: 2}
+  - {fileID: 11400000, guid: c69985909333a4c4cbe5f5912abd3ae3, type: 2}
   - {fileID: 11400000, guid: 2c42a7904d04afc44a20eb0fc4df8df8, type: 2}
+  - {fileID: 11400000, guid: 108c4a0112278944195fd97ebca4026a, type: 2}
+  - {fileID: 11400000, guid: d8ed38630df03e04cab7daffaaa9a408, type: 2}
+  - {fileID: 11400000, guid: cfdffafacc6d7e94684e21c33344633c, type: 2}
   ItemSource: {fileID: 319336463}
   SpeechBubble: {fileID: 319336460}
   TimeBeforeSpeaking:
@@ -2414,8 +2440,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ConversationSnippets:
-  - {fileID: 11400000, guid: 108c4a0112278944195fd97ebca4026a, type: 2}
+  - {fileID: 11400000, guid: 46ac6930f1b78764481854356c6e987d, type: 2}
+  - {fileID: 11400000, guid: f0efc71991800724fb67a243838c3b78, type: 2}
+  - {fileID: 11400000, guid: 5c0d4dc01a64b9e48a883f3abc4c8e22, type: 2}
+  - {fileID: 11400000, guid: bf80b4fc26cbbc74ba3e6f1daa8bca75, type: 2}
+  - {fileID: 11400000, guid: 7f6db2e9ce977284a844473ca3f4aecd, type: 2}
+  - {fileID: 11400000, guid: f2bbf32cdeb5c35448f12314001c0b7f, type: 2}
+  - {fileID: 11400000, guid: 11a317e55c811394884918680993224b, type: 2}
+  - {fileID: 11400000, guid: dc80076789a554543bb7e69cd04595fe, type: 2}
+  - {fileID: 11400000, guid: e6cf9c361c3c1c0499133b9720ae843a, type: 2}
+  - {fileID: 11400000, guid: 6c66db722f7e8834494d982d01633d11, type: 2}
+  - {fileID: 11400000, guid: 3a3ddf837b6809b4b953fa965487c500, type: 2}
+  - {fileID: 11400000, guid: c69985909333a4c4cbe5f5912abd3ae3, type: 2}
   - {fileID: 11400000, guid: 2c42a7904d04afc44a20eb0fc4df8df8, type: 2}
+  - {fileID: 11400000, guid: 108c4a0112278944195fd97ebca4026a, type: 2}
+  - {fileID: 11400000, guid: d8ed38630df03e04cab7daffaaa9a408, type: 2}
+  - {fileID: 11400000, guid: cfdffafacc6d7e94684e21c33344633c, type: 2}
   ItemSource: {fileID: 319336463}
   SpeechBubble: {fileID: 319336460}
   TimeBeforeSpeaking:
@@ -2531,6 +2571,10 @@ Prefab:
     - target: {fileID: 22479766, guid: 2550e4b0d4149764fa25dc2d290e76ea, type: 2}
       propertyPath: m_Pivot.y
       value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 179766, guid: 2550e4b0d4149764fa25dc2d290e76ea, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2550e4b0d4149764fa25dc2d290e76ea, type: 2}
@@ -3352,6 +3396,7 @@ MonoBehaviour:
   PatronPrefab: {fileID: 100506, guid: cdf65debb4a9ad44c885245538d00cf2, type: 2}
   StandardProblems: {fileID: 11400000, guid: 9b3d7ca5ccd5f6843bf91b98c38b8413, type: 2}
   StoolSpacing: 2500
+  EnableArriveSounds: 0
 --- !u!1 &1219450969
 GameObject:
   m_ObjectHideFlags: 0
@@ -3703,6 +3748,10 @@ Prefab:
     - target: {fileID: 479630, guid: e4423b5c1dfed5f4a8c0b16147230688, type: 2}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 179630, guid: e4423b5c1dfed5f4a8c0b16147230688, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4423b5c1dfed5f4a8c0b16147230688, type: 2}
@@ -4242,6 +4291,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1172516970}
+        m_MethodName: OnPatronArrived
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: AgonyBartender.BarStool+BarStoolEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnPatronPoisoned:
@@ -4308,7 +4369,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22452838, guid: 16e3b4e56810b224ba543fd95409389b, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 22452838, guid: 16e3b4e56810b224ba543fd95409389b, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -5369,8 +5430,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ConversationSnippets:
-  - {fileID: 11400000, guid: 108c4a0112278944195fd97ebca4026a, type: 2}
+  - {fileID: 11400000, guid: 46ac6930f1b78764481854356c6e987d, type: 2}
+  - {fileID: 11400000, guid: f0efc71991800724fb67a243838c3b78, type: 2}
+  - {fileID: 11400000, guid: 5c0d4dc01a64b9e48a883f3abc4c8e22, type: 2}
+  - {fileID: 11400000, guid: bf80b4fc26cbbc74ba3e6f1daa8bca75, type: 2}
+  - {fileID: 11400000, guid: 7f6db2e9ce977284a844473ca3f4aecd, type: 2}
+  - {fileID: 11400000, guid: f2bbf32cdeb5c35448f12314001c0b7f, type: 2}
+  - {fileID: 11400000, guid: 11a317e55c811394884918680993224b, type: 2}
+  - {fileID: 11400000, guid: dc80076789a554543bb7e69cd04595fe, type: 2}
+  - {fileID: 11400000, guid: e6cf9c361c3c1c0499133b9720ae843a, type: 2}
+  - {fileID: 11400000, guid: 6c66db722f7e8834494d982d01633d11, type: 2}
+  - {fileID: 11400000, guid: 3a3ddf837b6809b4b953fa965487c500, type: 2}
+  - {fileID: 11400000, guid: c69985909333a4c4cbe5f5912abd3ae3, type: 2}
   - {fileID: 11400000, guid: 2c42a7904d04afc44a20eb0fc4df8df8, type: 2}
+  - {fileID: 11400000, guid: 108c4a0112278944195fd97ebca4026a, type: 2}
+  - {fileID: 11400000, guid: d8ed38630df03e04cab7daffaaa9a408, type: 2}
+  - {fileID: 11400000, guid: cfdffafacc6d7e94684e21c33344633c, type: 2}
   ItemSource: {fileID: 1132943600}
   SpeechBubble: {fileID: 1132943599}
   TimeBeforeSpeaking:
@@ -5686,6 +5761,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1167317111}
         m_MethodName: OnPatronArrived
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1172516970}
+        m_MethodName: OnPatronArrived
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
@@ -6196,8 +6283,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ConversationSnippets:
-  - {fileID: 11400000, guid: 108c4a0112278944195fd97ebca4026a, type: 2}
+  - {fileID: 11400000, guid: 46ac6930f1b78764481854356c6e987d, type: 2}
+  - {fileID: 11400000, guid: f0efc71991800724fb67a243838c3b78, type: 2}
+  - {fileID: 11400000, guid: 5c0d4dc01a64b9e48a883f3abc4c8e22, type: 2}
+  - {fileID: 11400000, guid: bf80b4fc26cbbc74ba3e6f1daa8bca75, type: 2}
+  - {fileID: 11400000, guid: 7f6db2e9ce977284a844473ca3f4aecd, type: 2}
+  - {fileID: 11400000, guid: f2bbf32cdeb5c35448f12314001c0b7f, type: 2}
+  - {fileID: 11400000, guid: 11a317e55c811394884918680993224b, type: 2}
+  - {fileID: 11400000, guid: dc80076789a554543bb7e69cd04595fe, type: 2}
+  - {fileID: 11400000, guid: e6cf9c361c3c1c0499133b9720ae843a, type: 2}
+  - {fileID: 11400000, guid: 6c66db722f7e8834494d982d01633d11, type: 2}
+  - {fileID: 11400000, guid: 3a3ddf837b6809b4b953fa965487c500, type: 2}
+  - {fileID: 11400000, guid: c69985909333a4c4cbe5f5912abd3ae3, type: 2}
   - {fileID: 11400000, guid: 2c42a7904d04afc44a20eb0fc4df8df8, type: 2}
+  - {fileID: 11400000, guid: 108c4a0112278944195fd97ebca4026a, type: 2}
+  - {fileID: 11400000, guid: d8ed38630df03e04cab7daffaaa9a408, type: 2}
+  - {fileID: 11400000, guid: cfdffafacc6d7e94684e21c33344633c, type: 2}
   ItemSource: {fileID: 1618521029}
   SpeechBubble: {fileID: 1618521028}
   TimeBeforeSpeaking:

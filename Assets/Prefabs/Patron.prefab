@@ -101,6 +101,13 @@ MonoBehaviour:
   TimeToSpeak:
     Min: 4
     Max: 6
+  ArriveSounds:
+  - {fileID: 8300000, guid: 58660585e8a2e224dbc60dde2bfd1be6, type: 3}
+  - {fileID: 8300000, guid: 5aa7bc6566185704a85157330a048931, type: 3}
+  - {fileID: 8300000, guid: 8e66de9094d47264c82c8a58f215888f, type: 3}
+  - {fileID: 8300000, guid: b65cb279cb60624449928d711f1c3268, type: 3}
+  - {fileID: 8300000, guid: be641e6cd6b95984b9b139c94eee88a8, type: 3}
+  - {fileID: 8300000, guid: fcf4045682708f2419eb8657744baf41, type: 3}
 --- !u!114 &11400508
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -134,6 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Patron: {fileID: 11400000, guid: 3fcc8fdd52cd35d488ebcf46e38e0a20, type: 2}
+  ActiveProblem: {fileID: 0}
 --- !u!114 &11410158
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -173,6 +181,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbeaa712d0dbda34c983ddfa4bd37007, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnPatronLeaving:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: AgonyBartender.PatronStatusMonitor+PatronLeavingEvent, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!114 &11498640
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -185,6 +198,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartingABV: 0
+  _currentAbv: 0
+  OnLiverFailed:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &11499658
 MonoBehaviour:
   m_ObjectHideFlags: 1
