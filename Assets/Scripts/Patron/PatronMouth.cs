@@ -109,6 +109,14 @@ namespace AgonyBartender
 
                 ConsiderLeaving();
             }
+
+            StartCoroutine(RemindProblem());
+        }
+
+        IEnumerator RemindProblem()
+        {
+            yield return new WaitForSeconds(5.0f);
+            Say(PatronDefinition.ActiveProblem.ProblemString);
         }
 
         private void ConsiderLeaving()
