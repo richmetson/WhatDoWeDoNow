@@ -14,5 +14,5 @@ MonoBehaviour:
   ProblemString: The music in this scene is so dead, man.
   ProblemSolutions:
   - Answer: {fileID: 11400000, guid: 8f8552dfef1c24345a3381fd43aa8f8e, type: 2}
-    Score: 2
+    Score: 3
     FacialOutcome: 1
