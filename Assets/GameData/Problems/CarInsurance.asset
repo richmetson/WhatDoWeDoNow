@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Name: CarInsurance
   m_EditorClassIdentifier: 
   ProblemString: I'm spending sooo much money on car insurance.
-  ProblemSolutions: []
+  ProblemSolutions:
+  - Answer: {fileID: 11400000, guid: bc5cfcc8346450442b6f7802824a98cb, type: 2}
+    Score: 3
+    FacialOutcome: 1

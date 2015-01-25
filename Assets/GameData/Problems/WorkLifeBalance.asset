@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Name: WorkLifeBalance
   m_EditorClassIdentifier: 
   ProblemString: I'm struggling to find the right work/life balance.
-  ProblemSolutions: []
+  ProblemSolutions:
+  - Answer: {fileID: 11400000, guid: f93488632c0bcdf4f96e5f268ab85542, type: 2}
+    Score: 1
+    FacialOutcome: 0
+  - Answer: {fileID: 11400000, guid: 1604b61844d347c49b4d61d8215bfb6c, type: 2}
+    Score: 3
+    FacialOutcome: 1
