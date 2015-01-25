@@ -2,6 +2,7 @@
 using AgonyBartender.Inventory;
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using Random = UnityEngine.Random;
 
 namespace AgonyBartender
@@ -175,6 +176,32 @@ namespace AgonyBartender
             var problem = StandardProblems.GlobalProblems.Concat(patron.PatronsProblems).Random();
 
             BarManager.FillBarStool(patron, problem);
+        }
+
+        public string GetGrade(int Money)
+        {
+            int Grade;
+            if (Money < 0)
+            {
+                Grade = 0;
+            }
+            else
+            {
+                // Round the score grade down
+                Grade = (int)Difficulty.ScoreGrade.Evaluate(Money);
+            }
+
+            if (Grade > 4)
+                Grade = 4;
+
+            Dictionary<int, string> Grades = new Dictionary<int, string>();
+            Grades.Add(0, "F");
+            Grades.Add(1, "C");
+            Grades.Add(2, "B");
+            Grades.Add(3, "A");
+            Grades.Add(4, "A+");
+
+            return Grades[Grade];
         }
         
     }
