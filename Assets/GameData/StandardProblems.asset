@@ -12,14 +12,23 @@ MonoBehaviour:
   m_Name: StandardProblems
   m_EditorClassIdentifier: 
   GlobalProblems:
-  - {fileID: 11400000, guid: 09d36a3f3f340ff47b3101cf6c8fa79d, type: 2}
-  - {fileID: 11400000, guid: 6bee28930af83b54ba2dd0221dd97312, type: 2}
-  - {fileID: 11400000, guid: 00e38487acf202b4592f8ea19325c2d1, type: 2}
   - {fileID: 11400000, guid: 9d9b07b11b9f8884d9aed944f1c86a79, type: 2}
+  - {fileID: 11400000, guid: b616dc22362c7554b8b6eec7704cd6ba, type: 2}
+  - {fileID: 11400000, guid: 85afc9d2119168147bd9c85edfd9c039, type: 2}
+  - {fileID: 11400000, guid: 6bee28930af83b54ba2dd0221dd97312, type: 2}
+  - {fileID: 11400000, guid: 9552fea3a02daae4895bb989f48ffec2, type: 2}
+  - {fileID: 11400000, guid: dd5e71e366c84a046bb51e4c4babd6fd, type: 2}
+  - {fileID: 11400000, guid: 04ba0785e3c197448a64b083567734b5, type: 2}
+  - {fileID: 11400000, guid: 49f247161c8581d49ab1b2cd820b6632, type: 2}
   - {fileID: 11400000, guid: 56622a369ffcac949ad2e778ef6db20c, type: 2}
   - {fileID: 11400000, guid: 8a08c427c8cfa8f4abbe5397b2160cca, type: 2}
+  - {fileID: 11400000, guid: 00e38487acf202b4592f8ea19325c2d1, type: 2}
+  - {fileID: 11400000, guid: b57cd5d8ec5d14e4497d56b5f7c4b4bf, type: 2}
   - {fileID: 11400000, guid: 7f40c219570f66643be2cd6e131e9956, type: 2}
   - {fileID: 11400000, guid: 4775f62a632b2b040a8c980969050132, type: 2}
+  - {fileID: 11400000, guid: b3983dcabb12731439b6828a9c04a506, type: 2}
   - {fileID: 11400000, guid: 5a995ddbfc475be4cad48db0cb27f844, type: 2}
   - {fileID: 11400000, guid: 4257cf6e21f4ff24984c2d794d9dda19, type: 2}
-  - {fileID: 11400000, guid: 576e718e0bdb1fa4ea695002b36f162d, type: 2}
+  - {fileID: 11400000, guid: 09d36a3f3f340ff47b3101cf6c8fa79d, type: 2}
+  - {fileID: 11400000, guid: be55c04fc4f423f42baa5bd3f0ac8f76, type: 2}
+  - {fileID: 11400000, guid: 64f2535ffe719ac41970378044eb3be9, type: 2}
