@@ -48,7 +48,6 @@ public class InventoryGroup : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         Vector2 localDelta = localPoint - RaycastCenterPoint;
         localDelta.x /= RaycastCenterScale.x;
         localDelta.y /= RaycastCenterScale.y;
-        Debug.Log(localDelta);
 
         return localDelta.sqrMagnitude < 1f;
     }
