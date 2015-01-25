@@ -58,32 +58,49 @@ namespace AgonyBartender
         {
             if(EmptyBeerCountdown == null && BeerHand.Beer.IsEmpty)
             {
-                print("Thinking of leaving");
                 EmptyBeerCountdown = StartCoroutine(EmptyBeerMonitor());
+            }
+
+            else if (EmptyBeerCountdown != null && !BeerHand.Beer.IsEmpty)
+            {
+                StopCoroutine(EmptyBeerCountdown);
+                EmptyBeerCountdown = null;
             }
         }
 
         IEnumerator EmptyBeerMonitor()
         {
-            float TimeEmpty = 0.0f;
+            var defn = GetComponent<PatronDefinition>();
+            yield return new WaitForSeconds(5.0f);
 
-            while(TimeEmpty <= 5.0f)
+            if (defn.Patron.DrinkWarning1.Length > 0)
             {
-                if(BeerHand.Beer.IsEmpty)
-                {
-                    TimeEmpty += Time.deltaTime;
-                    yield return null;
-                }
-                else
-                {
-                    // The beer has been topped up, so we stop considering leaving
-                    EmptyBeerCountdown = null;
-                    yield break;
-                }
+                audio.clip = defn.Patron.DrinkWarning1.Random();
+                audio.Play();
+                yield return new WaitForSeconds(audio.clip.length);
             }
 
+            yield return new WaitForSeconds(4.0f);
+
+            if (defn.Patron.DrinkWarning2.Length > 0)
+            {
+                audio.clip = defn.Patron.DrinkWarning2.Random();
+                audio.Play();
+                yield return new WaitForSeconds(audio.clip.length);
+            }
+
+            yield return new WaitForSeconds(3.0f);
+
+            if (defn.Patron.DrinkWarning3.Length > 0)
+            {
+                audio.clip = defn.Patron.DrinkWarning3.Random();
+                audio.Play();
+                yield return new WaitForSeconds(audio.clip.length);
+            }
+
+            yield return new WaitForSeconds(2.0f);
+
             LeaveBar(LeaveReason.Bored);
-            yield break;
         }
 
         public void LeaveBar(LeaveReason Reason)
@@ -92,6 +109,7 @@ namespace AgonyBartender
             {
                 print("I'm off!");
                 HasStartedLeavingBar = true;
+                BeerHand.Beer.gameObject.SetActive(false);
                 StartCoroutine(LeaveSequence(Reason));
             }
         }
@@ -104,11 +122,10 @@ namespace AgonyBartender
                     gameObject.GetComponent<PatronMouth>().Say("Zzzz...");
                     break;
                 case LeaveReason.Bored:
-                    gameObject.GetComponent<PatronMouth>().Say("Err, thanks for nothing");
+                    gameObject.GetComponent<PatronMouth>().Say("Terrible service...");
                     break;
                 case LeaveReason.Satisfied:
                     break;
-
                 case LeaveReason.Angry:
                     break;
                 default:
