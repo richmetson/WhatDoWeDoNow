@@ -14,6 +14,6 @@ MonoBehaviour:
   DisplayName: Flowers
   Sprite: {fileID: 21300000, guid: 7ca2243d8e24c594490b6d5b6135ac17, type: 3}
   Pattern:
-    Width: 6
+    Width: 5
     Height: 4
-    Pattern: 010101010101010101010101000101010100000101010100
+    Pattern: 0101010101010101010100010101000001010100
