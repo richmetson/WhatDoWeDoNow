@@ -25,6 +25,8 @@ namespace AgonyBartender.Editor
         private SerializedProperty _gulpMagnitude;
         private SerializedProperty _alcoholIntolerance;
 
+        private SerializedProperty _genorosity;
+
         private void OnEnable()
         {
             serializedObject.Update();
@@ -44,6 +46,8 @@ namespace AgonyBartender.Editor
             _gapBetweenGulps = serializedObject.FindProperty("GapBetweenGulps");
             _gulpMagnitude = serializedObject.FindProperty("GulpMagnitude");
             _alcoholIntolerance = serializedObject.FindProperty("AlcoholIntolerance");
+
+            _genorosity = serializedObject.FindProperty("Genorosity");
         }
 
 	    public override void OnInspectorGUI()
@@ -64,6 +68,8 @@ namespace AgonyBartender.Editor
             EditorGUILayout.PropertyField(_gapBetweenGulps, true);
             EditorGUILayout.PropertyField(_gulpMagnitude, true);
             EditorGUILayout.PropertyField(_alcoholIntolerance, true);
+
+            EditorGUILayout.PropertyField(_genorosity);
 
 	        serializedObject.ApplyModifiedProperties();
 	    }
