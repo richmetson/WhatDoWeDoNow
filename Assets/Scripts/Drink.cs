@@ -85,6 +85,10 @@ namespace AgonyBartender
                 if (Level >= 1f) break;
 
                 var beerDispensed = Time.deltaTime*TopUpRate;
+                if(beerDispensed + Level > 1.0f)
+                {
+                    beerDispensed = 1.0f - Level;
+                }
                 Level += beerDispensed;
                 OnBeerDispensed.Invoke(beerDispensed);
                             
