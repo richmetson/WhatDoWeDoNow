@@ -15,8 +15,8 @@ MonoBehaviour:
   DifficultyRating: 0
   FaceSprites:
   - {fileID: 21300000, guid: 881c6a17f6eb3324f859f2b14a826c20, type: 3}
+  - {fileID: 21300008, guid: 881c6a17f6eb3324f859f2b14a826c20, type: 3}
   - {fileID: 21300002, guid: 881c6a17f6eb3324f859f2b14a826c20, type: 3}
-  - {fileID: 21300004, guid: 881c6a17f6eb3324f859f2b14a826c20, type: 3}
   - {fileID: 21300006, guid: 881c6a17f6eb3324f859f2b14a826c20, type: 3}
   PatronsProblems: []
   Sighs:
@@ -36,3 +36,15 @@ MonoBehaviour:
   AlcoholIntolerance: .5
   Genorosity: 1
   SizeMultiplier: 3
+  AngryExits:
+  - Do you want to take this outside?
+  - Go hug a landmine
+  - Whatever, jerk
+  - Enjoy your deadend job
+  SatisfiedExits:
+  - Cheers, have a good one
+  - That actually sounds like a good idea
+  ConfusedSayings:
+  - Err... what?
+  - Are you even listening to me?
+  - I'm not sure that would help, in fact, that doesn't even make gramatical sense
