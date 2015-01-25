@@ -30,6 +30,6 @@ MonoBehaviour:
   GulpMagnitude:
     Min: .100000001
     Max: .200000003
-  AlcoholIntolerance: .5
+  AlcoholIntolerance: 1
   Genorosity: 4
   SizeMultiplier: 3

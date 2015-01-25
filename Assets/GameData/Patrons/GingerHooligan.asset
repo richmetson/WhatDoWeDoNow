@@ -24,11 +24,11 @@ MonoBehaviour:
   DrinkWarning2: []
   DrinkWarning3: []
   GapBetweenGulps:
-    Min: 0
-    Max: 0
+    Min: 3
+    Max: 5
   GulpMagnitude:
-    Min: 0
-    Max: 0
-  AlcoholIntolerance: .5
+    Min: .00999999978
+    Max: .100000001
+  AlcoholIntolerance: 2
   Genorosity: 1
   SizeMultiplier: 3
