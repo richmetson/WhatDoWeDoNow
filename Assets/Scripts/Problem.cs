@@ -18,6 +18,7 @@ namespace AgonyBartender
         public Answer Answer;
         public int Score;
         public ProblemSolutionFacialExpression FacialOutcome;
+        public string SpecificResponse;
     }
 
     public class Problem : ScriptableObject

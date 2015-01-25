@@ -68,10 +68,12 @@ namespace AgonyBartender
 
                 int Score;
                 ProblemSolutionFacialExpression Expression;
+                string SpecialReply = string.Empty;
                 if (Index >= 0)
                 {
                     Score = ActiveProblem.ProblemSolutions[Index].Score;
                     Expression = ActiveProblem.ProblemSolutions[Index].FacialOutcome;
+                    SpecialReply = ActiveProblem.ProblemSolutions[Index].SpecificResponse;
                 }
                 else
                 {
@@ -90,6 +92,19 @@ namespace AgonyBartender
                 else
                 {
                     WorstAnswer = Score;
+                }
+
+                if (!string.IsNullOrEmpty(SpecialReply))
+                {
+                    Say(SpecialReply);
+                }
+                else if(Score > 1)
+                {
+                    Say(GetComponent<PatronDefinition>().Patron.SatisfiedExits.Random());
+                }
+                else if (Score < 0)
+                {
+                    Say(GetComponent<PatronDefinition>().Patron.AngryExits.Random());
                 }
 
                 ConsiderLeaving();

@@ -22,5 +22,17 @@ namespace AgonyBartender
 
         public int Genorosity;
 	    public float SizeMultiplier = 2;
+
+        public string[] AngryExits = new string[]{
+                        "Do you want to take this outside?",
+                        "Go hug a landmine",
+                        "Whatever, jerk",
+                        "Enjoy your deadend job"
+                    };
+
+        public string[] SatisfiedExits = new string[]{
+            "Cheers, have a good one",
+            "That actually sounds like a good idea"
+        };
 	}
 }
