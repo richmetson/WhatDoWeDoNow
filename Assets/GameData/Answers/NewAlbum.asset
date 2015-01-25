@@ -15,5 +15,5 @@ MonoBehaviour:
   Sprite: {fileID: 21300000, guid: 3e38d86533390214e8c59737a79535a5, type: 3}
   Pattern:
     Width: 2
-    Height: 1
-    Pattern: 0101
+    Height: 2
+    Pattern: 01010101
