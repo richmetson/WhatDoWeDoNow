@@ -26,3 +26,4 @@ MonoBehaviour:
     Min: .200000003
     Max: .400000006
   AlcoholIntolerance: .5
+  Genorosity: 1

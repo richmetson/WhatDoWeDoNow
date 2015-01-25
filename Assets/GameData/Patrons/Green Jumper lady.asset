@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db3dd099fbc03564c9e1fca79fc2c303, type: 3}
   m_Name: Green Jumper lady
   m_EditorClassIdentifier: 
-  PatronName: Thomas
+  PatronName: Green Jumper Lady
   DifficultyRating: .5
   FaceSprites:
   - {fileID: 21300000, guid: 69df6678c7a4bcf4f88158bb74de336e, type: 3}
@@ -27,3 +27,4 @@ MonoBehaviour:
     Min: .100000001
     Max: .200000003
   AlcoholIntolerance: .5
+  Genorosity: 2

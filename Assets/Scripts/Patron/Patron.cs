@@ -13,5 +13,7 @@ namespace AgonyBartender
         public RangedFloat GulpMagnitude;
 
         public float AlcoholIntolerance = 0.5f;
+
+        public int Genorosity; 
 	}
 }

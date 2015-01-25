@@ -21,6 +21,21 @@ public class ScoreDisplayController : MonoBehaviour {
         MoneyText.text = Session.TipsMade.ToString("C");
         PeopleServerdText.text = Session.PatronsServedThisShift.ToString();
         BeerDispensedText.text = string.Format("{0}ml", Mathf.RoundToInt(Session.BeerDispensedThisShift * 568.0f));
+        LiverFailuresText.text = Session.PatronsPoisonedThisShift.ToString();
+
+        // TODO
+        GradeText.text = "A+";
+
+        GetComponent<Animator>().Play("DoShiftComplete");
+    }
+
+    public void DisplayFinalResults(GameSession Session)
+    {
+        ShiftCompleteText.text = "Game Over";
+
+        MoneyText.text = Session.TotalTipsMade.ToString("C");
+        PeopleServerdText.text = Session.TotalPatronsServed.ToString();
+        BeerDispensedText.text = string.Format("{0}ml", Mathf.RoundToInt(Session.TotalBeerDispensed * 568.0f));
         LiverFailuresText.text = Session.TotalPatronsPoisoned.ToString();
 
         // TODO
