@@ -3895,7 +3895,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   CellSprite: {fileID: 21300000, guid: 617763b59730efc48ab79dce237f0350, type: 3}
   _inventory: {fileID: 1112329743}
-  BaseGridColor: {r: 0, g: 0, b: 0, a: 0}
+  BaseGridColor: {r: 1, g: 1, b: 1, a: .313725501}
 --- !u!222 &1112329746
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4271,9 +4271,14 @@ MonoBehaviour:
   Difficulty: {fileID: 11400000, guid: e6b27e0a2610bb040a041f8d10503223, type: 2}
   Clock: {fileID: 1757106181}
   PatronArchetypes:
-  - {fileID: 11400000, guid: 3fcc8fdd52cd35d488ebcf46e38e0a20, type: 2}
+  - {fileID: 11400000, guid: 902bbd39e4b776c429f71486e96cf2b3, type: 2}
+  - {fileID: 11400000, guid: c19992df68d0992469eff255649badc8, type: 2}
+  - {fileID: 11400000, guid: 02bd2477f42b80f45a4a0690a289a8f1, type: 2}
+  - {fileID: 11400000, guid: aa5110e70905c4b46b44e10b4cf4b833, type: 2}
+  - {fileID: 11400000, guid: 6d52965c9750c7547af5e2b3b1d0e66f, type: 2}
   - {fileID: 11400000, guid: 5a1b18534783bfc4398e574138ac2c69, type: 2}
   - {fileID: 11400000, guid: 644f90da084924146a46b3b84b4b1416, type: 2}
+  - {fileID: 11400000, guid: 3fcc8fdd52cd35d488ebcf46e38e0a20, type: 2}
   ScorePage: {fileID: 797517811}
   GameGroup: {fileID: 202607675}
   FadeTime: .5
