@@ -7,7 +7,7 @@ using UnityEngine.UI;
 namespace AgonyBartender.Inventory
 {
 
-    public class Inventory : MonoBehaviour, IDropHandler, IBeginDragHandler, IDragHandler, IEndDragHandler, IDragItemSource
+    public class Inventory : MonoBehaviour, IDropHandler, IBeginDragHandler, IDragHandler
     {
 
         public static Inventory Default { get; private set; }
@@ -19,9 +19,6 @@ namespace AgonyBartender.Inventory
         private List<InventoryItem> _items;
 
         public InventoryItemSource ItemSource;
-
-        private Answer _currentDraggingItem;
-        Answer IDragItemSource.ItemInfo { get { return _currentDraggingItem; } }
 
         public InventoryPattern InventoryShape;
 
@@ -90,17 +87,7 @@ namespace AgonyBartender.Inventory
             return true;
         }
 
-        public Answer GetSelectedItem()
-        {
-            return _currentDraggingItem;
-        }
-
         public ItemCursor ItemCursorPrefab;
-
-        private ItemCursor _itemCursor;
-        ItemCursor IDragItemSource.ItemCursor { get { return _itemCursor; } }
-
-        public bool IsDraggingItem { get; set; }
 
         public InventoryItem GetItemUnderCursor(PointerEventData eventData)
         {
@@ -119,32 +106,18 @@ namespace AgonyBartender.Inventory
             var item = GetItemUnderCursor(eventData);
             if (!item) return;
 
-            _itemCursor = (ItemCursor)Instantiate(ItemCursorPrefab);
-            _itemCursor.Initialize(item.ItemInfo, transform.root);
-
-            _currentDraggingItem = item.ItemInfo;
+            var itemCursor = (ItemCursor)Instantiate(ItemCursorPrefab);
+            itemCursor.Initialize(item.ItemInfo, transform.root);
+            itemCursor.SyncCursorPos(eventData);
+            eventData.pointerDrag = itemCursor.gameObject;
 
             _items.Remove(item);
             Destroy(item.gameObject);
-
-            _itemCursor.SyncCursorPos(eventData);
         }
 
         public void OnDrag(PointerEventData eventData)
         {
-            _itemCursor.SyncCursorPos(eventData);
-        }
 
-        public void OnEndDrag(PointerEventData eventData)
-        {
-            if (_itemCursor)
-                Destroy(_itemCursor.gameObject);
-        }
-
-        public void OnDisable()
-        {
-            if (_itemCursor)
-                Destroy(_itemCursor.gameObject);
         }
 
         public Color32 GetHighlightAt(int x, int y)

@@ -10,14 +10,16 @@ namespace AgonyBartender.Inventory
         public Answer ItemInfo;
         public Image Image;
 
+        public static ItemCursor ActiveCursor;
+
         public void OnEnable()
         {
-            Inventory.Default.IsDraggingItem = true;
+            ActiveCursor = this;
         }
 
         public void OnDisable()
         {
-            Inventory.Default.IsDraggingItem = false;
+            ActiveCursor = null;
         }
 
         public void Initialize(Answer itemInfo, Transform parent)

@@ -4,19 +4,10 @@ using UnityEngine.UI;
 
 namespace AgonyBartender.Inventory
 {
-    public interface IDragItemSource
-    {
-        Answer ItemInfo { get; }
-        ItemCursor ItemCursor { get; }
-    }
-
-    public class InventoryItemSource : MonoBehaviour, IDragHandler, IBeginDragHandler, IDragItemSource
+    public class InventoryItemSource : MonoBehaviour, IDragHandler, IBeginDragHandler
     {
         public Answer ItemInfo;
         public ItemCursor ItemCursorPrefab;
-
-        Answer IDragItemSource.ItemInfo { get { return ItemInfo; }}
-        ItemCursor IDragItemSource.ItemCursor { get { return ItemCursor; }}
 
         public ItemCursor ItemCursor { get; private set; }
 
