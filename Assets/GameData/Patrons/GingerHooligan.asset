@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: GingerHooligan
   m_EditorClassIdentifier: 
   PatronName: Ginger Hooligan
-  DifficultyRating: 0
+  DifficultyRating: .400000006
   FaceSprites:
   - {fileID: 21300000, guid: 540204005d418734fb99f6c3a6df45ab, type: 3}
   - {fileID: 21300000, guid: 540204005d418734fb99f6c3a6df45ab, type: 3}
@@ -32,7 +32,19 @@ MonoBehaviour:
     Max: 5
   GulpMagnitude:
     Min: .00999999978
-    Max: .100000001
+    Max: .400000006
   AlcoholIntolerance: 2
   Genorosity: 1
   SizeMultiplier: 3
+  AngryExits:
+  - Do you want to take this outside?
+  - Go hug a landmine
+  - Whatever, jerk
+  - Enjoy your deadend job
+  SatisfiedExits:
+  - Cheers, have a good one
+  - That actually sounds like a good idea
+  ConfusedSayings:
+  - Err... what?
+  - Are you even listening to me?
+  - I'm not sure that would help, in fact, that doesn't even make gramatical sense

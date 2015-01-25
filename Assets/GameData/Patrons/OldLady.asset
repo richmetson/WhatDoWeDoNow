@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: OldLady
   m_EditorClassIdentifier: 
   PatronName: Old Lady
-  DifficultyRating: 0
+  DifficultyRating: .100000001
   FaceSprites:
   - {fileID: 21300000, guid: 13d024c740846ce4f872c2ff45a6042f, type: 3}
   - {fileID: 21300000, guid: 13d024c740846ce4f872c2ff45a6042f, type: 3}
@@ -36,3 +36,15 @@ MonoBehaviour:
   AlcoholIntolerance: 6
   Genorosity: 1
   SizeMultiplier: 3
+  AngryExits:
+  - Do you want to take this outside?
+  - Go hug a landmine
+  - Whatever, jerk
+  - Enjoy your deadend job
+  SatisfiedExits:
+  - Cheers, have a good one
+  - That actually sounds like a good idea
+  ConfusedSayings:
+  - Err... what?
+  - Are you even listening to me?
+  - I'm not sure that would help, in fact, that doesn't even make gramatical sense
