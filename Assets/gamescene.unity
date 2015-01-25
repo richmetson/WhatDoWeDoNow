@@ -190,6 +190,70 @@ Prefab:
   m_RootGameObject: {fileID: 1474168704}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1001 &109305714
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 485680, guid: 3bc694943b6a313468993ed21493947c, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 367.933075
+      objectReference: {fileID: 0}
+    - target: {fileID: 485680, guid: 3bc694943b6a313468993ed21493947c, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 213.645676
+      objectReference: {fileID: 0}
+    - target: {fileID: 485680, guid: 3bc694943b6a313468993ed21493947c, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485680, guid: 3bc694943b6a313468993ed21493947c, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485680, guid: 3bc694943b6a313468993ed21493947c, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485680, guid: 3bc694943b6a313468993ed21493947c, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485680, guid: 3bc694943b6a313468993ed21493947c, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 485680, guid: 3bc694943b6a313468993ed21493947c, type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11485680, guid: 3bc694943b6a313468993ed21493947c, type: 2}
+      propertyPath: BarManager
+      value: 
+      objectReference: {fileID: 1172516970}
+    - target: {fileID: 11485680, guid: 3bc694943b6a313468993ed21493947c, type: 2}
+      propertyPath: Clock
+      value: 
+      objectReference: {fileID: 1757106181}
+    - target: {fileID: 11485680, guid: 3bc694943b6a313468993ed21493947c, type: 2}
+      propertyPath: Tap
+      value: 
+      objectReference: {fileID: 1967991669}
+    - target: {fileID: 11485680, guid: 3bc694943b6a313468993ed21493947c, type: 2}
+      propertyPath: ScorePage
+      value: 
+      objectReference: {fileID: 797517811}
+    - target: {fileID: 11485680, guid: 3bc694943b6a313468993ed21493947c, type: 2}
+      propertyPath: GameGroup
+      value: 
+      objectReference: {fileID: 202607675}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 3bc694943b6a313468993ed21493947c, type: 2}
+  m_RootGameObject: {fileID: 1167317110}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1 &138876337
 GameObject:
   m_ObjectHideFlags: 0
@@ -1571,41 +1635,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76d2f3c11cacdf3469d15aa9ea306b7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ConversationSnippets:
-  - {fileID: 11400000, guid: 46ac6930f1b78764481854356c6e987d, type: 2}
-  - {fileID: 11400000, guid: 1d0c96506f2ce92458082d4cca4a077d, type: 2}
-  - {fileID: 11400000, guid: c69985909333a4c4cbe5f5912abd3ae3, type: 2}
-  - {fileID: 11400000, guid: 2c42a7904d04afc44a20eb0fc4df8df8, type: 2}
-  - {fileID: 11400000, guid: 6ffcbd90b656523479dce741a074f4b3, type: 2}
-  - {fileID: 11400000, guid: 5c0d4dc01a64b9e48a883f3abc4c8e22, type: 2}
-  - {fileID: 11400000, guid: 158081d0ffad85e47bd37133bbeaad32, type: 2}
-  - {fileID: 11400000, guid: 8ee5c14216e6999498b1fbca2b05b5c6, type: 2}
-  - {fileID: 11400000, guid: d85cef5283930ba4cad2e40e8bafdc86, type: 2}
-  - {fileID: 11400000, guid: 6c66db722f7e8834494d982d01633d11, type: 2}
-  - {fileID: 11400000, guid: d8ed38630df03e04cab7daffaaa9a408, type: 2}
-  - {fileID: 11400000, guid: 3a3ddf837b6809b4b953fa965487c500, type: 2}
-  - {fileID: 11400000, guid: 0f57c674ed75f7b41b6affe2b7d1b8e8, type: 2}
-  - {fileID: 11400000, guid: 891295f4e9d76c84baf18988070fff35, type: 2}
-  - {fileID: 11400000, guid: db4e05757fb8f814298b138e5df63d7a, type: 2}
-  - {fileID: 11400000, guid: 434b91c51a91b91409c2249fa189878a, type: 2}
-  - {fileID: 11400000, guid: 11a317e55c811394884918680993224b, type: 2}
-  - {fileID: 11400000, guid: e6cf9c361c3c1c0499133b9720ae843a, type: 2}
-  - {fileID: 11400000, guid: 7d0a4a5615eb7174394a774d98efc19c, type: 2}
-  - {fileID: 11400000, guid: f901fb8644c8825439abeb4debeb0d36, type: 2}
-  - {fileID: 11400000, guid: dc80076789a554543bb7e69cd04595fe, type: 2}
-  - {fileID: 11400000, guid: f0efc71991800724fb67a243838c3b78, type: 2}
-  - {fileID: 11400000, guid: 7f6db2e9ce977284a844473ca3f4aecd, type: 2}
-  - {fileID: 11400000, guid: c3251cba8bbfbdd469c2c92209c9412f, type: 2}
-  - {fileID: 11400000, guid: cfdffafacc6d7e94684e21c33344633c, type: 2}
-  - {fileID: 11400000, guid: 711b9b7bf58c83141abc5a88a66f0d65, type: 2}
-  - {fileID: 11400000, guid: 7cc8858b399495741b9fc2f013dc5b7e, type: 2}
-  - {fileID: 11400000, guid: f2bbf32cdeb5c35448f12314001c0b7f, type: 2}
-  - {fileID: 11400000, guid: fe77205c67249864ea44b4fed1686734, type: 2}
-  - {fileID: 11400000, guid: 4fba605cdac91bf4f92e116e1a2b38f0, type: 2}
-  - {fileID: 11400000, guid: 153c1cbc33d313e4899529bf5f8580aa, type: 2}
-  - {fileID: 11400000, guid: c50947dcb350be34db61cb707b4bc1eb, type: 2}
-  - {fileID: 11400000, guid: bf80b4fc26cbbc74ba3e6f1daa8bca75, type: 2}
-  - {fileID: 11400000, guid: 31abf09dc4418bf4cba6e785a20e3613, type: 2}
   ItemSource: {fileID: 319336463}
   SpeechBubble: {fileID: 319336460}
   TimeBeforeSpeaking:
@@ -1643,70 +1672,6 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 1999349316}
   m_GameObject: {fileID: 371207848}
---- !u!1001 &375556340
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 485680, guid: 3bc694943b6a313468993ed21493947c, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 367.933075
-      objectReference: {fileID: 0}
-    - target: {fileID: 485680, guid: 3bc694943b6a313468993ed21493947c, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 213.645676
-      objectReference: {fileID: 0}
-    - target: {fileID: 485680, guid: 3bc694943b6a313468993ed21493947c, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 485680, guid: 3bc694943b6a313468993ed21493947c, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 485680, guid: 3bc694943b6a313468993ed21493947c, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 485680, guid: 3bc694943b6a313468993ed21493947c, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 485680, guid: 3bc694943b6a313468993ed21493947c, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 485680, guid: 3bc694943b6a313468993ed21493947c, type: 2}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11485680, guid: 3bc694943b6a313468993ed21493947c, type: 2}
-      propertyPath: BarManager
-      value: 
-      objectReference: {fileID: 1172516970}
-    - target: {fileID: 11485680, guid: 3bc694943b6a313468993ed21493947c, type: 2}
-      propertyPath: Clock
-      value: 
-      objectReference: {fileID: 1757106181}
-    - target: {fileID: 11485680, guid: 3bc694943b6a313468993ed21493947c, type: 2}
-      propertyPath: ScorePage
-      value: 
-      objectReference: {fileID: 797517811}
-    - target: {fileID: 11485680, guid: 3bc694943b6a313468993ed21493947c, type: 2}
-      propertyPath: GameGroup
-      value: 
-      objectReference: {fileID: 202607675}
-    - target: {fileID: 11485680, guid: 3bc694943b6a313468993ed21493947c, type: 2}
-      propertyPath: Tap
-      value: 
-      objectReference: {fileID: 1967991669}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 3bc694943b6a313468993ed21493947c, type: 2}
-  m_RootGameObject: {fileID: 1167317110}
-  m_IsPrefabParent: 0
-  m_IsExploded: 1
 --- !u!1 &415115224
 GameObject:
   m_ObjectHideFlags: 0
@@ -3197,41 +3162,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76d2f3c11cacdf3469d15aa9ea306b7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ConversationSnippets:
-  - {fileID: 11400000, guid: 46ac6930f1b78764481854356c6e987d, type: 2}
-  - {fileID: 11400000, guid: 1d0c96506f2ce92458082d4cca4a077d, type: 2}
-  - {fileID: 11400000, guid: c69985909333a4c4cbe5f5912abd3ae3, type: 2}
-  - {fileID: 11400000, guid: 2c42a7904d04afc44a20eb0fc4df8df8, type: 2}
-  - {fileID: 11400000, guid: 6ffcbd90b656523479dce741a074f4b3, type: 2}
-  - {fileID: 11400000, guid: 5c0d4dc01a64b9e48a883f3abc4c8e22, type: 2}
-  - {fileID: 11400000, guid: 158081d0ffad85e47bd37133bbeaad32, type: 2}
-  - {fileID: 11400000, guid: 8ee5c14216e6999498b1fbca2b05b5c6, type: 2}
-  - {fileID: 11400000, guid: d85cef5283930ba4cad2e40e8bafdc86, type: 2}
-  - {fileID: 11400000, guid: 6c66db722f7e8834494d982d01633d11, type: 2}
-  - {fileID: 11400000, guid: d8ed38630df03e04cab7daffaaa9a408, type: 2}
-  - {fileID: 11400000, guid: 3a3ddf837b6809b4b953fa965487c500, type: 2}
-  - {fileID: 11400000, guid: 0f57c674ed75f7b41b6affe2b7d1b8e8, type: 2}
-  - {fileID: 11400000, guid: 891295f4e9d76c84baf18988070fff35, type: 2}
-  - {fileID: 11400000, guid: db4e05757fb8f814298b138e5df63d7a, type: 2}
-  - {fileID: 11400000, guid: 434b91c51a91b91409c2249fa189878a, type: 2}
-  - {fileID: 11400000, guid: 11a317e55c811394884918680993224b, type: 2}
-  - {fileID: 11400000, guid: e6cf9c361c3c1c0499133b9720ae843a, type: 2}
-  - {fileID: 11400000, guid: 7d0a4a5615eb7174394a774d98efc19c, type: 2}
-  - {fileID: 11400000, guid: f901fb8644c8825439abeb4debeb0d36, type: 2}
-  - {fileID: 11400000, guid: dc80076789a554543bb7e69cd04595fe, type: 2}
-  - {fileID: 11400000, guid: f0efc71991800724fb67a243838c3b78, type: 2}
-  - {fileID: 11400000, guid: 7f6db2e9ce977284a844473ca3f4aecd, type: 2}
-  - {fileID: 11400000, guid: c3251cba8bbfbdd469c2c92209c9412f, type: 2}
-  - {fileID: 11400000, guid: cfdffafacc6d7e94684e21c33344633c, type: 2}
-  - {fileID: 11400000, guid: 711b9b7bf58c83141abc5a88a66f0d65, type: 2}
-  - {fileID: 11400000, guid: 7cc8858b399495741b9fc2f013dc5b7e, type: 2}
-  - {fileID: 11400000, guid: f2bbf32cdeb5c35448f12314001c0b7f, type: 2}
-  - {fileID: 11400000, guid: fe77205c67249864ea44b4fed1686734, type: 2}
-  - {fileID: 11400000, guid: 4fba605cdac91bf4f92e116e1a2b38f0, type: 2}
-  - {fileID: 11400000, guid: 153c1cbc33d313e4899529bf5f8580aa, type: 2}
-  - {fileID: 11400000, guid: c50947dcb350be34db61cb707b4bc1eb, type: 2}
-  - {fileID: 11400000, guid: bf80b4fc26cbbc74ba3e6f1daa8bca75, type: 2}
-  - {fileID: 11400000, guid: 31abf09dc4418bf4cba6e785a20e3613, type: 2}
   ItemSource: {fileID: 319336463}
   SpeechBubble: {fileID: 319336460}
   TimeBeforeSpeaking:
@@ -4330,7 +4260,7 @@ Prefab:
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 185680, guid: 3bc694943b6a313468993ed21493947c, type: 2}
-  m_PrefabInternal: {fileID: 375556340}
+  m_PrefabInternal: {fileID: 109305714}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1167317112}
@@ -4348,7 +4278,7 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11485680, guid: 3bc694943b6a313468993ed21493947c,
     type: 2}
-  m_PrefabInternal: {fileID: 375556340}
+  m_PrefabInternal: {fileID: 109305714}
   m_GameObject: {fileID: 1167317110}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -4368,6 +4298,41 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5a1b18534783bfc4398e574138ac2c69, type: 2}
   - {fileID: 11400000, guid: 644f90da084924146a46b3b84b4b1416, type: 2}
   - {fileID: 11400000, guid: 3fcc8fdd52cd35d488ebcf46e38e0a20, type: 2}
+  OverheardConversations:
+  - {fileID: 11400000, guid: 46ac6930f1b78764481854356c6e987d, type: 2}
+  - {fileID: 11400000, guid: 1d0c96506f2ce92458082d4cca4a077d, type: 2}
+  - {fileID: 11400000, guid: c69985909333a4c4cbe5f5912abd3ae3, type: 2}
+  - {fileID: 11400000, guid: 2c42a7904d04afc44a20eb0fc4df8df8, type: 2}
+  - {fileID: 11400000, guid: 6ffcbd90b656523479dce741a074f4b3, type: 2}
+  - {fileID: 11400000, guid: 5c0d4dc01a64b9e48a883f3abc4c8e22, type: 2}
+  - {fileID: 11400000, guid: 158081d0ffad85e47bd37133bbeaad32, type: 2}
+  - {fileID: 11400000, guid: 8ee5c14216e6999498b1fbca2b05b5c6, type: 2}
+  - {fileID: 11400000, guid: d85cef5283930ba4cad2e40e8bafdc86, type: 2}
+  - {fileID: 11400000, guid: 6c66db722f7e8834494d982d01633d11, type: 2}
+  - {fileID: 11400000, guid: d8ed38630df03e04cab7daffaaa9a408, type: 2}
+  - {fileID: 11400000, guid: 3a3ddf837b6809b4b953fa965487c500, type: 2}
+  - {fileID: 11400000, guid: 0f57c674ed75f7b41b6affe2b7d1b8e8, type: 2}
+  - {fileID: 11400000, guid: 891295f4e9d76c84baf18988070fff35, type: 2}
+  - {fileID: 11400000, guid: db4e05757fb8f814298b138e5df63d7a, type: 2}
+  - {fileID: 11400000, guid: 434b91c51a91b91409c2249fa189878a, type: 2}
+  - {fileID: 11400000, guid: 11a317e55c811394884918680993224b, type: 2}
+  - {fileID: 11400000, guid: e6cf9c361c3c1c0499133b9720ae843a, type: 2}
+  - {fileID: 11400000, guid: 7d0a4a5615eb7174394a774d98efc19c, type: 2}
+  - {fileID: 11400000, guid: f901fb8644c8825439abeb4debeb0d36, type: 2}
+  - {fileID: 11400000, guid: dc80076789a554543bb7e69cd04595fe, type: 2}
+  - {fileID: 11400000, guid: f0efc71991800724fb67a243838c3b78, type: 2}
+  - {fileID: 11400000, guid: 7f6db2e9ce977284a844473ca3f4aecd, type: 2}
+  - {fileID: 11400000, guid: c3251cba8bbfbdd469c2c92209c9412f, type: 2}
+  - {fileID: 11400000, guid: cfdffafacc6d7e94684e21c33344633c, type: 2}
+  - {fileID: 11400000, guid: 711b9b7bf58c83141abc5a88a66f0d65, type: 2}
+  - {fileID: 11400000, guid: 7cc8858b399495741b9fc2f013dc5b7e, type: 2}
+  - {fileID: 11400000, guid: f2bbf32cdeb5c35448f12314001c0b7f, type: 2}
+  - {fileID: 11400000, guid: fe77205c67249864ea44b4fed1686734, type: 2}
+  - {fileID: 11400000, guid: 4fba605cdac91bf4f92e116e1a2b38f0, type: 2}
+  - {fileID: 11400000, guid: 153c1cbc33d313e4899529bf5f8580aa, type: 2}
+  - {fileID: 11400000, guid: c50947dcb350be34db61cb707b4bc1eb, type: 2}
+  - {fileID: 11400000, guid: bf80b4fc26cbbc74ba3e6f1daa8bca75, type: 2}
+  - {fileID: 11400000, guid: 31abf09dc4418bf4cba6e785a20e3613, type: 2}
   ShiftStartClips:
   - {fileID: 8300000, guid: 3977231a4ab1cfa42a1101b3d93f8898, type: 3}
   - {fileID: 8300000, guid: e817f2c8af8101a4799415ffe76b6f21, type: 3}
@@ -4381,7 +4346,7 @@ MonoBehaviour:
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 485680, guid: 3bc694943b6a313468993ed21493947c, type: 2}
-  m_PrefabInternal: {fileID: 375556340}
+  m_PrefabInternal: {fileID: 109305714}
   m_GameObject: {fileID: 1167317110}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 367.933075, y: 213.645676, z: 0}
@@ -4394,7 +4359,7 @@ AudioSource:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 8239962, guid: 3bc694943b6a313468993ed21493947c,
     type: 2}
-  m_PrefabInternal: {fileID: 375556340}
+  m_PrefabInternal: {fileID: 109305714}
   m_GameObject: {fileID: 1167317110}
   m_Enabled: 1
   serializedVersion: 3
@@ -7215,41 +7180,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76d2f3c11cacdf3469d15aa9ea306b7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ConversationSnippets:
-  - {fileID: 11400000, guid: 46ac6930f1b78764481854356c6e987d, type: 2}
-  - {fileID: 11400000, guid: 1d0c96506f2ce92458082d4cca4a077d, type: 2}
-  - {fileID: 11400000, guid: c69985909333a4c4cbe5f5912abd3ae3, type: 2}
-  - {fileID: 11400000, guid: 2c42a7904d04afc44a20eb0fc4df8df8, type: 2}
-  - {fileID: 11400000, guid: 6ffcbd90b656523479dce741a074f4b3, type: 2}
-  - {fileID: 11400000, guid: 5c0d4dc01a64b9e48a883f3abc4c8e22, type: 2}
-  - {fileID: 11400000, guid: 158081d0ffad85e47bd37133bbeaad32, type: 2}
-  - {fileID: 11400000, guid: 8ee5c14216e6999498b1fbca2b05b5c6, type: 2}
-  - {fileID: 11400000, guid: d85cef5283930ba4cad2e40e8bafdc86, type: 2}
-  - {fileID: 11400000, guid: 6c66db722f7e8834494d982d01633d11, type: 2}
-  - {fileID: 11400000, guid: d8ed38630df03e04cab7daffaaa9a408, type: 2}
-  - {fileID: 11400000, guid: 3a3ddf837b6809b4b953fa965487c500, type: 2}
-  - {fileID: 11400000, guid: 0f57c674ed75f7b41b6affe2b7d1b8e8, type: 2}
-  - {fileID: 11400000, guid: 891295f4e9d76c84baf18988070fff35, type: 2}
-  - {fileID: 11400000, guid: db4e05757fb8f814298b138e5df63d7a, type: 2}
-  - {fileID: 11400000, guid: 434b91c51a91b91409c2249fa189878a, type: 2}
-  - {fileID: 11400000, guid: 11a317e55c811394884918680993224b, type: 2}
-  - {fileID: 11400000, guid: e6cf9c361c3c1c0499133b9720ae843a, type: 2}
-  - {fileID: 11400000, guid: 7d0a4a5615eb7174394a774d98efc19c, type: 2}
-  - {fileID: 11400000, guid: f901fb8644c8825439abeb4debeb0d36, type: 2}
-  - {fileID: 11400000, guid: dc80076789a554543bb7e69cd04595fe, type: 2}
-  - {fileID: 11400000, guid: f0efc71991800724fb67a243838c3b78, type: 2}
-  - {fileID: 11400000, guid: 7f6db2e9ce977284a844473ca3f4aecd, type: 2}
-  - {fileID: 11400000, guid: c3251cba8bbfbdd469c2c92209c9412f, type: 2}
-  - {fileID: 11400000, guid: cfdffafacc6d7e94684e21c33344633c, type: 2}
-  - {fileID: 11400000, guid: 711b9b7bf58c83141abc5a88a66f0d65, type: 2}
-  - {fileID: 11400000, guid: 7cc8858b399495741b9fc2f013dc5b7e, type: 2}
-  - {fileID: 11400000, guid: f2bbf32cdeb5c35448f12314001c0b7f, type: 2}
-  - {fileID: 11400000, guid: fe77205c67249864ea44b4fed1686734, type: 2}
-  - {fileID: 11400000, guid: 4fba605cdac91bf4f92e116e1a2b38f0, type: 2}
-  - {fileID: 11400000, guid: 153c1cbc33d313e4899529bf5f8580aa, type: 2}
-  - {fileID: 11400000, guid: c50947dcb350be34db61cb707b4bc1eb, type: 2}
-  - {fileID: 11400000, guid: bf80b4fc26cbbc74ba3e6f1daa8bca75, type: 2}
-  - {fileID: 11400000, guid: 31abf09dc4418bf4cba6e785a20e3613, type: 2}
   ItemSource: {fileID: 1132943600}
   SpeechBubble: {fileID: 1132943599}
   TimeBeforeSpeaking:
@@ -8365,41 +8295,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76d2f3c11cacdf3469d15aa9ea306b7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ConversationSnippets:
-  - {fileID: 11400000, guid: 46ac6930f1b78764481854356c6e987d, type: 2}
-  - {fileID: 11400000, guid: 1d0c96506f2ce92458082d4cca4a077d, type: 2}
-  - {fileID: 11400000, guid: c69985909333a4c4cbe5f5912abd3ae3, type: 2}
-  - {fileID: 11400000, guid: 2c42a7904d04afc44a20eb0fc4df8df8, type: 2}
-  - {fileID: 11400000, guid: 6ffcbd90b656523479dce741a074f4b3, type: 2}
-  - {fileID: 11400000, guid: 5c0d4dc01a64b9e48a883f3abc4c8e22, type: 2}
-  - {fileID: 11400000, guid: 158081d0ffad85e47bd37133bbeaad32, type: 2}
-  - {fileID: 11400000, guid: 8ee5c14216e6999498b1fbca2b05b5c6, type: 2}
-  - {fileID: 11400000, guid: d85cef5283930ba4cad2e40e8bafdc86, type: 2}
-  - {fileID: 11400000, guid: 6c66db722f7e8834494d982d01633d11, type: 2}
-  - {fileID: 11400000, guid: d8ed38630df03e04cab7daffaaa9a408, type: 2}
-  - {fileID: 11400000, guid: 3a3ddf837b6809b4b953fa965487c500, type: 2}
-  - {fileID: 11400000, guid: 0f57c674ed75f7b41b6affe2b7d1b8e8, type: 2}
-  - {fileID: 11400000, guid: 891295f4e9d76c84baf18988070fff35, type: 2}
-  - {fileID: 11400000, guid: db4e05757fb8f814298b138e5df63d7a, type: 2}
-  - {fileID: 11400000, guid: 434b91c51a91b91409c2249fa189878a, type: 2}
-  - {fileID: 11400000, guid: 11a317e55c811394884918680993224b, type: 2}
-  - {fileID: 11400000, guid: e6cf9c361c3c1c0499133b9720ae843a, type: 2}
-  - {fileID: 11400000, guid: 7d0a4a5615eb7174394a774d98efc19c, type: 2}
-  - {fileID: 11400000, guid: f901fb8644c8825439abeb4debeb0d36, type: 2}
-  - {fileID: 11400000, guid: dc80076789a554543bb7e69cd04595fe, type: 2}
-  - {fileID: 11400000, guid: f0efc71991800724fb67a243838c3b78, type: 2}
-  - {fileID: 11400000, guid: 7f6db2e9ce977284a844473ca3f4aecd, type: 2}
-  - {fileID: 11400000, guid: c3251cba8bbfbdd469c2c92209c9412f, type: 2}
-  - {fileID: 11400000, guid: cfdffafacc6d7e94684e21c33344633c, type: 2}
-  - {fileID: 11400000, guid: 711b9b7bf58c83141abc5a88a66f0d65, type: 2}
-  - {fileID: 11400000, guid: 7cc8858b399495741b9fc2f013dc5b7e, type: 2}
-  - {fileID: 11400000, guid: f2bbf32cdeb5c35448f12314001c0b7f, type: 2}
-  - {fileID: 11400000, guid: fe77205c67249864ea44b4fed1686734, type: 2}
-  - {fileID: 11400000, guid: 4fba605cdac91bf4f92e116e1a2b38f0, type: 2}
-  - {fileID: 11400000, guid: 153c1cbc33d313e4899529bf5f8580aa, type: 2}
-  - {fileID: 11400000, guid: c50947dcb350be34db61cb707b4bc1eb, type: 2}
-  - {fileID: 11400000, guid: bf80b4fc26cbbc74ba3e6f1daa8bca75, type: 2}
-  - {fileID: 11400000, guid: 31abf09dc4418bf4cba6e785a20e3613, type: 2}
   ItemSource: {fileID: 1618521029}
   SpeechBubble: {fileID: 1618521028}
   TimeBeforeSpeaking:

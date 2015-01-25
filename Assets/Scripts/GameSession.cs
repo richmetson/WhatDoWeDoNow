@@ -10,17 +10,21 @@ namespace AgonyBartender
 
     public class GameSession : MonoBehaviour
     {
+        public static GameSession Current { get; private set; }
+
         public BarManager BarManager;
         public DifficultyLevel Difficulty;
         public Clock Clock;
         public BeerTap Tap;
 
         public Patron[] PatronArchetypes;
+        public OverheardConversation[] OverheardConversations;
 
         public AudioClip[] ShiftStartClips;
 
         public void Start()
         {
+            Current = this;
             BeginNewShift();
         }
 
@@ -98,6 +102,10 @@ namespace AgonyBartender
             }
         }
 
+        public Patron[] PatronsThisShift { get; private set; }
+        public Problem[] CommonProblemsThisShift { get; private set; }
+        public OverheardConversation[] OverheardConversationThisShift { get; private set; }
+
         public void BeginNewShift()
         {
             BeerDispensedThisShift = 0;
@@ -115,6 +123,21 @@ namespace AgonyBartender
             int initialPatrons = (int)(barLength * Mathf.Clamp01(Difficulty.InitialFullness.Evaluate(ShiftNumber)));
             // Ensure that we have at least one patron waiting at the beginning of the game, because it's boring to start with an empty bar
             if (ShiftNumber == 0) initialPatrons = Mathf.Max(initialPatrons, 1);
+
+            float minPatronDifficulty = Difficulty.MinPatronDifficulty.Evaluate(ShiftNumber);
+            float maxPatronDifficulty = Difficulty.MaxPatronDifficulty.Evaluate(ShiftNumber);
+            PatronsThisShift =
+                PatronArchetypes.Where(p => p.DifficultyRating >= minPatronDifficulty && p.DifficultyRating <= maxPatronDifficulty)
+                    .ToArray();
+
+            int problemsSetSize = Mathf.RoundToInt(Difficulty.CommonProblemsSetSize.Evaluate(ShiftNumber));
+            CommonProblemsThisShift = StandardProblems.GlobalProblems.Where(p => p.GetBestAnswer() != null).Shuffle().Take(problemsSetSize).ToArray();
+
+            var answersNeeded = CommonProblemsThisShift.Select(p => p.GetBestAnswer()).Distinct();
+            var requiredConversations =
+                answersNeeded.Select(a => OverheardConversations.Where(c => c.AnswerDelivered == a).Random());
+            var optionalConversations = OverheardConversations.Except(requiredConversations).Shuffle().Take((int) Difficulty.NumRedHerrings.Evaluate(ShiftNumber));
+            OverheardConversationThisShift = requiredConversations.Concat(optionalConversations).ToArray();
 
             BarManager.EnableArriveSounds = false;
             for (int i = 0; i < initialPatrons; ++i)
@@ -188,14 +211,9 @@ namespace AgonyBartender
 
         public void SpawnPatron()
         {
-            var minDifficulty = Difficulty.MinPatronDifficulty.Evaluate(ShiftNumber);
-            var maxDifficulty = Difficulty.MaxPatronDifficulty.Evaluate(ShiftNumber);
+            var patron = PatronsThisShift.Random();
 
-            var patron = PatronArchetypes
-                        .Where(p => p.DifficultyRating >= minDifficulty && p.DifficultyRating <= maxDifficulty)
-                        .Random();
-
-            var problem = StandardProblems.GlobalProblems.Concat(patron.PatronsProblems).Random();
+            var problem = CommonProblemsThisShift.Concat(patron.PatronsProblems).Random();
 
             BarManager.FillBarStool(patron, problem);
         }

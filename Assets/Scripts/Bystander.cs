@@ -6,7 +6,6 @@ namespace AgonyBartender
 {
     public class Bystander : MonoBehaviour
     {
-        public OverheardConversation[] ConversationSnippets;
         public InventoryItemSource ItemSource;
         public SpeechBubble SpeechBubble;
 
@@ -21,7 +20,7 @@ namespace AgonyBartender
             {
                 yield return new WaitForSeconds(TimeBeforeSpeaking.PickRandom());
 
-                OverheardConversation snippet = ConversationSnippets.Random();
+                OverheardConversation snippet = GameSession.Current.OverheardConversationThisShift.Random();
 
                 SpeechBubble.gameObject.SetActive(true);
                 SpeechBubble.SetText(snippet.Text);
