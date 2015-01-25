@@ -7,7 +7,7 @@ using UnityEngine.UI;
 namespace AgonyBartender.Inventory
 {
 
-    public class Inventory : MonoBehaviour, IDropHandler, IBeginDragHandler, IDragHandler, IEndDragHandler, IDragItemSource
+    public class Inventory : MonoBehaviour, IDropHandler, IBeginDragHandler, IDragHandler
     {
 
         public static Inventory Default { get; private set; }
@@ -19,9 +19,6 @@ namespace AgonyBartender.Inventory
         private List<InventoryItem> _items;
 
         public InventoryItemSource ItemSource;
-
-        private Answer _currentDraggingItem;
-        Answer IDragItemSource.ItemInfo { get { return _currentDraggingItem; } }
 
         public InventoryPattern InventoryShape;
 
@@ -53,11 +50,11 @@ namespace AgonyBartender.Inventory
             var draggedObj = eventData.pointerDrag;
             if (!draggedObj) return;
 
-            var source = (IDragItemSource)draggedObj.GetComponent(typeof (IDragItemSource));
-            if ((source == null) || !source.ItemInfo) return;
+            var source = draggedObj.GetComponent<ItemCursor>();
+            if (!source) return;
 
             // Figure out where it was dropped...
-            var cursor = source.ItemCursor.GetComponent<RectTransform>();
+            var cursor = source.GetComponent<RectTransform>();
             var localRect = RectTransformUtility.CalculateRelativeRectTransformBounds(transform, cursor);
 
             int column = Mathf.RoundToInt(localRect.min.x/CellSize.x);
@@ -75,6 +72,8 @@ namespace AgonyBartender.Inventory
             {
                 for (int x = 0; x < pattern.Width; ++x)
                 {
+                    if (!pattern[x, y]) continue;
+
                     if (!InventoryShape[column + x, row + y])
                     {
                         return false;
@@ -90,17 +89,7 @@ namespace AgonyBartender.Inventory
             return true;
         }
 
-        public Answer GetSelectedItem()
-        {
-            return _currentDraggingItem;
-        }
-
-        public Image ItemCursorPrefab;
-
-        private Image _itemCursor;
-        Image IDragItemSource.ItemCursor { get { return _itemCursor; } }
-
-        public bool IsDraggingItem { get; set; }
+        public ItemCursor ItemCursorPrefab;
 
         public InventoryItem GetItemUnderCursor(PointerEventData eventData)
         {
@@ -119,52 +108,18 @@ namespace AgonyBartender.Inventory
             var item = GetItemUnderCursor(eventData);
             if (!item) return;
 
-            _itemCursor = (Image)Instantiate(ItemCursorPrefab);
-            _itemCursor.sprite = item.ItemInfo.Sprite;
-            _itemCursor.transform.SetParent(transform.root);
-            _itemCursor.transform.localScale = Vector3.one;
-            _itemCursor.GetComponent<RectTransform>().sizeDelta = new Vector2(item.ItemInfo.Pattern.Width * CellSize.x, item.ItemInfo.Pattern.Height * CellSize.y);
-
-            _currentDraggingItem = item.ItemInfo;
+            var itemCursor = (ItemCursor)Instantiate(ItemCursorPrefab);
+            itemCursor.Initialize(item.ItemInfo, transform.root);
+            itemCursor.SyncCursorPos(eventData);
+            eventData.pointerDrag = itemCursor.gameObject;
 
             _items.Remove(item);
             Destroy(item.gameObject);
-
-            SyncCursorPos(eventData);
-        }
-
-        private void SyncCursorPos(PointerEventData eventData)
-        {
-            if (!_itemCursor) return;
-
-            Vector3 globalMousePos;
-            if (RectTransformUtility.ScreenPointToWorldPointInRectangle(transform.root.GetComponent<RectTransform>(),
-                eventData.position, eventData.pressEventCamera, out globalMousePos))
-            {
-                _itemCursor.transform.position = globalMousePos;
-            }
         }
 
         public void OnDrag(PointerEventData eventData)
         {
-            SyncCursorPos(eventData);
-        }
 
-        public void OnEndDrag(PointerEventData eventData)
-        {
-            if (_itemCursor)
-                Destroy(_itemCursor.gameObject);
-        }
-
-        public void OnDisable()
-        {
-            if (_itemCursor)
-                Destroy(_itemCursor.gameObject);
-        }
-
-        public Color32 GetHighlightAt(int x, int y)
-        {
-            return new Color32(255, 255, 255, 255);
         }
 
         public void Clear()
@@ -173,6 +128,29 @@ namespace AgonyBartender.Inventory
                 Destroy(item.gameObject);
 
             _items.Clear();
+        }
+
+        public InventoryGrid Grid;
+
+        public Answer PendingObject { get; private set; }
+        public int PendingColumn { get; private set; }
+        public int PendingRow { get; private set; }
+
+        public void Update()
+        {
+            if (!ItemCursor.ActiveCursor)
+            {
+                Grid.ClearPendingObject();
+                return;
+            }
+
+            var cursor = ItemCursor.ActiveCursor.GetComponent<RectTransform>();
+            var localRect = RectTransformUtility.CalculateRelativeRectTransformBounds(transform, cursor);
+
+            int column = Mathf.RoundToInt(localRect.min.x / CellSize.x);
+            int row = -Mathf.RoundToInt(localRect.max.y / CellSize.y);
+
+            Grid.SetPendingObject(ItemCursor.ActiveCursor.ItemInfo, column, row);
         }
     }
 

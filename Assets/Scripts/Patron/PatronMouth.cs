@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using AgonyBartender.Inventory;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System.Collections;
@@ -122,9 +123,7 @@ namespace AgonyBartender
         {
             if (eventData.pointerDrag)
             {
-                // This doesn't feel like a good way of doing this, bht the GO being dragged seems to get destroyed
-                // before we can read out a component from it
-                var source = (Inventory.IDragItemSource)eventData.pointerDrag.GetComponent(typeof(Inventory.IDragItemSource));
+                var source = eventData.pointerDrag.GetComponent<ItemCursor>();
                 if (source != null)
                 {
                     ReceieveResponse(source.ItemInfo);
