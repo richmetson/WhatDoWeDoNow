@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Name: CrackCatnip
   m_EditorClassIdentifier: 
   Text: Catnip is like crack for cats
-  AnswerDelivered: {fileID: 11400000, guid: 92aa6712c50229e4d8e09f6546ca12ba, type: 2}
+  AnswerDelivered: {fileID: 11400000, guid: 281641c8595c3244f8b2ef1b6fcf54aa, type: 2}

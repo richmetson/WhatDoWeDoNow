@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Name: UnderageDrinker
   m_EditorClassIdentifier: 
   Text: I will not serve you straight vodka with a clearly fake crayon passport
-  AnswerDelivered: {fileID: 11400000, guid: fd77fc607860e9547b65472705707f98, type: 2}
+  AnswerDelivered: {fileID: 11400000, guid: 18d5d0100b49829418f2c09864066cc0, type: 2}
