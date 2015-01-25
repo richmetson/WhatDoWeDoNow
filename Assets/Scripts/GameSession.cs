@@ -13,6 +13,7 @@ namespace AgonyBartender
         public BarManager BarManager;
         public DifficultyLevel Difficulty;
         public Clock Clock;
+        public BeerTap Tap;
 
         public Patron[] PatronArchetypes;
 
@@ -77,6 +78,8 @@ namespace AgonyBartender
             CancelInvoke();
             Clock.enabled = false;
             BarManager.DeletePatrons();
+            if(Tap.IsPouring)
+                Tap.EndPour();
 
             if (ItemCursor.ActiveCursor)
                 Destroy(ItemCursor.ActiveCursor.gameObject);

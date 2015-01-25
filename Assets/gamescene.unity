@@ -223,9 +223,9 @@ RectTransform:
   m_Father: {fileID: 1807299786}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 380, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &138876339
 MonoBehaviour:
@@ -1698,6 +1698,10 @@ Prefab:
       propertyPath: GameGroup
       value: 
       objectReference: {fileID: 202607675}
+    - target: {fileID: 11485680, guid: 3bc694943b6a313468993ed21493947c, type: 2}
+      propertyPath: Tap
+      value: 
+      objectReference: {fileID: 1967991669}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3bc694943b6a313468993ed21493947c, type: 2}
   m_RootGameObject: {fileID: 1167317110}
@@ -2211,6 +2215,7 @@ GameObject:
   - 114: {fileID: 543339308}
   - 114: {fileID: 543339315}
   - 114: {fileID: 543339314}
+  - 114: {fileID: 543339312}
   m_Layer: 5
   m_Name: PatronSpeechbubble
   m_TagString: Untagged
@@ -2279,6 +2284,17 @@ RectTransform:
   m_AnchoredPosition: {x: 441, y: 132.649994}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: .5, y: .5}
+--- !u!114 &543339312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 543339307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1da03a21913817e4c8ed9472b6e8c7f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &543339314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2347,9 +2363,9 @@ RectTransform:
   m_Father: {fileID: 1132943598}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1, y: 2}
-  m_SizeDelta: {x: 508, y: 58}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &549848524
 MonoBehaviour:
@@ -3449,9 +3465,9 @@ RectTransform:
   m_Father: {fileID: 1618521027}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1, y: 2}
-  m_SizeDelta: {x: 508, y: 58}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &986643812
 MonoBehaviour:
@@ -3678,9 +3694,9 @@ RectTransform:
   m_Father: {fileID: 1449206690}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 380, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1023109074
 MonoBehaviour:
@@ -4319,6 +4335,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1167317112}
   - 114: {fileID: 1167317111}
+  - 82: {fileID: 1167317113}
   m_Layer: 0
   m_Name: Game Session
   m_TagString: Untagged
@@ -4341,6 +4358,7 @@ MonoBehaviour:
   BarManager: {fileID: 1172516970}
   Difficulty: {fileID: 11400000, guid: e6b27e0a2610bb040a041f8d10503223, type: 2}
   Clock: {fileID: 1757106181}
+  Tap: {fileID: 1967991669}
   PatronArchetypes:
   - {fileID: 11400000, guid: 902bbd39e4b776c429f71486e96cf2b3, type: 2}
   - {fileID: 11400000, guid: c19992df68d0992469eff255649badc8, type: 2}
@@ -4350,6 +4368,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5a1b18534783bfc4398e574138ac2c69, type: 2}
   - {fileID: 11400000, guid: 644f90da084924146a46b3b84b4b1416, type: 2}
   - {fileID: 11400000, guid: 3fcc8fdd52cd35d488ebcf46e38e0a20, type: 2}
+  ShiftStartClips:
+  - {fileID: 8300000, guid: 3977231a4ab1cfa42a1101b3d93f8898, type: 3}
+  - {fileID: 8300000, guid: e817f2c8af8101a4799415ffe76b6f21, type: 3}
+  - {fileID: 8300000, guid: dbf90d7d73e7853449e99f046996e5d6, type: 3}
+  - {fileID: 8300000, guid: 545e92e8f92e5cc499b2792a4daebf75, type: 3}
   ScorePage: {fileID: 797517811}
   GameGroup: {fileID: 202607675}
   FadeTime: .5
@@ -4366,6 +4389,65 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
+--- !u!82 &1167317113
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 8239962, guid: 3bc694943b6a313468993ed21493947c,
+    type: 2}
+  m_PrefabInternal: {fileID: 375556340}
+  m_GameObject: {fileID: 1167317110}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: .800000012
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &1172516968
 GameObject:
   m_ObjectHideFlags: 0
@@ -4972,7 +5054,7 @@ RectTransform:
   m_Father: {fileID: 543339311}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: .5, y: .5}
@@ -5578,7 +5660,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 1
+  m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -5999,6 +6081,7 @@ GameObject:
   - 114: {fileID: 1449206691}
   - 114: {fileID: 1449206695}
   - 114: {fileID: 1449206694}
+  - 114: {fileID: 1449206696}
   m_Layer: 5
   m_Name: PatronSpeechbubble
   m_TagString: Untagged
@@ -6102,6 +6185,17 @@ MonoBehaviour:
   m_Spacing: 0
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
+--- !u!114 &1449206696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1449206689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1da03a21913817e4c8ed9472b6e8c7f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1450824797
 GameObject:
   m_ObjectHideFlags: 0
@@ -7663,6 +7757,7 @@ GameObject:
   - 114: {fileID: 1807299787}
   - 114: {fileID: 1807299791}
   - 114: {fileID: 1807299790}
+  - 114: {fileID: 1807299792}
   m_Layer: 5
   m_Name: PatronSpeechbubble
   m_TagString: Untagged
@@ -7766,6 +7861,17 @@ MonoBehaviour:
   m_Spacing: 0
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
+--- !u!114 &1807299792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1807299785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1da03a21913817e4c8ed9472b6e8c7f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1811403830
 GameObject:
   m_ObjectHideFlags: 0
@@ -8588,9 +8694,9 @@ RectTransform:
   m_Father: {fileID: 319336459}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1, y: 2}
-  m_SizeDelta: {x: 508, y: 58}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1977634660
 MonoBehaviour:
