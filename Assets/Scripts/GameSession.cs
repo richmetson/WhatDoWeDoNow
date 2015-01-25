@@ -10,17 +10,21 @@ namespace AgonyBartender
 
     public class GameSession : MonoBehaviour
     {
+        public static GameSession Current { get; private set; }
+
         public BarManager BarManager;
         public DifficultyLevel Difficulty;
         public Clock Clock;
         public BeerTap Tap;
 
         public Patron[] PatronArchetypes;
+        public OverheardConversation[] OverheardConversations;
 
         public AudioClip[] ShiftStartClips;
 
         public void Start()
         {
+            Current = this;
             BeginNewShift();
         }
 
@@ -100,6 +104,7 @@ namespace AgonyBartender
 
         public Patron[] PatronsThisShift { get; private set; }
         public Problem[] CommonProblemsThisShift { get; private set; }
+        public OverheardConversation[] OverheardConversationThisShift { get; private set; }
 
         public void BeginNewShift()
         {
@@ -126,7 +131,15 @@ namespace AgonyBartender
                     .ToArray();
 
             int problemsSetSize = Mathf.RoundToInt(Difficulty.CommonProblemsSetSize.Evaluate(ShiftNumber));
-            CommonProblemsThisShift = StandardProblems.GlobalProblems.Shuffle().Take(problemsSetSize).ToArray();
+            CommonProblemsThisShift = StandardProblems.GlobalProblems.Where(p => p.GetBestAnswer() != null).Shuffle().Take(problemsSetSize).ToArray();
+
+            var answersNeeded = CommonProblemsThisShift.Select(p => p.GetBestAnswer()).Distinct();
+            var requiredConversations =
+                answersNeeded.Select(a => OverheardConversations.Where(c => c.AnswerDelivered == a).Random());
+            requiredConversations =
+                requiredConversations.Concat(
+                    OverheardConversations.Shuffle().Take((int) Difficulty.NumRedHerrings.Evaluate(ShiftNumber))).Distinct();
+            OverheardConversationThisShift = requiredConversations.ToArray();
 
             BarManager.EnableArriveSounds = false;
             for (int i = 0; i < initialPatrons; ++i)

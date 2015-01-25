@@ -14,6 +14,7 @@ namespace AgonyBartender
         public AnimationCurve PricePerPint;
         public AnimationCurve GenorosityMultiplier;
         public AnimationCurve CommonProblemsSetSize;
+        public AnimationCurve NumRedHerrings;
 
         public AnimationCurve ScoreGrade;
     }
