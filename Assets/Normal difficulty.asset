@@ -115,7 +115,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: 70.0618267
+      value: 70.0618286
       inSlope: 27.0742874
       outSlope: 27.0742874
       tangentMode: 10
@@ -154,6 +154,21 @@ MonoBehaviour:
       inSlope: 0
       outSlope: 0
       tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  CommonProblemsSetSize:
+    serializedVersion: 2
+    m_Curve:
+    - time: .00550092757
+      value: 4.04883146
+      inSlope: 2.6484406
+      outSlope: 2.6484406
+      tangentMode: 10
+    - time: 9.93902779
+      value: 30.3571892
+      inSlope: 2.6484406
+      outSlope: 2.6484406
+      tangentMode: 10
     m_PreInfinity: 2
     m_PostInfinity: 2
   ScoreGrade:

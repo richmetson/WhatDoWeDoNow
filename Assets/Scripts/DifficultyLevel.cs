@@ -13,6 +13,7 @@ namespace AgonyBartender
         public AnimationCurve ShiftLength;
         public AnimationCurve PricePerPint;
         public AnimationCurve GenorosityMultiplier;
+        public AnimationCurve CommonProblemsSetSize;
 
         public AnimationCurve ScoreGrade;
     }

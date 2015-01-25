@@ -99,6 +99,7 @@ namespace AgonyBartender
         }
 
         public Patron[] PatronsThisShift { get; private set; }
+        public Problem[] CommonProblemsThisShift { get; private set; }
 
         public void BeginNewShift()
         {
@@ -118,12 +119,14 @@ namespace AgonyBartender
             // Ensure that we have at least one patron waiting at the beginning of the game, because it's boring to start with an empty bar
             if (ShiftNumber == 0) initialPatrons = Mathf.Max(initialPatrons, 1);
 
-            float minPatronDifficulty, maxPatronDifficulty;
-            minPatronDifficulty = Difficulty.MinPatronDifficulty.Evaluate(ShiftNumber);
-            maxPatronDifficulty = Difficulty.MaxPatronDifficulty.Evaluate(ShiftNumber);
+            float minPatronDifficulty = Difficulty.MinPatronDifficulty.Evaluate(ShiftNumber);
+            float maxPatronDifficulty = Difficulty.MaxPatronDifficulty.Evaluate(ShiftNumber);
             PatronsThisShift =
                 PatronArchetypes.Where(p => p.DifficultyRating >= minPatronDifficulty && p.DifficultyRating <= maxPatronDifficulty)
                     .ToArray();
+
+            int problemsSetSize = Mathf.RoundToInt(Difficulty.CommonProblemsSetSize.Evaluate(ShiftNumber));
+            CommonProblemsThisShift = StandardProblems.GlobalProblems.Shuffle().Take(problemsSetSize).ToArray();
 
             BarManager.EnableArriveSounds = false;
             for (int i = 0; i < initialPatrons; ++i)
@@ -197,12 +200,9 @@ namespace AgonyBartender
 
         public void SpawnPatron()
         {
-            var minDifficulty = Difficulty.MinPatronDifficulty.Evaluate(ShiftNumber);
-            var maxDifficulty = Difficulty.MaxPatronDifficulty.Evaluate(ShiftNumber);
-
             var patron = PatronsThisShift.Random();
 
-            var problem = StandardProblems.GlobalProblems.Concat(patron.PatronsProblems).Random();
+            var problem = CommonProblemsThisShift.Concat(patron.PatronsProblems).Random();
 
             BarManager.FillBarStool(patron, problem);
         }
