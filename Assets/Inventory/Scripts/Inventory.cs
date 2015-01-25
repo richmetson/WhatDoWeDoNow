@@ -120,17 +120,35 @@ namespace AgonyBartender.Inventory
 
         }
 
-        public Color32 GetHighlightAt(int x, int y)
-        {
-            return new Color32(255, 255, 255, 255);
-        }
-
         public void Clear()
         {
             foreach (var item in _items)
                 Destroy(item.gameObject);
 
             _items.Clear();
+        }
+
+        public InventoryGrid Grid;
+
+        public Answer PendingObject { get; private set; }
+        public int PendingColumn { get; private set; }
+        public int PendingRow { get; private set; }
+
+        public void Update()
+        {
+            if (!ItemCursor.ActiveCursor)
+            {
+                Grid.ClearPendingObject();
+                return;
+            }
+
+            var cursor = ItemCursor.ActiveCursor.GetComponent<RectTransform>();
+            var localRect = RectTransformUtility.CalculateRelativeRectTransformBounds(transform, cursor);
+
+            int column = Mathf.RoundToInt(localRect.min.x / CellSize.x);
+            int row = -Mathf.RoundToInt(localRect.max.y / CellSize.y);
+
+            Grid.SetPendingObject(ItemCursor.ActiveCursor.ItemInfo, column, row);
         }
     }
 

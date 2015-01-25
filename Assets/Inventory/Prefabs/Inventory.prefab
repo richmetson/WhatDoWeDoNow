@@ -52,6 +52,7 @@ MonoBehaviour:
     Height: 6
     Pattern: 000001010101000001010101010101010101010101010101010101010101010101010101010101010001010101010100
   ItemCursorPrefab: {fileID: 11470034, guid: aff5ea428e10ea74c835da50334502a7, type: 2}
+  Grid: {fileID: 11423220}
 --- !u!222 &22266134
 CanvasRenderer:
   m_ObjectHideFlags: 1
