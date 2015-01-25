@@ -22,10 +22,7 @@ namespace AgonyBartender
             ShiftCompleteText.text = "Shift " + Session.ShiftNumber + " complete!";
 
             MoneyText.text = "$" + (Session.TipsMade / 100.0f).ToString("f2");
-            if (Session.TipsMade < 0.0f)
-            {
-                MoneyText.color = Color.red;
-            }
+            MoneyText.color = (Session.TipsMade < 0) ? Color.red : Color.black;
             PeopleServerdText.text = Session.PatronsServedThisShift.ToString();
             BeerDispensedText.text = string.Format("{0}ml", Mathf.RoundToInt(Session.BeerDispensedThisShift * 568.0f));
             LiverFailuresText.text = Session.PatronsPoisonedThisShift.ToString();
@@ -40,10 +37,7 @@ namespace AgonyBartender
             ShiftCompleteText.text = "Game Over";
 
             MoneyText.text = "$" + (Session.TotalTipsMade / 100.0f).ToString("f2");
-            if (Session.TipsMade < 0.0f)
-            {
-                MoneyText.color = Color.red;
-            }
+            MoneyText.color = (Session.TipsMade < 0) ? Color.red : Color.black;
             PeopleServerdText.text = Session.TotalPatronsServed.ToString();
             BeerDispensedText.text = string.Format("{0}ml", Mathf.RoundToInt(Session.TotalBeerDispensed * 568.0f));
             LiverFailuresText.text = Session.TotalPatronsPoisoned.ToString();
