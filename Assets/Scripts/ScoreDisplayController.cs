@@ -18,7 +18,7 @@ public class ScoreDisplayController : MonoBehaviour {
     {
         ShiftCompleteText.text = "Shift " + Session.ShiftNumber + " complete!";
 
-        MoneyText.text = (Session.TipsMade / 100.0f).ToString("f2");
+        MoneyText.text = "$" + (Session.TipsMade / 100.0f).ToString("f2");
         if(Session.TipsMade < 0.0f)
         {
             MoneyText.color = Color.red;
@@ -37,7 +37,7 @@ public class ScoreDisplayController : MonoBehaviour {
     {
         ShiftCompleteText.text = "Game Over";
 
-        MoneyText.text = (Session.TotalTipsMade / 100.0f).ToString("f2");
+        MoneyText.text = "$" + (Session.TotalTipsMade / 100.0f).ToString("f2");
         if (Session.TipsMade < 0.0f)
         {
             MoneyText.color = Color.red;
