@@ -7,61 +7,32 @@ namespace AgonyBartender.Inventory
     public interface IDragItemSource
     {
         Answer ItemInfo { get; }
-        Image ItemCursor { get; }
+        ItemCursor ItemCursor { get; }
     }
 
-    public class InventoryItemSource : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IDragItemSource
+    public class InventoryItemSource : MonoBehaviour, IDragHandler, IBeginDragHandler, IDragItemSource
     {
         public Answer ItemInfo;
-        public Image ItemCursorPrefab;
+        public ItemCursor ItemCursorPrefab;
 
         Answer IDragItemSource.ItemInfo { get { return ItemInfo; }}
-        Image IDragItemSource.ItemCursor { get { return ItemCursor; }}
+        ItemCursor IDragItemSource.ItemCursor { get { return ItemCursor; }}
 
-        public Image ItemCursor { get; private set; }
+        public ItemCursor ItemCursor { get; private set; }
 
         public void OnBeginDrag(PointerEventData eventData)
         {
-            ItemCursor = (Image)Instantiate(ItemCursorPrefab);
-            ItemCursor.sprite = ItemInfo.Sprite;
-            ItemCursor.transform.SetParent(transform.root);
-            ItemCursor.transform.localScale = Vector3.one;
-            ItemCursor.GetComponent<RectTransform>().sizeDelta = new Vector2(ItemInfo.Pattern.Width * Inventory.Default.CellSize.x, ItemInfo.Pattern.Height * Inventory.Default.CellSize.y);
+            ItemCursor = (ItemCursor)Instantiate(ItemCursorPrefab);
+            ItemCursor.Initialize(ItemInfo, transform.root);
+            ItemCursor.SyncCursorPos(eventData);
 
-            Inventory.Default.IsDraggingItem = true;
-
-            SyncCursorPos(eventData);
+            eventData.pointerDrag = ItemCursor.gameObject;
         }
 
-        private void SyncCursorPos(PointerEventData eventData)
-        {
-            Vector3 globalMousePos;
-            if (RectTransformUtility.ScreenPointToWorldPointInRectangle(transform.root.GetComponent<RectTransform>(),
-                eventData.position, eventData.pressEventCamera, out globalMousePos))
-            {
-                ItemCursor.transform.position = globalMousePos;
-            }
-        }
-
+        // Doesn't do anything, but necessary in order to receive OnBeginDrag
         public void OnDrag(PointerEventData eventData)
         {
-            SyncCursorPos(eventData);
-        }
-
-        public void OnEndDrag(PointerEventData eventData)
-        {
-            if(ItemCursor)
-                Destroy(ItemCursor.gameObject);
-
-            Inventory.Default.IsDraggingItem = false;
-        }
-
-        public void OnDisable()
-        {
-            if (ItemCursor)
-                Destroy(ItemCursor.gameObject);
-
-            Inventory.Default.IsDraggingItem = false;
+            
         }
     }
 }

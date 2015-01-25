@@ -31,7 +31,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  CellSprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  CellSprite: {fileID: 21300000, guid: 617763b59730efc48ab79dce237f0350, type: 3}
   _inventory: {fileID: 11466134}
 --- !u!114 &11466134
 MonoBehaviour:
@@ -51,7 +51,7 @@ MonoBehaviour:
     Width: 8
     Height: 6
     Pattern: 000001010101000001010101010101010101010101010101010101010101010101010101010101010001010101010100
-  ItemCursorPrefab: {fileID: 11494566, guid: aff5ea428e10ea74c835da50334502a7, type: 2}
+  ItemCursorPrefab: {fileID: 11470034, guid: aff5ea428e10ea74c835da50334502a7, type: 2}
 --- !u!222 &22266134
 CanvasRenderer:
   m_ObjectHideFlags: 1

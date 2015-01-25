@@ -53,11 +53,11 @@ namespace AgonyBartender.Inventory
             var draggedObj = eventData.pointerDrag;
             if (!draggedObj) return;
 
-            var source = (IDragItemSource)draggedObj.GetComponent(typeof (IDragItemSource));
-            if ((source == null) || !source.ItemInfo) return;
+            var source = draggedObj.GetComponent<ItemCursor>();
+            if (!source) return;
 
             // Figure out where it was dropped...
-            var cursor = source.ItemCursor.GetComponent<RectTransform>();
+            var cursor = source.GetComponent<RectTransform>();
             var localRect = RectTransformUtility.CalculateRelativeRectTransformBounds(transform, cursor);
 
             int column = Mathf.RoundToInt(localRect.min.x/CellSize.x);
@@ -95,10 +95,10 @@ namespace AgonyBartender.Inventory
             return _currentDraggingItem;
         }
 
-        public Image ItemCursorPrefab;
+        public ItemCursor ItemCursorPrefab;
 
-        private Image _itemCursor;
-        Image IDragItemSource.ItemCursor { get { return _itemCursor; } }
+        private ItemCursor _itemCursor;
+        ItemCursor IDragItemSource.ItemCursor { get { return _itemCursor; } }
 
         public bool IsDraggingItem { get; set; }
 
@@ -119,35 +119,20 @@ namespace AgonyBartender.Inventory
             var item = GetItemUnderCursor(eventData);
             if (!item) return;
 
-            _itemCursor = (Image)Instantiate(ItemCursorPrefab);
-            _itemCursor.sprite = item.ItemInfo.Sprite;
-            _itemCursor.transform.SetParent(transform.root);
-            _itemCursor.transform.localScale = Vector3.one;
-            _itemCursor.GetComponent<RectTransform>().sizeDelta = new Vector2(item.ItemInfo.Pattern.Width * CellSize.x, item.ItemInfo.Pattern.Height * CellSize.y);
+            _itemCursor = (ItemCursor)Instantiate(ItemCursorPrefab);
+            _itemCursor.Initialize(item.ItemInfo, transform.root);
 
             _currentDraggingItem = item.ItemInfo;
 
             _items.Remove(item);
             Destroy(item.gameObject);
 
-            SyncCursorPos(eventData);
-        }
-
-        private void SyncCursorPos(PointerEventData eventData)
-        {
-            if (!_itemCursor) return;
-
-            Vector3 globalMousePos;
-            if (RectTransformUtility.ScreenPointToWorldPointInRectangle(transform.root.GetComponent<RectTransform>(),
-                eventData.position, eventData.pressEventCamera, out globalMousePos))
-            {
-                _itemCursor.transform.position = globalMousePos;
-            }
+            _itemCursor.SyncCursorPos(eventData);
         }
 
         public void OnDrag(PointerEventData eventData)
         {
-            SyncCursorPos(eventData);
+            _itemCursor.SyncCursorPos(eventData);
         }
 
         public void OnEndDrag(PointerEventData eventData)
