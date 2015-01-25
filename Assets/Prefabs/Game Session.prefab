@@ -1,0 +1,133 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &185680
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 485680}
+  - 114: {fileID: 11485680}
+  - 82: {fileID: 8239962}
+  m_Layer: 0
+  m_Name: Game Session
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &485680
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 185680}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 367.933075, y: 213.645676, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!82 &8239962
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 185680}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: .800000012
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+--- !u!114 &11485680
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 185680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f731743fdada4a54289e066b456b820e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BarManager: {fileID: 0}
+  Difficulty: {fileID: 11400000, guid: e6b27e0a2610bb040a041f8d10503223, type: 2}
+  Clock: {fileID: 0}
+  PatronArchetypes:
+  - {fileID: 11400000, guid: 902bbd39e4b776c429f71486e96cf2b3, type: 2}
+  - {fileID: 11400000, guid: c19992df68d0992469eff255649badc8, type: 2}
+  - {fileID: 11400000, guid: 02bd2477f42b80f45a4a0690a289a8f1, type: 2}
+  - {fileID: 11400000, guid: aa5110e70905c4b46b44e10b4cf4b833, type: 2}
+  - {fileID: 11400000, guid: 6d52965c9750c7547af5e2b3b1d0e66f, type: 2}
+  - {fileID: 11400000, guid: 5a1b18534783bfc4398e574138ac2c69, type: 2}
+  - {fileID: 11400000, guid: 644f90da084924146a46b3b84b4b1416, type: 2}
+  - {fileID: 11400000, guid: 3fcc8fdd52cd35d488ebcf46e38e0a20, type: 2}
+  ShiftStartClips:
+  - {fileID: 8300000, guid: 3977231a4ab1cfa42a1101b3d93f8898, type: 3}
+  - {fileID: 8300000, guid: e817f2c8af8101a4799415ffe76b6f21, type: 3}
+  - {fileID: 8300000, guid: dbf90d7d73e7853449e99f046996e5d6, type: 3}
+  - {fileID: 8300000, guid: 545e92e8f92e5cc499b2792a4daebf75, type: 3}
+  ScorePage: {fileID: 0}
+  GameGroup: {fileID: 0}
+  FadeTime: .5
+  StandardProblems: {fileID: 11400000, guid: 9b3d7ca5ccd5f6843bf91b98c38b8413, type: 2}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 185680}
+  m_IsPrefabParent: 1
+  m_IsExploded: 1

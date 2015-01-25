@@ -19,11 +19,20 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 881c6a17f6eb3324f859f2b14a826c20, type: 3}
   - {fileID: 21300000, guid: 881c6a17f6eb3324f859f2b14a826c20, type: 3}
   PatronsProblems: []
+  Sighs:
+  - {fileID: 8300000, guid: f48276074d4820b48b17805667cf75fb, type: 3}
+  DrinkWarning1:
+  - {fileID: 8300000, guid: 823392b73dac8a645bd497fafff0c2cd, type: 3}
+  DrinkWarning2:
+  - {fileID: 8300000, guid: 9a1ff35ae1cfe264480edb3dd019daf8, type: 3}
+  DrinkWarning3:
+  - {fileID: 8300000, guid: 8cccfa5b9b27b9242b8b45433ec453a2, type: 3}
   GapBetweenGulps:
-    Min: 0
-    Max: 0
+    Min: 6
+    Max: 9
   GulpMagnitude:
-    Min: 0
-    Max: 0
+    Min: .0500000007
+    Max: .200000003
   AlcoholIntolerance: .5
   Genorosity: 1
+  SizeMultiplier: 3

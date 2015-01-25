@@ -617,6 +617,7 @@ MonoBehaviour:
   BeerDispensedText: {fileID: 11480810}
   LiverFailuresText: {fileID: 11480804}
   GradeText: {fileID: 11480796}
+  ContinueButton: {fileID: 11416174}
 --- !u!114 &11480796
 MonoBehaviour:
   m_ObjectHideFlags: 1

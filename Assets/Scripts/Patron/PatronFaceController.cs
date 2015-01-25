@@ -82,6 +82,9 @@ namespace AgonyBartender
 
             Image ImageComponent = gameObject.GetComponent<Image>();
             ImageComponent.sprite = NewFace;
+
+            var rt = GetComponent<RectTransform>();
+            rt.sizeDelta = new Vector2(NewFace.rect.width, NewFace.rect.height) * Patron.Patron.SizeMultiplier;
         }
 
         public void OnDrunkennessAdjusted(float ABV)

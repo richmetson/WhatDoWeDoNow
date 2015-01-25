@@ -16,6 +16,8 @@ namespace AgonyBartender
 
         public Patron[] PatronArchetypes;
 
+        public AudioClip[] ShiftStartClips;
+
         public void Start()
         {
             BeginNewShift();
@@ -83,7 +85,14 @@ namespace AgonyBartender
 
             ++ShiftNumber;
             ScorePage.gameObject.SetActive(true);
-            ScorePage.DisplayResults(this);
+            if (GetGrade(TipsMade) != "F")
+            {
+                ScorePage.DisplayResults(this);
+            }
+            else
+            {
+                ScorePage.DisplayFinalResults(this);
+            }
         }
 
         public void BeginNewShift()
@@ -118,13 +127,23 @@ namespace AgonyBartender
             Clock.enabled = true;
 
             GameGroup.interactable = true;
+
+            GetComponent<AudioSource>().clip = ShiftStartClips.Random();
+            GetComponent<AudioSource>().Play();
         }
 
         public float FadeTime = 0.5f;
 
         public void DoFadeAndBeginNextWave()
         {
-            StartCoroutine(FadeOutAndBeginNextWave());
+            if (GetGrade(TipsMade) != "F")
+            {
+                StartCoroutine(FadeOutAndBeginNextWave());
+            }
+            else
+            {
+                Application.LoadLevel("main-menu");
+            }
         }
 
         public IEnumerator FadeOutAndBeginNextWave()
