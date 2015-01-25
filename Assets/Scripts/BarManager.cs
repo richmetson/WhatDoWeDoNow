@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 namespace AgonyBartender
 {
@@ -26,6 +27,8 @@ namespace AgonyBartender
         public StandardProblemList StandardProblems;
 
         public float StoolSpacing = 2500;
+
+        public PatronMouth.PatronTippingEvent OnPatronTipping;
 
         public void SetBarLength(int numStools)
         {
@@ -71,6 +74,8 @@ namespace AgonyBartender
             NewPatron.GetComponent<PatronDefinition>().Patron = patron;
             NewPatron.GetComponent<PatronDefinition>().ActiveProblem = problem;
 
+            NewPatron.GetComponent<PatronMouth>().OnPatronTipping.AddListener(OnPatronTip);
+
             stool.CurrentPatron = NewPatron;
         }
 
@@ -82,6 +87,11 @@ namespace AgonyBartender
             {
                 stool.CurrentPatron.GetComponent<PatronMouth>().PlayArriveSound();
             }
+        }
+
+        void OnPatronTip(int Amount)
+        {
+            OnPatronTipping.Invoke(Amount);
         }
 
         public bool CanMoveLeft()

@@ -2,6 +2,7 @@
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.Events;
 
 namespace AgonyBartender
 {
@@ -15,6 +16,11 @@ namespace AgonyBartender
 
         public RangedFloat TimeBeforeSpeaking;
         public RangedFloat TimeToSpeak;
+
+        [System.Serializable]
+        public class PatronTippingEvent : UnityEvent<int> { }
+
+        public PatronTippingEvent OnPatronTipping;
 
 	    // Use this for initialization
         public IEnumerator Start()
@@ -87,7 +93,10 @@ namespace AgonyBartender
                 if (Score > 0)
                 {
                     GetComponent<PatronStatusMonitor>().LeaveBar(PatronStatusMonitor.LeaveReason.Satisfied);
+                    OnPatronTipping.Invoke(Score * PatronDefinition.Patron.Genorosity);
                 }
+
+                
             }
         }
 
