@@ -49,9 +49,9 @@ MonoBehaviour:
   CellSize: {x: 75, y: 75}
   ItemSource: {fileID: 0}
   InventoryShape:
-    Width: 8
+    Width: 10
     Height: 6
-    Pattern: 000001010101000001010101010101010101010101010101010101010101010101010101010101010001010101010100
+    Pattern: 000001010101010100000101010101010101010001010101010101010101010101010101010101010001010101010101010000000101010101010000
   ItemCursorPrefab: {fileID: 11470034, guid: aff5ea428e10ea74c835da50334502a7, type: 2}
   Grid: {fileID: 11423220}
 --- !u!222 &22266134
@@ -74,8 +74,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 23.5, y: -271.255005}
-  m_SizeDelta: {x: -475, y: -286.75}
+  m_AnchoredPosition: {x: 287, y: 678}
+  m_SizeDelta: {x: 750, y: 450}
   m_Pivot: {x: 0, y: 1}
 --- !u!1001 &100100000
 Prefab:
