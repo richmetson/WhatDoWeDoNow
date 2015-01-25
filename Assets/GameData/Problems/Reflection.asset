@@ -12,4 +12,13 @@ MonoBehaviour:
   m_Name: Reflection
   m_EditorClassIdentifier: 
   ProblemString: My reflection scares me
-  ProblemSolutions: []
+  ProblemSolutions:
+  - Answer: {fileID: 11400000, guid: f93488632c0bcdf4f96e5f268ab85542, type: 2}
+    Score: 3
+    FacialOutcome: 1
+  - Answer: {fileID: 11400000, guid: 1eb60d3407d084b41a93902f7a01d68c, type: 2}
+    Score: 3
+    FacialOutcome: 1
+  - Answer: {fileID: 11400000, guid: 313e1213b7a0d214db41a0a27b856179, type: 2}
+    Score: 2
+    FacialOutcome: 1

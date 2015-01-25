@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Name: Tapirs
   m_EditorClassIdentifier: 
   ProblemString: I'm deeply concerned about tapirs
-  ProblemSolutions: []
+  ProblemSolutions:
+  - Answer: {fileID: 11400000, guid: f93488632c0bcdf4f96e5f268ab85542, type: 2}
+    Score: 2
+    FacialOutcome: 1
