@@ -98,6 +98,8 @@ namespace AgonyBartender
             }
         }
 
+        public Patron[] PatronsThisShift { get; private set; }
+
         public void BeginNewShift()
         {
             BeerDispensedThisShift = 0;
@@ -115,6 +117,13 @@ namespace AgonyBartender
             int initialPatrons = (int)(barLength * Mathf.Clamp01(Difficulty.InitialFullness.Evaluate(ShiftNumber)));
             // Ensure that we have at least one patron waiting at the beginning of the game, because it's boring to start with an empty bar
             if (ShiftNumber == 0) initialPatrons = Mathf.Max(initialPatrons, 1);
+
+            float minPatronDifficulty, maxPatronDifficulty;
+            minPatronDifficulty = Difficulty.MinPatronDifficulty.Evaluate(ShiftNumber);
+            maxPatronDifficulty = Difficulty.MaxPatronDifficulty.Evaluate(ShiftNumber);
+            PatronsThisShift =
+                PatronArchetypes.Where(p => p.DifficultyRating >= minPatronDifficulty && p.DifficultyRating <= maxPatronDifficulty)
+                    .ToArray();
 
             BarManager.EnableArriveSounds = false;
             for (int i = 0; i < initialPatrons; ++i)
@@ -191,9 +200,7 @@ namespace AgonyBartender
             var minDifficulty = Difficulty.MinPatronDifficulty.Evaluate(ShiftNumber);
             var maxDifficulty = Difficulty.MaxPatronDifficulty.Evaluate(ShiftNumber);
 
-            var patron = PatronArchetypes
-                        .Where(p => p.DifficultyRating >= minDifficulty && p.DifficultyRating <= maxDifficulty)
-                        .Random();
+            var patron = PatronsThisShift.Random();
 
             var problem = StandardProblems.GlobalProblems.Concat(patron.PatronsProblems).Random();
 
