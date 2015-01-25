@@ -9,6 +9,12 @@ namespace AgonyBartender
         public Sprite[] FaceSprites;
 		public Problem[] PatronsProblems;
 
+	    public AudioClip[] Sighs;
+
+	    public AudioClip[] DrinkWarning1;
+	    public AudioClip[] DrinkWarning2;
+	    public AudioClip[] DrinkWarning3;
+
         public RangedFloat GapBetweenGulps;
         public RangedFloat GulpMagnitude;
 

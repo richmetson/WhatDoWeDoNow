@@ -20,6 +20,11 @@ namespace AgonyBartender.Editor
 
 	    private ProblemSolutionFacialExpression[] _faceExpressions;
 
+	    private SerializedProperty _sighs;
+	    private SerializedProperty _warnings1;
+	    private SerializedProperty _warnings2;
+	    private SerializedProperty _warnings3;
+
         private SerializedProperty _gapBetweenGulps;
         private SerializedProperty _lengthOfGulp;
         private SerializedProperty _gulpMagnitude;
@@ -41,6 +46,11 @@ namespace AgonyBartender.Editor
                 _faceSpritesArray.arraySize = _faceExpressions.Length;
                 serializedObject.ApplyModifiedProperties();
             }
+
+            _sighs = serializedObject.FindProperty("Sighs");
+            _warnings1 = serializedObject.FindProperty("DrinkWarning1");
+            _warnings2 = serializedObject.FindProperty("DrinkWarning2");
+            _warnings3 = serializedObject.FindProperty("DrinkWarning3");
 
             _difficultyRating = serializedObject.FindProperty("DifficultyRating");
             _gapBetweenGulps = serializedObject.FindProperty("GapBetweenGulps");
@@ -70,6 +80,11 @@ namespace AgonyBartender.Editor
             EditorGUILayout.PropertyField(_alcoholIntolerance, true);
 
             EditorGUILayout.PropertyField(_genorosity);
+
+	        EditorGUILayout.PropertyField(_sighs, true);
+            EditorGUILayout.PropertyField(_warnings1, true);
+            EditorGUILayout.PropertyField(_warnings2, true);
+            EditorGUILayout.PropertyField(_warnings3, true);
 
 	        serializedObject.ApplyModifiedProperties();
 	    }
