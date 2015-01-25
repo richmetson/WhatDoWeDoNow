@@ -19,10 +19,7 @@ public class ScoreDisplayController : MonoBehaviour {
         ShiftCompleteText.text = "Shift " + Session.ShiftNumber + " complete!";
 
         MoneyText.text = "$" + (Session.TipsMade / 100.0f).ToString("f2");
-        if(Session.TipsMade < 0.0f)
-        {
-            MoneyText.color = Color.red;
-        }
+        MoneyText.color = Session.TipsMade < 0.0f ? Color.red : Color.black;
         PeopleServerdText.text = Session.PatronsServedThisShift.ToString();
         BeerDispensedText.text = string.Format("{0}ml", Mathf.RoundToInt(Session.BeerDispensedThisShift * 568.0f));
         LiverFailuresText.text = Session.PatronsPoisonedThisShift.ToString();
