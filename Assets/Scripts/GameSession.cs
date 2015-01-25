@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using AgonyBartender.Inventory;
 using UnityEngine;
 using System.Collections;
 using Random = UnityEngine.Random;
@@ -65,6 +66,9 @@ namespace AgonyBartender
             CancelInvoke();
             Clock.enabled = false;
             BarManager.DeletePatrons();
+
+            if (ItemCursor.ActiveCursor)
+                Destroy(ItemCursor.ActiveCursor.gameObject);
 
             GameGroup.interactable = false;
 
