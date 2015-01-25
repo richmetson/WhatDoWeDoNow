@@ -37,13 +37,6 @@ namespace AgonyBartender
 
         Coroutine EmptyBeerCountdown;
 
-        public string[] AngryExits = new string[]{
-                        "Do you want to take this outside?",
-                        "Go hug a landmine",
-                        "Whatever, jerk",
-                        "Enjoy your deadend job"
-                    };
-
         // Use this for initialization
         void Start()
         {
@@ -114,12 +107,9 @@ namespace AgonyBartender
                     gameObject.GetComponent<PatronMouth>().Say("Err, thanks for nothing");
                     break;
                 case LeaveReason.Satisfied:
-                    gameObject.GetComponent<PatronMouth>().Say("Cheers, have a good one");
                     break;
 
                 case LeaveReason.Angry:
-                    
-                    gameObject.GetComponent<PatronMouth>().Say(AngryExits.Random());
                     break;
                 default:
                     break;
