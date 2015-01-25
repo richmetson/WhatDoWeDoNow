@@ -11,5 +11,7 @@ namespace AgonyBartender
         public AnimationCurve MinTimeForNewPatron;
         public AnimationCurve MaxTimeForNewPatron;
         public AnimationCurve ShiftLength;
+        public AnimationCurve PricePerPint;
+        public AnimationCurve GenorosityMultiplier;
     }
 }

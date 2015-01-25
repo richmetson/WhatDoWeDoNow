@@ -10,6 +10,8 @@ namespace AgonyBartender
         public AudioSource GulpSource;
         public AudioClip[] Gulps;
 
+        float PintsBeerDrunk;
+
         // Use this for initialization
         IEnumerator Start()
         {
@@ -27,6 +29,13 @@ namespace AgonyBartender
                 GulpSource.Play();
 
                 float gulpSize = Patron.GulpMagnitude.PickRandom();
+
+                // Cap the gulp size to the remainder of the beer
+                if(gulpSize > Beer.Level)
+                {
+                    gulpSize = Beer.Level;
+                }
+
                 float startTime = Time.time;
                 while (Time.time < startTime + gulpClip.length)
                 {
@@ -35,8 +44,15 @@ namespace AgonyBartender
                 }
                 GetComponent<Liver>().AdjustDrunkeness(Beer.DrinkStrength * gulpSize);
 
+                PintsBeerDrunk += gulpSize;
+
                 Beer.IsBeingDrunk = false;
             }
+        }
+
+        public float GetAmountBeerDrunkInPints()
+        {
+            return PintsBeerDrunk;
         }
 
         public void OnDrunkennessAdjusted(float ABV)

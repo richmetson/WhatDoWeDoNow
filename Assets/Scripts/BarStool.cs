@@ -70,6 +70,9 @@ namespace AgonyBartender
             if (reason == PatronStatusMonitor.LeaveReason.Bored)
                 OnPatronUnsatisfied.Invoke(this);
 
+            if (reason == PatronStatusMonitor.LeaveReason.Angry)
+                OnPatronUnsatisfied.Invoke(this);
+
             OnPatronLeft.Invoke(this);
         }
 

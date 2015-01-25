@@ -15,7 +15,9 @@ namespace AgonyBartender
         {
             PassedOut,
             Bored,
-            Satisfied
+            Satisfied,
+            Angry,
+            PubClosing,
         }
 
         [Serializable]
@@ -23,12 +25,24 @@ namespace AgonyBartender
 
         public PatronLeavingEvent OnPatronLeaving;
 
+        [System.Serializable]
+        public class PatronTippingEvent : UnityEvent<int> { }
+
+        public PatronTippingEvent OnPatronTipping;
+
         BeerHand BeerHand;
         Liver Liver;
 
         bool HasStartedLeavingBar;
 
         Coroutine EmptyBeerCountdown;
+
+        public string[] AngryExits = new string[]{
+                        "Do you want to take this outside?",
+                        "Go hug a landmine",
+                        "Whatever, jerk",
+                        "Enjoy your deadend job"
+                    };
 
         // Use this for initialization
         void Start()
@@ -102,13 +116,25 @@ namespace AgonyBartender
                 case LeaveReason.Satisfied:
                     gameObject.GetComponent<PatronMouth>().Say("Cheers, have a good one");
                     break;
+
+                case LeaveReason.Angry:
+                    
+                    gameObject.GetComponent<PatronMouth>().Say(AngryExits.Random());
+                    break;
                 default:
                     break;
             }
-
-            yield return new WaitForSeconds(3.0f);
+            if (reason != LeaveReason.PubClosing)
+            {
+                yield return new WaitForSeconds(3.0f);
+            }
 
             OnPatronLeaving.Invoke(this, reason);
+            int Tip = GetComponent<PatronMouth>().ComputeTip();
+            int Multiplier = GetComponent<PatronDefinition>().Patron.Genorosity;
+            float BeerDrunk = GetComponent<BeerHand>().GetAmountBeerDrunkInPints();
+            float BeerMultiplier = Mathf.Max(1.0f, BeerDrunk); // never reduce the tip size
+            OnPatronTipping.Invoke(Mathf.RoundToInt(BeerMultiplier * Tip * Multiplier) * 100);
 
             GameObject.Destroy(gameObject);         
         }
