@@ -28,11 +28,11 @@ MonoBehaviour:
   DrinkWarning3:
   - {fileID: 8300000, guid: 348ea0987b96c98488bd538579d9e417, type: 3}
   GapBetweenGulps:
-    Min: 0
-    Max: 0
+    Min: 5
+    Max: 10
   GulpMagnitude:
-    Min: 0
-    Max: 0
+    Min: .100000001
+    Max: .200000003
   AlcoholIntolerance: .5
   Genorosity: 1
   SizeMultiplier: 3
