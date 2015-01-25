@@ -16,12 +16,16 @@ MonoBehaviour:
   - Answer: {fileID: 11400000, guid: e857bc3cabb547d4c8fbad5110557233, type: 2}
     Score: -1
     FacialOutcome: 2
+    SpecificResponse: Hamster, not cat, and dead not lost
   - Answer: {fileID: 11400000, guid: 8f8552dfef1c24345a3381fd43aa8f8e, type: 2}
     Score: 1
     FacialOutcome: 0
+    SpecificResponse: 
   - Answer: {fileID: 11400000, guid: 15bd0861da3bb7c459346aa519be98a9, type: 2}
     Score: 3
     FacialOutcome: 1
+    SpecificResponse: 
   - Answer: {fileID: 11400000, guid: b91fa77a12990064789066090651bdbb, type: 2}
     Score: 3
     FacialOutcome: 1
+    SpecificResponse: 

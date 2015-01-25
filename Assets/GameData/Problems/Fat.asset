@@ -16,21 +16,29 @@ MonoBehaviour:
   - Answer: {fileID: 11400000, guid: e857bc3cabb547d4c8fbad5110557233, type: 2}
     Score: -1
     FacialOutcome: 2
+    SpecificResponse: You assume I've lost a cat just because I'm lonley?
   - Answer: {fileID: 11400000, guid: b97695ae23df08c4684a2f22660d89e9, type: 2}
     Score: 2
     FacialOutcome: 1
+    SpecificResponse: Oh wow are you proposing to me? I'll be right back
   - Answer: {fileID: 11400000, guid: 8f8552dfef1c24345a3381fd43aa8f8e, type: 2}
     Score: 1
     FacialOutcome: 0
+    SpecificResponse: 
   - Answer: {fileID: 11400000, guid: 2e9e81e934687ac42a46394f88d61f2e, type: 2}
     Score: -1
     FacialOutcome: 2
+    SpecificResponse: Just because I'm fat doesn't mean I just watch TV... what was
+      it called again?
   - Answer: {fileID: 11400000, guid: 952167e7492d8a14c913f23d79701a22, type: 2}
     Score: 2
     FacialOutcome: 1
+    SpecificResponse: 
   - Answer: {fileID: 11400000, guid: f93488632c0bcdf4f96e5f268ab85542, type: 2}
     Score: 3
     FacialOutcome: 1
+    SpecificResponse: 
   - Answer: {fileID: 11400000, guid: bc5cfcc8346450442b6f7802824a98cb, type: 2}
     Score: 2
     FacialOutcome: 1
+    SpecificResponse: 
