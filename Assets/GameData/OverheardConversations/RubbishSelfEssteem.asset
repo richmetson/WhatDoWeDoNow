@@ -8,12 +8,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6f9c801ae3f5247979e5157bbbce3b, type: 3}
-  m_Name: NewTVShow
+  m_Script: {fileID: 11500000, guid: d2f0f21d570866749a3090c06c5d8e8e, type: 3}
+  m_Name: RubbishSelfEssteem
   m_EditorClassIdentifier: 
-  DisplayName: Diary of a Call Girl
-  Sprite: {fileID: 0}
-  Pattern:
-    Width: 0
-    Height: 0
-    Pattern: 
+  Text: Man self-esteem manuals are such a load of horse
+  AnswerDelivered: {fileID: 11400000, guid: f93488632c0bcdf4f96e5f268ab85542, type: 2}

@@ -51,8 +51,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ConversationSnippets:
-  - {fileID: 11400000, guid: 108c4a0112278944195fd97ebca4026a, type: 2}
+  - {fileID: 11400000, guid: 46ac6930f1b78764481854356c6e987d, type: 2}
+  - {fileID: 11400000, guid: f0efc71991800724fb67a243838c3b78, type: 2}
+  - {fileID: 11400000, guid: 5c0d4dc01a64b9e48a883f3abc4c8e22, type: 2}
+  - {fileID: 11400000, guid: bf80b4fc26cbbc74ba3e6f1daa8bca75, type: 2}
+  - {fileID: 11400000, guid: 7f6db2e9ce977284a844473ca3f4aecd, type: 2}
+  - {fileID: 11400000, guid: f2bbf32cdeb5c35448f12314001c0b7f, type: 2}
+  - {fileID: 11400000, guid: 11a317e55c811394884918680993224b, type: 2}
+  - {fileID: 11400000, guid: dc80076789a554543bb7e69cd04595fe, type: 2}
+  - {fileID: 11400000, guid: e6cf9c361c3c1c0499133b9720ae843a, type: 2}
+  - {fileID: 11400000, guid: 6c66db722f7e8834494d982d01633d11, type: 2}
+  - {fileID: 11400000, guid: 3a3ddf837b6809b4b953fa965487c500, type: 2}
+  - {fileID: 11400000, guid: c69985909333a4c4cbe5f5912abd3ae3, type: 2}
   - {fileID: 11400000, guid: 2c42a7904d04afc44a20eb0fc4df8df8, type: 2}
+  - {fileID: 11400000, guid: 108c4a0112278944195fd97ebca4026a, type: 2}
+  - {fileID: 11400000, guid: d8ed38630df03e04cab7daffaaa9a408, type: 2}
+  - {fileID: 11400000, guid: cfdffafacc6d7e94684e21c33344633c, type: 2}
   ItemSource: {fileID: 0}
   SpeechBubble: {fileID: 0}
   TimeBeforeSpeaking:

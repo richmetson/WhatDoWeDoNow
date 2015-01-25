@@ -9,9 +9,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a6f9c801ae3f5247979e5157bbbce3b, type: 3}
-  m_Name: NewTVShow
+  m_Name: Plaster
   m_EditorClassIdentifier: 
-  DisplayName: Diary of a Call Girl
+  DisplayName: 
   Sprite: {fileID: 0}
   Pattern:
     Width: 0

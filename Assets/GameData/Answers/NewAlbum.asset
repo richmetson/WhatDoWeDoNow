@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a6f9c801ae3f5247979e5157bbbce3b, type: 3}
   m_Name: NewAlbum
   m_EditorClassIdentifier: 
-  DisplayName: Check out this new album I heard by Kate Tempest
+  DisplayName: Kate Tempest Album
   Sprite: {fileID: 0}
   Pattern:
     Width: 0
