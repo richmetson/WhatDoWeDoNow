@@ -130,12 +130,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: 600
+      value: 350
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     - time: 10
-      value: 750
+      value: 600
       inSlope: 0
       outSlope: 0
       tangentMode: 0

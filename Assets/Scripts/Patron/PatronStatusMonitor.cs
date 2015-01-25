@@ -140,7 +140,7 @@ namespace AgonyBartender
             int Tip = GetComponent<PatronMouth>().ComputeTip();
             int Multiplier = GetComponent<PatronDefinition>().Patron.Genorosity;
             float BeerDrunk = GetComponent<BeerHand>().GetAmountBeerDrunkInPints();
-            float BeerMultiplier = Mathf.Max(1.0f, BeerDrunk); // never reduce the tip size
+            float BeerMultiplier = Mathf.Pow(1.0f + BeerDrunk, 3.0f); // never reduce the tip size
             OnPatronTipping.Invoke(Mathf.RoundToInt(BeerMultiplier * Tip * Multiplier) * 100);
 
             GameObject.Destroy(gameObject);         
