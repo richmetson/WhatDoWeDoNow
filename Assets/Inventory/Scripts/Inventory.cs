@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -98,6 +99,8 @@ namespace AgonyBartender.Inventory
 
         private Image _itemCursor;
         Image IDragItemSource.ItemCursor { get { return _itemCursor; } }
+
+        public bool IsDraggingItem { get; set; }
 
         public InventoryItem GetItemUnderCursor(PointerEventData eventData)
         {
