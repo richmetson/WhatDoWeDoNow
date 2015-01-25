@@ -34,5 +34,11 @@ namespace AgonyBartender
             "Cheers, have a good one",
             "That actually sounds like a good idea"
         };
+
+        public string[] ConfusedSayings = new string[]{
+            "Err... what?",
+            "Are you even listening to me?",
+            "I'm not sure that would help, in fact, that doesn't even make gramatical sense"
+        };
 	}
 }
