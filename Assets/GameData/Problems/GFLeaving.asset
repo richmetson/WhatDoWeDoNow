@@ -16,18 +16,24 @@ MonoBehaviour:
   - Answer: {fileID: 11400000, guid: b97695ae23df08c4684a2f22660d89e9, type: 2}
     Score: 3
     FacialOutcome: 1
+    SpecificResponse: 
   - Answer: {fileID: 11400000, guid: 952167e7492d8a14c913f23d79701a22, type: 2}
     Score: 2
     FacialOutcome: 1
+    SpecificResponse: 
   - Answer: {fileID: 11400000, guid: 8f8552dfef1c24345a3381fd43aa8f8e, type: 2}
     Score: 1
     FacialOutcome: 0
+    SpecificResponse: 
   - Answer: {fileID: 11400000, guid: 2e9e81e934687ac42a46394f88d61f2e, type: 2}
     Score: 1
     FacialOutcome: 0
+    SpecificResponse: 
   - Answer: {fileID: 11400000, guid: f93488632c0bcdf4f96e5f268ab85542, type: 2}
     Score: 2
     FacialOutcome: 1
+    SpecificResponse: 
   - Answer: {fileID: 11400000, guid: 0ec5c55dbd5dd1e4a821af62b4c99f0c, type: 2}
     Score: 2
     FacialOutcome: 1
+    SpecificResponse: Maybe spicing things up is needed!

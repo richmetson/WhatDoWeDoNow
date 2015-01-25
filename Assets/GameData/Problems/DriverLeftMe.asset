@@ -16,9 +16,13 @@ MonoBehaviour:
   - Answer: {fileID: 11400000, guid: e857bc3cabb547d4c8fbad5110557233, type: 2}
     Score: 2
     FacialOutcome: 1
+    SpecificResponse: Very funny, I suppose even a cat could do that plebs job
   - Answer: {fileID: 11400000, guid: bc5cfcc8346450442b6f7802824a98cb, type: 2}
     Score: -1
     FacialOutcome: 2
+    SpecificResponse: What kind of proletariat do you think I am?
   - Answer: {fileID: 11400000, guid: 0ec5c55dbd5dd1e4a821af62b4c99f0c, type: 2}
     Score: 3
     FacialOutcome: 1
+    SpecificResponse: Ah yes, get the workers back in line, like the good ol' days
+      before unions
