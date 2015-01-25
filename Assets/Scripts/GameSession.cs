@@ -83,7 +83,14 @@ namespace AgonyBartender
 
             ++ShiftNumber;
             ScorePage.gameObject.SetActive(true);
-            ScorePage.DisplayResults(this);
+            if (GetGrade(TipsMade) != "F")
+            {
+                ScorePage.DisplayResults(this);
+            }
+            else
+            {
+                ScorePage.DisplayFinalResults(this);
+            }
         }
 
         public void BeginNewShift()
@@ -124,7 +131,14 @@ namespace AgonyBartender
 
         public void DoFadeAndBeginNextWave()
         {
-            StartCoroutine(FadeOutAndBeginNextWave());
+            if (GetGrade(TipsMade) != "F")
+            {
+                StartCoroutine(FadeOutAndBeginNextWave());
+            }
+            else
+            {
+                Application.LoadLevel("main-menu");
+            }
         }
 
         public IEnumerator FadeOutAndBeginNextWave()
