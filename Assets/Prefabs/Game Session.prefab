@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 485680}
   - 114: {fileID: 11485680}
+  - 82: {fileID: 8239962}
   m_Layer: 0
   m_Name: Game Session
   m_TagString: Untagged
@@ -28,6 +29,64 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!82 &8239962
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 185680}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: .800000012
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!114 &11485680
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -51,6 +110,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5a1b18534783bfc4398e574138ac2c69, type: 2}
   - {fileID: 11400000, guid: 644f90da084924146a46b3b84b4b1416, type: 2}
   - {fileID: 11400000, guid: 3fcc8fdd52cd35d488ebcf46e38e0a20, type: 2}
+  ShiftStartClips:
+  - {fileID: 8300000, guid: 3977231a4ab1cfa42a1101b3d93f8898, type: 3}
+  - {fileID: 8300000, guid: e817f2c8af8101a4799415ffe76b6f21, type: 3}
+  - {fileID: 8300000, guid: dbf90d7d73e7853449e99f046996e5d6, type: 3}
+  - {fileID: 8300000, guid: 545e92e8f92e5cc499b2792a4daebf75, type: 3}
   ScorePage: {fileID: 0}
   GameGroup: {fileID: 0}
   FadeTime: .5

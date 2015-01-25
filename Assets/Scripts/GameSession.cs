@@ -16,6 +16,8 @@ namespace AgonyBartender
 
         public Patron[] PatronArchetypes;
 
+        public AudioClip[] ShiftStartClips;
+
         public void Start()
         {
             BeginNewShift();
@@ -125,6 +127,9 @@ namespace AgonyBartender
             Clock.enabled = true;
 
             GameGroup.interactable = true;
+
+            GetComponent<AudioSource>().clip = ShiftStartClips.Random();
+            GetComponent<AudioSource>().Play();
         }
 
         public float FadeTime = 0.5f;
