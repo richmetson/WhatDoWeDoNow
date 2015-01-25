@@ -41,7 +41,6 @@ namespace AgonyBartender
                 Debug.LogError("Could not find speech bubble");
                 return;
             }
-
             ProblemSpeech.gameObject.SetActive(true);
             ProblemSpeech.SetText(Text);
         }
@@ -79,12 +78,13 @@ namespace AgonyBartender
                 {
                     // Assign a default value since this is essentially a random answer
                     Expression = ProblemSolutionFacialExpression.ConfusedResponse;
+                    string ChosenThing = GetComponent<PatronDefinition>().Patron.ConfusedSayings.Random();
+                    Say(ChosenThing);
                     Score = 0;
                 }
 
                 GetComponent<PatronFaceController>().OnFaceChanged(Expression);
 
-                ProblemSpeech.gameObject.SetActive(false);
                 if (Score > 0)
                 {
                     BestAnswer = Mathf.Max(BestAnswer, Score);
@@ -107,16 +107,18 @@ namespace AgonyBartender
                     Say(GetComponent<PatronDefinition>().Patron.AngryExits.Random());
                 }
 
+
                 ConsiderLeaving();
             }
 
-            StartCoroutine(RemindProblem());
+            StartCoroutine(RemindProblem());    
         }
 
         IEnumerator RemindProblem()
         {
             yield return new WaitForSeconds(5.0f);
             Say(PatronDefinition.ActiveProblem.ProblemString);
+            GetComponent<PatronFaceController>().OnFaceChanged(ProblemSolutionFacialExpression.NeutralResponse);
         }
 
         private void ConsiderLeaving()
