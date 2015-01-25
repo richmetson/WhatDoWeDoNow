@@ -9,10 +9,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a6f9c801ae3f5247979e5157bbbce3b, type: 3}
-  m_Name: SelfHelpBook
+  m_Name: NewTVShow
   m_EditorClassIdentifier: 
-  DisplayName: 
-  Sprite: {fileID: 21300000, guid: dbc4d34f77cfdd249b8b8220206d93ac, type: 3}
+<<<<<<< HEAD
+  DisplayName: I watched this really great TV show the other day called Diary of a
+    Call Girl
+  Sprite: {fileID: 21300000, guid: f9fe0dd2d4269d14d8c3b00bf55cec08, type: 3}
+=======
+  DisplayName: Diary of a Call Girl
+  Sprite: {fileID: 0}
+>>>>>>> ce798ef865bb7617773c99c5c10bee418f32a015
   Pattern:
     Width: 2
     Height: 2
