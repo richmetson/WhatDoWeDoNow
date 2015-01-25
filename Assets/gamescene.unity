@@ -1698,6 +1698,10 @@ Prefab:
       propertyPath: GameGroup
       value: 
       objectReference: {fileID: 202607675}
+    - target: {fileID: 11485680, guid: 3bc694943b6a313468993ed21493947c, type: 2}
+      propertyPath: Tap
+      value: 
+      objectReference: {fileID: 1967991669}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3bc694943b6a313468993ed21493947c, type: 2}
   m_RootGameObject: {fileID: 1167317110}
@@ -4319,6 +4323,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1167317112}
   - 114: {fileID: 1167317111}
+  - 82: {fileID: 1167317113}
   m_Layer: 0
   m_Name: Game Session
   m_TagString: Untagged
@@ -4341,6 +4346,7 @@ MonoBehaviour:
   BarManager: {fileID: 1172516970}
   Difficulty: {fileID: 11400000, guid: e6b27e0a2610bb040a041f8d10503223, type: 2}
   Clock: {fileID: 1757106181}
+  Tap: {fileID: 1967991669}
   PatronArchetypes:
   - {fileID: 11400000, guid: 902bbd39e4b776c429f71486e96cf2b3, type: 2}
   - {fileID: 11400000, guid: c19992df68d0992469eff255649badc8, type: 2}
@@ -4350,6 +4356,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5a1b18534783bfc4398e574138ac2c69, type: 2}
   - {fileID: 11400000, guid: 644f90da084924146a46b3b84b4b1416, type: 2}
   - {fileID: 11400000, guid: 3fcc8fdd52cd35d488ebcf46e38e0a20, type: 2}
+  ShiftStartClips:
+  - {fileID: 8300000, guid: 3977231a4ab1cfa42a1101b3d93f8898, type: 3}
+  - {fileID: 8300000, guid: e817f2c8af8101a4799415ffe76b6f21, type: 3}
+  - {fileID: 8300000, guid: dbf90d7d73e7853449e99f046996e5d6, type: 3}
+  - {fileID: 8300000, guid: 545e92e8f92e5cc499b2792a4daebf75, type: 3}
   ScorePage: {fileID: 797517811}
   GameGroup: {fileID: 202607675}
   FadeTime: .5
@@ -4366,6 +4377,65 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
+--- !u!82 &1167317113
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 8239962, guid: 3bc694943b6a313468993ed21493947c,
+    type: 2}
+  m_PrefabInternal: {fileID: 375556340}
+  m_GameObject: {fileID: 1167317110}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: .800000012
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &1172516968
 GameObject:
   m_ObjectHideFlags: 0
@@ -5578,7 +5648,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 1
+  m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
