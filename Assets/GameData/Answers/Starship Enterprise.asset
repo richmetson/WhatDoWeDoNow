@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: Starship Enterprise
   m_EditorClassIdentifier: 
   DisplayName: Starship Enterprise
-  Sprite: {fileID: 0}
+  Sprite: {fileID: 21300000, guid: c9293668a1dd6324183164bc9f64bd84, type: 3}
   Pattern:
-    Width: 0
-    Height: 0
-    Pattern: 
+    Width: 6
+    Height: 3
+    Pattern: 010101010000010101010101000001010101
