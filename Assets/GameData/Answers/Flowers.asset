@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Flowers
   m_EditorClassIdentifier: 
   DisplayName: Flowers
-  Sprite: {fileID: 0}
+  Sprite: {fileID: 21300000, guid: 7ca2243d8e24c594490b6d5b6135ac17, type: 3}
   Pattern:
     Width: 6
     Height: 4
