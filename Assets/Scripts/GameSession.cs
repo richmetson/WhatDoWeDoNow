@@ -58,12 +58,15 @@ namespace AgonyBartender
         }
 
         public ScoreDisplayController ScorePage;
+        public CanvasGroup GameGroup;
 
         public void OnShiftEnded()
         {
             CancelInvoke();
             Clock.enabled = false;
             BarManager.DeletePatrons();
+
+            GameGroup.interactable = false;
 
             ++ShiftNumber;
             ScorePage.gameObject.SetActive(true);
@@ -98,6 +101,37 @@ namespace AgonyBartender
             Clock.GameDuration = Difficulty.ShiftLength.Evaluate(ShiftNumber);
             Clock.ResetClock();
             Clock.enabled = true;
+
+            GameGroup.interactable = true;
+        }
+
+        public float FadeTime = 0.5f;
+
+        public void DoFadeAndBeginNextWave()
+        {
+            StartCoroutine(FadeOutAndBeginNextWave());
+        }
+
+        public IEnumerator FadeOutAndBeginNextWave()
+        {
+            float startTime = Time.realtimeSinceStartup;
+            while (Time.realtimeSinceStartup < startTime + FadeTime)
+            {
+                GameGroup.alpha = 1f - Mathf.Clamp01((Time.realtimeSinceStartup - startTime)/FadeTime);
+                yield return null;
+            }
+            GameGroup.alpha = 0;
+
+            ++ShiftNumber;
+            BeginNewShift();
+
+            startTime = Time.realtimeSinceStartup;
+            while (Time.realtimeSinceStartup < startTime + FadeTime)
+            {
+                GameGroup.alpha = Mathf.Clamp01((Time.realtimeSinceStartup - startTime) / FadeTime);
+                yield return null;
+            }
+            GameGroup.alpha = 1f;
         }
 
         private void ScheduleNewPatron()

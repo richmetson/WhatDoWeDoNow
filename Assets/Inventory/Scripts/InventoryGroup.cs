@@ -26,7 +26,7 @@ public class InventoryGroup : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     {
         var currentAnimation = Animator.GetCurrentAnimatorStateInfo(0);
 
-        bool shouldShow = IsPointerInside || Inventory.Default.IsDraggingItem;
+        bool shouldShow = IsPointerInside || Inventory.Default.IsDraggingItem && transform.parent.GetComponent<CanvasGroup>().interactable;
         if (shouldShow != _isShowing)
         {
             float offset = 1f - Mathf.Clamp01(currentAnimation.normalizedTime);
