@@ -37,3 +37,7 @@ MonoBehaviour:
     Score: 2
     FacialOutcome: 1
     SpecificResponse: Maybe spicing things up is needed!
+  - Answer: {fileID: 11400000, guid: 0336dda140234c847a4dac0b4864f3f2, type: 2}
+    Score: 3
+    FacialOutcome: 1
+    SpecificResponse: 

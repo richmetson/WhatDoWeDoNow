@@ -16,3 +16,8 @@ MonoBehaviour:
   - Answer: {fileID: 11400000, guid: f93488632c0bcdf4f96e5f268ab85542, type: 2}
     Score: 2
     FacialOutcome: 1
+    SpecificResponse: 
+  - Answer: {fileID: 11400000, guid: 15bd0861da3bb7c459346aa519be98a9, type: 2}
+    Score: 3
+    FacialOutcome: 1
+    SpecificResponse: 
