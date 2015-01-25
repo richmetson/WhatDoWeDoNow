@@ -17,10 +17,8 @@ namespace AgonyBartender
         public RangedFloat TimeBeforeSpeaking;
         public RangedFloat TimeToSpeak;
 
-        [System.Serializable]
-        public class PatronTippingEvent : UnityEvent<int> { }
-
-        public PatronTippingEvent OnPatronTipping;
+        int BestAnswer;
+        int WorstAnswer;
 
 	    // Use this for initialization
         public IEnumerator Start()
@@ -32,7 +30,6 @@ namespace AgonyBartender
             yield return new WaitForSeconds(TimeBeforeSpeaking.PickRandom());
 
             ProblemSpeech.gameObject.SetActive(true);
-
             SpeakProblem();
         }
 
@@ -92,12 +89,33 @@ namespace AgonyBartender
                 ProblemSpeech.gameObject.SetActive(false);
                 if (Score > 0)
                 {
-                    GetComponent<PatronStatusMonitor>().LeaveBar(PatronStatusMonitor.LeaveReason.Satisfied);
-                    OnPatronTipping.Invoke(Score * PatronDefinition.Patron.Genorosity);
+                    BestAnswer = Mathf.Max(BestAnswer, Score);
+                }
+                else
+                {
+                    WorstAnswer = Score;
                 }
 
-                
+                ConsiderLeaving();
             }
+        }
+
+        private void ConsiderLeaving()
+        {
+            if(BestAnswer >= 2)
+            {
+                GetComponent<PatronStatusMonitor>().LeaveBar(PatronStatusMonitor.LeaveReason.Satisfied);
+            }
+            else if(WorstAnswer < 0)
+            {
+                BestAnswer = 0;
+                GetComponent<PatronStatusMonitor>().LeaveBar(PatronStatusMonitor.LeaveReason.Angry);
+            }
+        }
+
+        public int ComputeTip()
+        {
+            return BestAnswer;
         }
 
         public void OnDrop(PointerEventData eventData)

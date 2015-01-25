@@ -28,7 +28,7 @@ namespace AgonyBartender
 
         public float StoolSpacing = 2500;
 
-        public PatronMouth.PatronTippingEvent OnPatronTipping;
+        public PatronStatusMonitor.PatronTippingEvent OnPatronTipping;
 
         public void SetBarLength(int numStools)
         {
@@ -58,8 +58,10 @@ namespace AgonyBartender
 
         public void DeletePatrons()
         {
-            foreach(var defn in GetComponentsInChildren<PatronDefinition>())
-                Destroy(defn.gameObject);
+            foreach (var defn in GetComponentsInChildren<PatronStatusMonitor>())
+            {
+                defn.LeaveBar(PatronStatusMonitor.LeaveReason.PubClosing);
+            }
         }
 
         public void FillBarStool(Patron patron, Problem problem)
@@ -74,7 +76,7 @@ namespace AgonyBartender
             NewPatron.GetComponent<PatronDefinition>().Patron = patron;
             NewPatron.GetComponent<PatronDefinition>().ActiveProblem = problem;
 
-            NewPatron.GetComponent<PatronMouth>().OnPatronTipping.AddListener(OnPatronTip);
+            NewPatron.GetComponent<PatronStatusMonitor>().OnPatronTipping.AddListener(OnPatronTip);
 
             stool.CurrentPatron = NewPatron;
         }

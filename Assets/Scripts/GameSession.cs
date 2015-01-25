@@ -37,6 +37,8 @@ namespace AgonyBartender
         {
             BeerDispensedThisShift += amount;
             TotalBeerDispensed += amount;
+
+            BuyBeer(amount);
         }
 
         public void OnPatronArrived()
@@ -55,6 +57,12 @@ namespace AgonyBartender
         {
             TipsMade += amount;
             TotalTipsMade += amount;
+        }
+
+        public void BuyBeer(float amount)
+        {
+            TipsMade -= Mathf.RoundToInt(amount * Difficulty.PricePerPint.Evaluate(ShiftNumber));
+            TotalTipsMade -= Mathf.RoundToInt(amount * Difficulty.PricePerPint.Evaluate(ShiftNumber));
         }
 
         public ScoreDisplayController ScorePage;
