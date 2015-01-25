@@ -52,3 +52,4 @@ obj/*
 WhatDoWeDoNow.sln
 WhatDoWeDoNow-csharp.sln
 WhatDoWeDoNow-csharp.v12.suo
+builds/
